@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Are We Turbo Yet?',
-  description: 'Progress of enabling Turbopack in Next.js',
+  description: 'Progress towards enabling Turbopack in Next.js',
 }
 
 export default function RootLayout({ children }) {

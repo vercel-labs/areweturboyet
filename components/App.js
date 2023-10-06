@@ -83,7 +83,6 @@ class App extends React.Component {
           onMouseOut={this.handleMouseOut}
           onMouseOver={this.handleMouseOver}
         />
-        <Footer />
         {tooltip}
       </div>
     );
