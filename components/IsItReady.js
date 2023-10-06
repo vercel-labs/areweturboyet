@@ -34,7 +34,7 @@ class IsItReady extends React.Component {
     ) : (
       <div className="IsItReady">
         <h1 className="IsItReadyText">No</h1>
-        <p>
+        <p className="IsItReadyDetails">
           {passing} tests are passing though
           <i>{"\u2705"}</i>
         </p>

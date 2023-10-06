@@ -60,15 +60,15 @@ class Graph extends React.Component {
             data={graphData}
             margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
           >
-            <CartesianGrid strokeDasharray="4" />
-            <YAxis />
-            <XAxis tick={false} />
+            <CartesianGrid stroke={"#458ef7"} strokeDasharray="4" />
+            <YAxis stroke={"#458ef7"} />
+            <XAxis stroke={"#458ef7"} tick={false} />
             <Tooltip content={<CustomTooltip />} />
             <Line
               dataKey="percent"
               dot={false}
               type="stepAfter"
-              stroke={BLACK}
+              stroke={"#ec2e66"}
               strokeWidth={3}
               onClick={(event, point) => {
                 // let hash = point.datum.gitHash;
