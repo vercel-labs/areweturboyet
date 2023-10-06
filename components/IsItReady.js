@@ -35,14 +35,14 @@ class IsItReady extends React.Component {
       <div className="IsItReady">
         <h1 className="IsItReadyText">No</h1>
         <p>
-          {passing} tests are passing and it's out to 100% of facebook
+          {passing} tests are passing though
           <i>{"\u2705"}</i>
         </p>
-        <p className="IsItReadyDetails">
+        {/* <p className="IsItReadyDetails">
           {warnings === 1
             ? "but there is still 1 warning left to fix"
             : `but there are still ${warnings} warnings left to fix`}
-        </p>
+        </p> */}
       </div>
     );
   }
