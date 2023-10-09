@@ -1,280 +1,19 @@
 export default `
 
-test/integration/404-page-app/test/index.test.js
-* 404 Page Support with _app dev mode should not show pages/404 GIP error if _app has GIP
-
-test/integration/404-page-custom-error/test/index.test.js
-* Default 404 Page with custom _error dev mode should respond to 404 correctly
-* Default 404 Page with custom _error dev mode should render error correctly
-* Default 404 Page with custom _error dev mode should render index page normal
-
-test/integration/404-page-ssg/test/index.test.js
-* 404 Page Support SSG dev mode should respond to 404 correctly
-* 404 Page Support SSG dev mode should render error correctly
-* 404 Page Support SSG dev mode should not show an error in the logs for 404 SSG
-* 404 Page Support SSG dev mode should render index page normal
-
-test/integration/500-page/test/gsp-gssp.test.js
-* gsp-gssp development mode does not show error with getStaticProps in pages/500 dev
-* gsp-gssp development mode shows error with getServerSideProps in pages/500 dev
-
-test/integration/api-body-parser/test/index.test.js
-* should parse JSON body
-* should not throw if request body is already parsed in custom middleware
-* should not throw if request's content-type is invalid
-
-test/integration/amphtml-custom-validator/test/index.test.js
-* AMP Custom Validator development mode should run in dev mode successfully
-
-test/integration/api-catch-all/test/index.test.js
-* API routes dev support should return data when catch-all
-* API routes dev support should return redirect when catch-all with index and trailing slash
-* API routes dev support should return data when catch-all with index and trailing slash
-* API routes dev support should return data when catch-all with index and no trailing slash
-
-test/integration/amphtml-ssg/test/index.test.js
-* AMP SSG Support dev mode should load an amp first page correctly
-* AMP SSG Support dev mode should load a hybrid amp page without query correctly
-* AMP SSG Support dev mode should load dynamic hybrid SSG/AMP page
-* AMP SSG Support dev mode should load dynamic hybrid SSG/AMP page with trailing slash
-* AMP SSG Support dev mode should load dynamic hybrid SSG/AMP page with query
-* AMP SSG Support dev mode should load a hybrid amp page with query correctly
-
-test/integration/404-page/test/index.test.js
-* 404 Page Support dev mode should use pages/404
-* 404 Page Support dev mode should set correct status code with pages/404
-* 404 Page Support dev mode should use pages/404 for .d.ts file
-* 404 Page Support dev mode should not error when visited directly
-* 404 Page Support dev mode should render _error for a 500 error still
-* 404 Page Support dev mode 2 falls back to _error correctly without pages/404
-* 404 Page Support dev mode 2 shows error with getInitialProps in pages/404 dev
-* 404 Page Support dev mode 2 does not show error with getStaticProps in pages/404 dev
-* 404 Page Support dev mode 2 shows error with getServerSideProps in pages/404 dev
-
-test/integration/app-document-import-order/test/index.test.js
-* development mode root components should be imported in this order _document > _app > page in order to respect side effects
-
-test/integration/app-config-asset-prefix/test/index.test.js
-* App assetPrefix config should render correctly with assetPrefix: "/"
-
-test/integration/app-aspath/test/index.test.js
-* App asPath should not have any changes in asPath after a bundle rebuild
-
-test/integration/amphtml/test/index.test.js
-* AMP Usage AMP dev no-warn should not warn on valid amp
-* AMP Usage AMP dev mode should navigate from non-AMP to AMP without error
-* AMP Usage AMP dev mode should detect amp validator warning on invalid amp
-* AMP Usage AMP dev mode should not contain missing files warning
-
-test/integration/500-page/test/index.test.js
-* 500 Page Support dev mode should use pages/500
-* 500 Page Support dev mode should set correct status code with pages/500
-* 500 Page Support dev mode should not error when visited directly
-* 500 Page Support development mode 2 shows error with getInitialProps in pages/500 dev
-
-test/integration/app-document-remove-hmr/test/index.test.js
-* _app removal HMR should HMR when _app is removed
-* _app removal HMR should HMR when _document is removed
-
-test/integration/api-support/test/index.test.js
-* API routes dev support should handle proxying to self correctly
-* API routes dev support should respond from /api/auth/[...nextauth] correctly
-* API routes dev support should handle 204 status correctly
-* API routes dev support should render page
-* API routes dev support should return 404 for undefined path
-* API routes dev support should not conflict with /api routes
-* API routes dev support should set cors headers when adding cors middleware
-* API routes dev support should work with index api
-* API routes dev support should return custom error
-* API routes dev support should throw Internal Server Error
-* API routes dev support should throw Internal Server Error (async)
-* API routes dev support should parse JSON body
-* API routes dev support should special-case empty JSON body
-* API routes dev support should support boolean for JSON in api page
-* API routes dev support should support undefined response body
-* API routes dev support should support string in JSON response body
-* API routes dev support should support null in JSON response body
-* API routes dev support should return error with invalid JSON
-* API routes dev support should parse bigger body then 1mb
-* API routes dev support should support etag spec
-* API routes dev support should parse urlencoded body
-* API routes dev support should parse body in handler
-* API routes dev support should parse body with config
-* API routes dev support should show friendly error for invalid redirect
-* API routes dev support should show friendly error in case of passing null as first argument redirect
-* API routes dev support should redirect with status code 307
-* API routes dev support should redirect to login
-* API routes dev support should redirect with status code 301
-* API routes dev support should return empty query object
-* API routes dev support should parse query correctly
-* API routes dev support should return empty cookies object
-* API routes dev support should return cookies object
-* API routes dev support should return 200 on POST on pages
-* API routes dev support should return JSON on post on API
-* API routes dev support should return data on dynamic route
-* API routes dev support should work with dynamic params and search string
-* API routes dev support should work with dynamic params and search string like lambda
-* API routes dev support should prioritize a non-dynamic page
-* API routes dev support should return data on dynamic nested route
-* API routes dev support should 404 on optional dynamic api page
-* API routes dev support should return data on dynamic optional nested route
-* API routes dev support should work with child_process correctly
-* API routes dev support should work with nullable payload
-* API routes dev support should warn if response body is larger than 4MB
-* API routes dev support should not warn if response body is larger than 4MB with responseLimit config = false
-* API routes dev support should warn with configured size if response body is larger than configured size
-* API routes dev support should compile only server code in development
-* API routes dev support should show warning when the API resolves without ending the request in dev mode
-* API routes dev support should not show warning when the API resolves and the response is piped
-* API routes dev support should show false positive warning if not using externalResolver flag
-* API routes dev support should not show warning if using externalResolver flag
-
-test/integration/app-dir-export/test/dynamicpage-dev.test.ts
-* should work in dev with dynamicPage 'force-dynamic'
-
-test/integration/app-functional/test/index.test.js
-* Document and App should not have any missing key warnings
-
-test/integration/bigint/test/index.test.js
-* bigint API route support dev mode should return 200
-* bigint API route support dev mode should return the BigInt result text
-
-test/integration/app-tree/test/index.test.js
-* AppTree dev mode should provide router context in AppTree on SSR
-* AppTree dev mode should provide router context in AppTree on CSR
-* AppTree dev mode should pass AppTree to NextPageContext
-
-test/integration/auto-export/test/index.test.js
-* Auto Export dev Supports commonjs 1
-* Auto Export dev Supports commonjs 2
-* Auto Export dev Refreshes query on mount
-* Auto Export dev should update asPath after mount
-* Auto Export dev should not replace URL with page name while asPath is delayed
-* Auto Export dev should not show hydration warning from mismatching asPath
-* Auto Export dev should include error link when hydration error does occur
-
-test/integration/catches-missing-getStaticProps/test/index.test.js
-* Catches Missing getStaticProps development mode should catch it in dev mode
-
-test/integration/build-indicator/test/index.test.js
-* Build Activity Indicator should validate buildActivityPosition config
-* Build Activity Indicator Enabled Adds the build indicator container
-* Build Activity Indicator Enabled Shows build indicator when page is built from modifying
-* Build Activity Indicator Disabled with next.config.js Does not add the build indicator container
-
-test/integration/client-404/test/index.test.js
-* Client 404 dev mode Client Navigation 404 should show 404 upon client replacestate should navigate the page
-* Client 404 dev mode Client Navigation 404 should hard navigate to URL on failing to load bundle
-
-test/integration/compression/test/index.test.js
-* Compression should compress responses by default
-
-test/integration/client-navigation-a11y/test/index.test.js
-* Client Navigation accessibility <RouteAnnouncer /> should not have the initial route announced
-* Client Navigation accessibility <RouteAnnouncer /> has aria-live="assertive" and role="alert"
-* Client Navigation accessibility <RouteAnnouncer /> There is a title but no h1 tag has the innerText equal to the value of document.title
-* Client Navigation accessibility <RouteAnnouncer /> There is no title but a h1 tag has the innerText equal to the value of h1
-* Client Navigation accessibility <RouteAnnouncer /> There is a title and a h1 tag has the innerText equal to the value of h1
-* Client Navigation accessibility <RouteAnnouncer /> There is no title and no h1 tag has the innerText equal to the value of the pathname
-
-test/integration/client-shallow-routing/test/index.test.js
-* Client Shallow Routing dev mode should not shallowly navigate back in history when current page was not shallow
-* Client Shallow Routing dev mode should not shallowly navigate forwards in history when current page was not shallow
-
-test/integration/config-experimental-warning/test/index.test.js
-* Config Experimental Warning should not show warning with default config from function
-* Config Experimental Warning should not show warning with config from object
-* Config Experimental Warning should show warning with config from object with experimental
-* Config Experimental Warning should show warning with config from function with experimental
-* Config Experimental Warning should not show warning with default value
-* Config Experimental Warning should show warning with config from object with experimental and multiple keys
-
-test/integration/clean-distdir/test/index.test.js
-* Cleaning distDir disabled write should not clean up .next before build start
-
-test/integration/config-mjs/test/index.test.js
-* Configuration should disable X-Powered-By header support
-* Configuration renders server config on the server only
-* Configuration renders public config on the server only
-* Configuration correctly imports a package that defines \`module\` but no \`main\` in package.json
-* Configuration should have config available on the client
-
-test/integration/app-document/test/index.test.js
-* Document and App should not have any missing key warnings
-* Document and App Rendering via HTTP _document should include required elements in rendered html
-* Document and App Rendering via HTTP _document Document.getInitialProps returns html prop representing app shell
-* Document and App Rendering via HTTP _document It adds nonces to all scripts and preload links
-* Document and App Rendering via HTTP _document It adds crossOrigin to all scripts and preload links
-* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhancer correctly
-* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhanceComponent correctly
-* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhanceApp correctly
-* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhanceApp and enhanceComponent correctly
-* Document and App Rendering via HTTP _document It adds a timestamp to link tags with preload attribute to invalidate the cache (DEV only)
-* Document and App Rendering via HTTP _app It shows a custom tag
-* Document and App Rendering via HTTP _app It should share module state with pages
-* Document and App Rendering via HTTP _app It should show valid error when thrown in _app getInitialProps
-* Document and App Client side should detect the changes to pages/_app.js and display it
-* Document and App Client side should keep state between page navigations
-* Document and App Client side It should share module state with pages
-* Document and App With CSP enabled should load inline script by hash
-* Document and App With CSP enabled should load inline script by nonce
-
-test/integration/cli/test/index.test.js
-* CLI Usage no command --help
-* CLI Usage no command -h
-* CLI Usage no command --version
-* CLI Usage no command -v
-* CLI Usage no command invalid directory
-* CLI Usage no command detects command typos
-* CLI Usage build --help
-* CLI Usage build -h
-* CLI Usage build should warn when unknown argument provided
-* CLI Usage build should not throw UnhandledPromiseRejectionWarning
-* CLI Usage build should exit when SIGINT is signalled
-* CLI Usage build should exit when SIGTERM is signalled
-* CLI Usage build invalid directory
-* CLI Usage dev --help
-* CLI Usage dev -h
-* CLI Usage dev custom directory
-* CLI Usage dev --port
-* CLI Usage dev --port 0
-* CLI Usage dev PORT=0
-* CLI Usage dev NODE_OPTIONS='--inspect'
-* CLI Usage dev -p
-* CLI Usage dev --hostname
-* CLI Usage dev -H
-* CLI Usage dev --experimental-https
-* CLI Usage dev --experimental-https with provided key/cert
-* CLI Usage dev should format IPv6 addresses correctly
-* CLI Usage dev should warn when unknown argument provided
-* CLI Usage dev should not throw UnhandledPromiseRejectionWarning
-* CLI Usage dev should exit when SIGINT is signalled
-* CLI Usage dev should exit when SIGTERM is signalled
-* CLI Usage dev invalid directory
-* CLI Usage export --help
-* CLI Usage export -h
-* CLI Usage export should warn when unknown argument provided
-* CLI Usage export should not throw UnhandledPromiseRejectionWarning
-* CLI Usage export invalid directory
-* CLI Usage info --help
-* CLI Usage info -h
-* CLI Usage info should print output
-* CLI Usage info should print output with next.config.mjs
-
 packages/font/src/google/find-font-files-in-css.test.ts
 * findFontFilesInCss should find all font files and preload requested subsets
 * findFontFilesInCss should not return duplicate font files when several variants use the same font file
-
-packages/font/src/google/get-font-axes.test.ts
-* getFontAxes errors Setting axes on font without definable axes
-* getFontAxes errors Invalid axes value
-* getFontAxes errors Invalid value in axes array
 
 packages/font/src/google/sort-fonts-variant-values.test.ts
 * sortFontsVariantValues should correctly compare and return result for plain integer values
 * sortFontsVariantValues should correctly compare and return result for comma-separated values
 * sortFontsVariantValues should sort an array of plain integer values correctly
 * sortFontsVariantValues should sort an array of values with comma-separated values correctly
+
+packages/font/src/google/get-font-axes.test.ts
+* getFontAxes errors Setting axes on font without definable axes
+* getFontAxes errors Invalid axes value
+* getFontAxes errors Invalid value in axes array
 
 packages/font/src/local/loader.test.ts
 * next/font/local loader generated CSS Default CSS
@@ -316,14 +55,6 @@ packages/font/src/google/loader.test.ts
 * next/font/google loader URL from options Nabla
 * next/font/google loader URL from options Ballet
 
-packages/font/src/local/validate-local-font-function-call.test.ts
-* validateLocalFontFunctionCall Not using default export
-* validateLocalFontFunctionCall Missing src
-* validateLocalFontFunctionCall Invalid file extension
-* validateLocalFontFunctionCall Invalid display value
-* validateLocalFontFunctionCall Invalid declaration
-* validateLocalFontFunctionCall Empty src array
-
 packages/font/src/local/pick-font-file-for-fallback-generation.test.ts
 * pickFontFileForFallbackGeneration should pick the weight closest to 400
 * pickFontFileForFallbackGeneration should pick the thinner weight if both have the same distance to 400
@@ -331,6 +62,14 @@ packages/font/src/local/pick-font-file-for-fallback-generation.test.ts
 * pickFontFileForFallbackGeneration should prefer normal style over italic
 * pickFontFileForFallbackGeneration should error on invalid weight in array
 * pickFontFileForFallbackGeneration Invalid variable weight in array
+
+packages/font/src/local/validate-local-font-function-call.test.ts
+* validateLocalFontFunctionCall Not using default export
+* validateLocalFontFunctionCall Missing src
+* validateLocalFontFunctionCall Invalid file extension
+* validateLocalFontFunctionCall Invalid display value
+* validateLocalFontFunctionCall Invalid declaration
+* validateLocalFontFunctionCall Empty src array
 
 packages/next/src/build/webpack/loaders/metadata/resolve-route-data.test.ts
 * resolveRouteData resolveRobots should resolve robots.txt
@@ -349,11 +88,11 @@ packages/next/src/build/webpack/plugins/next-types-plugin/index.test.ts
 * next-types-plugin should generate correct base import path for nx monorepos
 * next-types-plugin should generate correct base import path for custom projects
 
-packages/next/src/client/components/redirect.test.ts
-* test should throw a redirect error
-
 packages/next/src/client/components/react-dev-overlay/internal/components/hot-linked-text/get-words-and-whitespaces.test.ts
 * getWordsAndWhitespaces should return sequences of words and whitespaces
+
+packages/next/src/client/components/redirect.test.ts
+* test should throw a redirect error
 
 packages/next/src/client/components/router-reducer/apply-router-state-patch-to-tree.test.tsx
 * applyRouterStatePatchToTree should apply a patch to the tree
@@ -371,17 +110,17 @@ packages/next/src/client/components/router-reducer/create-href-from-url.test.ts
 packages/next/src/client/components/router-reducer/create-initial-router-state.test.tsx
 * createInitialRouterState should return the correct initial router state
 
-packages/next/src/client/components/router-reducer/create-router-cache-key.test.ts
-* createRouterCacheKey should support string segment
-* createRouterCacheKey should support dynamic segment
-* createRouterCacheKey should support catch all segment
+packages/next/src/client/components/router-reducer/create-optimistic-tree.test.ts
+* createOptimisticTree should create an optimistic tree
 
 packages/next/src/client/components/router-reducer/create-record-from-thenable.test.ts
 * createRecordFromThenable successful promise
 * createRecordFromThenable rejecting promise
 
-packages/next/src/client/components/router-reducer/create-optimistic-tree.test.ts
-* createOptimisticTree should create an optimistic tree
+packages/next/src/client/components/router-reducer/create-router-cache-key.test.ts
+* createRouterCacheKey should support string segment
+* createRouterCacheKey should support dynamic segment
+* createRouterCacheKey should support catch all segment
 
 packages/next/src/client/components/router-reducer/fill-cache-with-data-property.test.tsx
 * fillCacheWithDataProperty should add data property
@@ -392,13 +131,13 @@ packages/next/src/client/components/router-reducer/fill-cache-with-new-subtree-d
 packages/next/src/client/components/router-reducer/fill-lazy-items-till-leaf-with-head.test.tsx
 * fillLazyItemsTillLeafWithHead should fill lazy items till leaf with head
 
-packages/next/src/client/components/router-reducer/invalidate-cache-below-flight-segmentpath.test.tsx
-* invalidateCacheBelowFlightSegmentPath should invalidate cache below flight segment path
-
 packages/next/src/client/components/router-reducer/get-segment-value.test.ts
 * getSegmentValue should support string segment
 * getSegmentValue should support dynamic segment
 * getSegmentValue should support catch all segment
+
+packages/next/src/client/components/router-reducer/invalidate-cache-below-flight-segmentpath.test.tsx
+* invalidateCacheBelowFlightSegmentPath should invalidate cache below flight segment path
 
 packages/next/src/client/components/router-reducer/invalidate-cache-by-router-state.test.tsx
 * invalidateCacheByRouterState should invalidate the cache by router state
@@ -414,16 +153,6 @@ packages/next/src/client/components/router-reducer/read-record-value.test.ts
 packages/next/src/client/components/router-reducer/reducers/find-head-in-cache.test.tsx
 * findHeadInCache should find the head
 
-packages/next/src/client/components/router-reducer/reducers/prefetch-reducer.test.tsx
-* prefetchReducer should apply navigation
-* prefetchReducer should apply navigation (concurrent)
-
-packages/next/src/client/components/router-reducer/reducers/refresh-reducer.test.tsx
-* refreshReducer should apply refresh
-* refreshReducer should apply refresh (concurrent)
-* refreshReducer should invalidate all segments (concurrent)
-* refreshReducer should invalidate prefetchCache (concurrent)
-
 packages/next/src/client/components/router-reducer/reducers/navigate-reducer.test.tsx
 * navigateReducer should apply navigation
 * navigateReducer should apply navigation when called twice (concurrent)
@@ -436,19 +165,29 @@ packages/next/src/client/components/router-reducer/reducers/navigate-reducer.tes
 * navigateReducer should apply navigation for hash fragments within the same tree
 * navigateReducer should apply navigation for hash fragments within a different tree
 
+packages/next/src/client/components/router-reducer/reducers/prefetch-reducer.test.tsx
+* prefetchReducer should apply navigation
+* prefetchReducer should apply navigation (concurrent)
+
+packages/next/src/client/components/router-reducer/reducers/refresh-reducer.test.tsx
+* refreshReducer should apply refresh
+* refreshReducer should apply refresh (concurrent)
+* refreshReducer should invalidate all segments (concurrent)
+* refreshReducer should invalidate prefetchCache (concurrent)
+
 packages/next/src/client/components/router-reducer/reducers/restore-reducer.test.tsx
 * serverPatchReducer should apply server patch
 * serverPatchReducer should apply server patch (concurrent)
-
-packages/next/src/client/components/router-reducer/reducers/server-patch-reducer.test.tsx
-* serverPatchReducer should apply server patch
-* serverPatchReducer should apply server patch (concurrent)
-* serverPatchReducer should apply server patch without affecting focusAndScrollRef
 
 packages/next/src/client/components/router-reducer/should-hard-navigate.test.tsx
 * shouldHardNavigate should return false if the segments match
 * shouldHardNavigate should return false if segments are dynamic and match
 * shouldHardNavigate should return true if segments are dynamic and mismatch
+
+packages/next/src/client/components/router-reducer/reducers/server-patch-reducer.test.tsx
+* serverPatchReducer should apply server patch
+* serverPatchReducer should apply server patch (concurrent)
+* serverPatchReducer should apply server patch without affecting focusAndScrollRef
 
 packages/next/src/lib/format-server-error.test.ts
 * formatServerError should not append message several times
@@ -459,11 +198,6 @@ packages/next/src/lib/batcher.test.ts
 * Batcher batch should not batch calls to different keys
 * Batcher batch should use the cacheKeyFn to generate cache keys
 * Batcher batch should use the schedulerFn to schedule work
-
-packages/next/src/lib/metadata/resolvers/resolve-opengraph.test.ts
-* resolveImages should resolve images
-* resolveImages should not mutate passed images
-* resolveImages should filter out invalid images
 
 packages/next/src/lib/metadata/resolve-metadata.test.ts
 * accumulateMetadata typing should support both sync and async metadata
@@ -484,6 +218,11 @@ packages/next/src/lib/metadata/resolve-metadata.test.ts
 * accumulateMetadata alternate should support string alternate
 * accumulateMetadata alternate should support alternate descriptors
 
+packages/next/src/lib/metadata/resolvers/resolve-opengraph.test.ts
+* resolveImages should resolve images
+* resolveImages should not mutate passed images
+* resolveImages should filter out invalid images
+
 packages/next/src/lib/metadata/resolvers/resolve-title.test.ts
 * resolveTitle should resolve nullable template as empty string title
 * resolveTitle should resolve title with template
@@ -493,6 +232,10 @@ packages/next/src/lib/metadata/resolvers/resolve-url.test.ts
 * metadata: resolveUrl should return url itself when metadataBase is null or url is valid URL
 * metadata: resolveUrl should compose with metadataBase when url is relative or absolute
 * metadata: resolveUrl should ignore metadataBase when url is valid URL
+
+packages/next/src/server/app-render/types.test.ts
+* flightRouterStateSchema should validate a correct flight router state
+* flightRouterStateSchema should not validate an incorrect flight router state
 
 packages/next/src/server/dev/parse-version-info.test.ts
 * parse version info installed: 12.0.0, latest: 13.1.1, canary: 13.0.1-canary.0 yields stale-major
@@ -507,10 +250,6 @@ packages/next/src/server/dev/parse-version-info.test.ts
 * parse version info installed: 13.0.0, latest: 13.1.0, canary: invalid yields unknown
 * parse version info installed: 13.0.0, latest: invalid, canary: 13.0.1-canary.0 yields unknown
 * parse version info installed: invalid, latest: 13.0.1, canary: 13.0.1-canary.0 yields unknown
-
-packages/next/src/server/app-render/types.test.ts
-* flightRouterStateSchema should validate a correct flight router state
-* flightRouterStateSchema should not validate an incorrect flight router state
 
 packages/next/src/server/future/helpers/i18n-provider.test.ts
 * I18NProvider detectDomainLocale for domain example.com
@@ -733,12 +472,12 @@ test/development/acceptance-app/ReactRefreshRequire.test.ts
 * ReactRefreshRequire app bails out if the update bubbles to the root via one of the paths
 * ReactRefreshRequire app can replace a module before it is loaded
 
+test/development/acceptance-app/rsc-runtime-errors.test.ts
+* Error overlay - RSC runtime errors should show runtime errors if invalid client API from node_modules is executed
+* Error overlay - RSC runtime errors should show runtime errors if invalid server API from node_modules is executed
+
 test/development/acceptance/hydration-error.test.ts
 * Error overlay for hydration errors should show correct hydration error when client and server render different text
-
-test/development/acceptance/ReactRefresh.test.ts
-* ReactRefresh can edit a component without losing state
-* ReactRefresh cyclic dependencies
 
 test/development/acceptance-app/server-components.test.ts
 * Error Overlay for server components createContext called in Server Component should show error when React.createContext is called
@@ -758,6 +497,10 @@ test/development/acceptance-app/server-components.test.ts
 * Error Overlay for server components Next.js component hooks called in Server Component should show error when useSelectedLayoutSegments is called
 * Error Overlay for server components Next.js component hooks called in Server Component should show error when usePathname is called
 
+test/development/acceptance/ReactRefresh.test.ts
+* ReactRefresh can edit a component without losing state
+* ReactRefresh cyclic dependencies
+
 test/development/acceptance/ReactRefreshLogBox-app-doc.test.ts
 * ReactRefreshLogBox turbo empty _app shows logbox
 * ReactRefreshLogBox turbo empty _document shows logbox
@@ -774,6 +517,7 @@ test/development/acceptance/ReactRefreshRegression.test.ts
 * ReactRefreshRegression styled-components hydration mismatch
 * ReactRefreshRegression can fast refresh a page with getStaticProps
 * ReactRefreshRegression can fast refresh a page with getServerSideProps
+* ReactRefreshRegression can fast refresh a page with config
 
 test/development/api-cors-with-rewrite/index.test.ts
 * Rewritten API Requests should pass OPTIONS requests to the api function should pass OPTIONS requests to the api function
@@ -788,6 +532,7 @@ test/development/app-dir/app-routes-error/index.test.ts
 * app-dir - app routes errors bad lowercase exports should print an error when using lowercase "patch" in dev
 
 test/development/acceptance/ReactRefreshRequire.test.ts
+* ReactRefreshRequire re-runs accepted modules
 * ReactRefreshRequire propagates a hot update to closest accepted module
 * ReactRefreshRequire runs dependencies before dependents
 * ReactRefreshRequire provides fresh value for module.exports in parents
@@ -814,10 +559,6 @@ test/development/app-dir/basic/basic.test.ts
 test/development/basic/asset-prefix.test.ts
 * asset-prefix should load the app properly without reloading
 
-test/development/basic/barrel-optimization.test.ts
-* optimizePackageImports should handle recursive wildcard exports
-* optimizePackageImports should not break "use client" directive in optimized packages
-
 test/development/basic/define-class-fields.test.ts
 * useDefineForClassFields SWC option tsx should compile with useDefineForClassFields enabled
 * useDefineForClassFields SWC option Initializes resident to undefined after the call to 'super()' when with useDefineForClassFields enabled
@@ -825,6 +566,10 @@ test/development/basic/define-class-fields.test.ts
 
 test/development/basic/emotion-swc.test.ts
 * emotion SWC option should have styling from the css prop
+
+test/development/basic/barrel-optimization.test.ts
+* optimizePackageImports should handle recursive wildcard exports
+* optimizePackageImports should not break "use client" directive in optimized packages
 
 test/development/acceptance-app/ReactRefreshLogBox.test.ts
 * ReactRefreshLogBox app turbo should strip whitespace correctly with newline
@@ -910,12 +655,6 @@ test/development/basic/next-rs-api.test.ts
 * next.rs api should have working HMR on server-side change on a app page 1
 * next.rs api should have working HMR on server-side change on a app page 2
 
-test/development/basic/styled-components.test.ts
-* styled-components SWC transform should not have hydration mismatch with styled-components transform enabled
-* styled-components SWC transform should render the page with correct styles
-* styled-components SWC transform should contain styles in initial HTML
-* styled-components SWC transform should only render once on the server per request
-
 test/development/basic/next-dynamic.test.ts
 * basic next/dynamic usage, basePath: "" with "swc" compiler swc Dynamic import default behavior should render even there are no physical chunk exists
 * basic next/dynamic usage, basePath: "" with "swc" compiler swc Dynamic import default behavior should SSR nested dynamic components and skip nonSSR ones
@@ -965,6 +704,7 @@ test/development/basic/hmr.test.ts
 * basic HMR, basePath: "" Hot Module Reloading editing a page should update styles in a stateful component correctly
 * basic HMR, basePath: "" Hot Module Reloading editing a page should update styles in a dynamic component correctly
 * basic HMR, basePath: "" Error Recovery should not continously poll a custom error page
+* basic HMR, basePath: "" Error Recovery should show the error on all pages
 * basic HMR, basePath: "/docs" should show hydration error correctly
 * basic HMR, basePath: "/docs" should have correct router.isReady for auto-export page
 * basic HMR, basePath: "/docs" should have correct router.isReady for getStaticProps page
@@ -974,124 +714,139 @@ test/development/basic/hmr.test.ts
 * basic HMR, basePath: "/docs" Hot Module Reloading editing a page should update styles in a stateful component correctly
 * basic HMR, basePath: "/docs" Hot Module Reloading editing a page should update styles in a dynamic component correctly
 * basic HMR, basePath: "/docs" Error Recovery should not continously poll a custom error page
+* basic HMR, basePath: "/docs" Error Recovery should show the error on all pages
 
-test/integration/conflicting-public-file-page/test/index.test.js
-* Errors on conflict between public file and page file development mode Throws error during development
+test/integration/404-page-app/test/index.test.js
+* 404 Page Support with _app dev mode should not show pages/404 GIP error if _app has GIP
 
-test/integration/config/test/index.test.js
-* Configuration should disable X-Powered-By header support
-* Configuration renders server config on the server only
-* Configuration renders public config on the server only
-* Configuration correctly imports a package that defines \`module\` but no \`main\` in package.json
-* Configuration should have config available on the client
+test/integration/404-page-custom-error/test/index.test.js
+* Default 404 Page with custom _error dev mode should respond to 404 correctly
+* Default 404 Page with custom _error dev mode should render error correctly
+* Default 404 Page with custom _error dev mode should render index page normal
 
-test/integration/css-client-nav/test/index.test.js
-* CSS Module client-side navigation dev should be able to client-side navigate from red to blue
-* CSS Module client-side navigation dev should be able to client-side navigate from blue to red
-* CSS Module client-side navigation dev should be able to client-side navigate from none to red
-* CSS Module client-side navigation dev should be able to client-side navigate from none to blue
+test/integration/404-page-ssg/test/index.test.js
+* 404 Page Support SSG dev mode should respond to 404 correctly
+* 404 Page Support SSG dev mode should render error correctly
+* 404 Page Support SSG dev mode should not show an error in the logs for 404 SSG
+* 404 Page Support SSG dev mode should render index page normal
 
-test/integration/custom-routes-catchall/test/index.test.js
-* Custom routes dev mode should rewrite and render page correctly
-* Custom routes dev mode should rewrite to /_next/static correctly
-* Custom routes dev mode should rewrite to public/static correctly
-* Custom routes dev mode should rewrite to public file correctly
+test/integration/500-page/test/gsp-gssp.test.js
+* gsp-gssp development mode does not show error with getStaticProps in pages/500 dev
+* gsp-gssp development mode shows error with getServerSideProps in pages/500 dev
 
-test/integration/custom-error/test/index.test.js
-* Custom _error dev mode 2 should not warn with /_error and /404
-* Custom _error dev mode 2 should warn on custom /_error without custom /404
+test/integration/amphtml-custom-validator/test/index.test.js
+* AMP Custom Validator development mode should run in dev mode successfully
 
-test/integration/css-modules/test/index.test.js
-* Has CSS Module in computed styles in Development should have CSS for page
-* Can hot reload CSS Module without losing state should update CSS color without remounting <input>
+test/integration/api-body-parser/test/index.test.js
+* should parse JSON body
+* should not throw if request body is already parsed in custom middleware
+* should not throw if request's content-type is invalid
 
-test/integration/css/test/css-and-styled-jsx.test.js
-* Ordering with styled-jsx (dev) should have the correct color (css ordering)
+test/integration/api-catch-all/test/index.test.js
+* API routes dev support should return data when catch-all
+* API routes dev support should return redirect when catch-all with index and trailing slash
+* API routes dev support should return data when catch-all with index and trailing slash
+* API routes dev support should return data when catch-all with index and no trailing slash
 
-test/integration/config-output-export/test/index.test.ts
-* config-output-export should work with static homepage
-* config-output-export should error with "i18n" config
-* config-output-export should error with "rewrites" config
-* config-output-export should error with "redirects" config
-* config-output-export should error with "headers" config
-* config-output-export should error with api routes function
-* config-output-export should error with middleware function
-* config-output-export should error with getStaticProps and revalidate 10 seconds (ISR)
-* config-output-export should work with getStaticProps and revalidate false
-* config-output-export should work with getStaticProps and without revalidate
-* config-output-export should error with getServerSideProps without fallback
-* config-output-export should error with getStaticPaths and fallback true
-* config-output-export should error with getStaticPaths and fallback blocking
-* config-output-export should work with getStaticPaths and fallback false
+test/integration/amphtml-ssg/test/index.test.js
+* AMP SSG Support dev mode should load an amp first page correctly
+* AMP SSG Support dev mode should load a hybrid amp page without query correctly
+* AMP SSG Support dev mode should load dynamic hybrid SSG/AMP page
+* AMP SSG Support dev mode should load dynamic hybrid SSG/AMP page with trailing slash
+* AMP SSG Support dev mode should load dynamic hybrid SSG/AMP page with query
+* AMP SSG Support dev mode should load a hybrid amp page with query correctly
 
-test/integration/create-next-app/index.test.ts
-* create next app non-empty directory
-* create next app empty directory
-* create next app invalid example name
-* create next app valid example
-* create next app valid example without package.json
-* create next app should allow example with GitHub URL
-* create next app should allow example with GitHub URL with trailing slash
-* create next app should allow example with GitHub URL and example-path
-* create next app should use --example-path over the file path in the GitHub URL
-* create next app should fall back to default template
-* create next app should allow an example named default
-* create next app should exit if example flag is empty
-* create next app should exit if the folder is not writable
-* create next app should create a project in the current directory
-* create next app should ask the user for a name for the project if none supplied
+test/integration/404-page/test/index.test.js
+* 404 Page Support dev mode should use pages/404
+* 404 Page Support dev mode should set correct status code with pages/404
+* 404 Page Support dev mode should use pages/404 for .d.ts file
+* 404 Page Support dev mode should not error when visited directly
+* 404 Page Support dev mode should render _error for a 500 error still
+* 404 Page Support dev mode 2 falls back to _error correctly without pages/404
+* 404 Page Support dev mode 2 shows error with getInitialProps in pages/404 dev
+* 404 Page Support dev mode 2 does not show error with getStaticProps in pages/404 dev
+* 404 Page Support dev mode 2 shows error with getServerSideProps in pages/404 dev
 
-test/integration/css/test/css-modules.test.js
-* Basic CSS Modules Ordering Development Mode should have correct color on index page (on load)
-* Basic CSS Modules Ordering Development Mode should have correct color on index page (on hover)
-* Basic CSS Modules Ordering Development Mode should have correct color on index page (on nav)
-* Ordering with Global CSS and Modules (dev) should not execute scripts in any order
-* Ordering with Global CSS and Modules (dev) should have the correct color (css ordering)
-* Ordering with Global CSS and Modules (dev) should have the correct color (css ordering) during hot reloads
-* CSS Modules Composes Ordering Development Mode should have correct color on index page (on load)
-* CSS Modules Composes Ordering Development Mode should have correct color on index page (on nav from other)
+test/integration/app-document-import-order/test/index.test.js
+* development mode root components should be imported in this order _document > _app > page in order to respect side effects
 
-test/integration/create-next-app/package-manager.test.ts
-* should use npm as the package manager on supplying --use-npm
-* should use npm as the package manager on supplying --use-npm with example
-* should use Yarn as the package manager on supplying --use-yarn
-* should use Yarn as the package manager on supplying --use-yarn with example
-* should use pnpm as the package manager on supplying --use-pnpm
-* should use pnpm as the package manager on supplying --use-pnpm with example
-* should use Bun as the package manager on supplying --use-bun with example
-* should infer npm as the package manager
-* should infer npm as the package manager with example
-* should infer yarn as the package manager
-* should infer yarn as the package manager with example
-* should infer pnpm as the package manager
-* should infer pnpm as the package manager with example
-* should infer Bun as the package manager
-* should infer Bun as the package manager with example
+test/integration/app-config-asset-prefix/test/index.test.js
+* App assetPrefix config should render correctly with assetPrefix: "/"
 
-test/integration/css/test/dev-css-handling.test.js
-* Has CSS in computed styles in Development should have CSS for page
-* Body is not hidden when unused in Development should have body visible
-* Body is not hidden when broken in Development should have body visible
-* React Lifecyce Order (dev) should have the correct color on mount after navigation
+test/integration/app-aspath/test/index.test.js
+* App asPath should not have any changes in asPath after a bundle rebuild
 
-test/integration/create-next-app/templates-app.test.ts
-* create-next-app --app should create TS appDir projects with --ts
-* create-next-app --app should create JS appDir projects with --js
-* create-next-app --app should create JS appDir projects with --js --src-dir
-* create-next-app --app should create Tailwind CSS appDir projects with --tailwind
+test/integration/amphtml/test/index.test.js
+* AMP Usage AMP dev no-warn should not warn on valid amp
+* AMP Usage AMP dev mode should navigate from non-AMP to AMP without error
+* AMP Usage AMP dev mode should detect amp validator warning on invalid amp
+* AMP Usage AMP dev mode should not contain missing files warning
 
-test/integration/create-next-app/templates-pages.test.ts
-* create-next-app templates should prompt user to choose if --ts or --js is not provided
-* create-next-app templates should create TS projects with --ts, --typescript
-* create-next-app templates should create TS projects with --ts, --typescript --src-dir
-* create-next-app templates should create JS projects with --js, --javascript
-* create-next-app templates should create JS projects with --js, --javascript --src-dir
-* create-next-app templates should prompt user to choose if --import-alias is not provided
-* create-next-app templates should work with --tailwind and --src together
-* create-next-app templates should prompt user to choose if --tailwind or --no-tailwind is not provided
+test/integration/500-page/test/index.test.js
+* 500 Page Support dev mode should use pages/500
+* 500 Page Support dev mode should set correct status code with pages/500
+* 500 Page Support dev mode should not error when visited directly
+* 500 Page Support development mode 2 shows error with getInitialProps in pages/500 dev
 
-test/development/experimental-https-server/https-server.generated-key.test.ts
-* experimental-https-server (generated certificate) only runs on CI as it requires administrator privileges
+test/integration/api-support/test/index.test.js
+* API routes dev support should handle proxying to self correctly
+* API routes dev support should respond from /api/auth/[...nextauth] correctly
+* API routes dev support should handle 204 status correctly
+* API routes dev support should render page
+* API routes dev support should return 404 for undefined path
+* API routes dev support should not conflict with /api routes
+* API routes dev support should set cors headers when adding cors middleware
+* API routes dev support should work with index api
+* API routes dev support should return custom error
+* API routes dev support should throw Internal Server Error
+* API routes dev support should throw Internal Server Error (async)
+* API routes dev support should parse JSON body
+* API routes dev support should special-case empty JSON body
+* API routes dev support should support boolean for JSON in api page
+* API routes dev support should support undefined response body
+* API routes dev support should support string in JSON response body
+* API routes dev support should support null in JSON response body
+* API routes dev support should return error with invalid JSON
+* API routes dev support should parse bigger body then 1mb
+* API routes dev support should support etag spec
+* API routes dev support should parse urlencoded body
+* API routes dev support should parse body in handler
+* API routes dev support should parse body with config
+* API routes dev support should show friendly error for invalid redirect
+* API routes dev support should show friendly error in case of passing null as first argument redirect
+* API routes dev support should redirect with status code 307
+* API routes dev support should redirect to login
+* API routes dev support should redirect with status code 301
+* API routes dev support should return empty query object
+* API routes dev support should parse query correctly
+* API routes dev support should return empty cookies object
+* API routes dev support should return cookies object
+* API routes dev support should return 200 on POST on pages
+* API routes dev support should return JSON on post on API
+* API routes dev support should return data on dynamic route
+* API routes dev support should work with dynamic params and search string
+* API routes dev support should work with dynamic params and search string like lambda
+* API routes dev support should prioritize a non-dynamic page
+* API routes dev support should return data on dynamic nested route
+* API routes dev support should 404 on optional dynamic api page
+* API routes dev support should return data on dynamic optional nested route
+* API routes dev support should work with child_process correctly
+* API routes dev support should work with nullable payload
+* API routes dev support should warn if response body is larger than 4MB
+* API routes dev support should not warn if response body is larger than 4MB with responseLimit config = false
+* API routes dev support should warn with configured size if response body is larger than configured size
+* API routes dev support should compile only server code in development
+* API routes dev support should show warning when the API resolves without ending the request in dev mode
+* API routes dev support should not show warning when the API resolves and the response is piped
+* API routes dev support should show false positive warning if not using externalResolver flag
+* API routes dev support should not show warning if using externalResolver flag
+
+test/integration/app-document-remove-hmr/test/index.test.js
+* _app removal HMR should HMR when _app is removed
+* _app removal HMR should HMR when _document is removed
+
+test/integration/app-dir-export/test/dynamicpage-dev.test.ts
+* should work in dev with dynamicPage 'force-dynamic'
 
 test/development/correct-tsconfig-defaults/index.test.ts
 * correct tsconfig.json defaults should add \`moduleResolution\` when generating tsconfig.json in dev
@@ -1103,9 +858,8 @@ test/development/dotenv-default-expansion/index.test.ts
 test/development/basic/theme-ui.test.ts
 * theme-ui SWC option should have theme provided styling
 
-test/development/experimental-https-server/https-server.provided-key.test.ts
-* experimental-https-server (provided certificate) should successfully load the app in app dir
-* experimental-https-server (provided certificate) should successfully load the app in pages dir
+test/development/experimental-https-server/https-server.generated-key.test.ts
+* experimental-https-server (generated certificate) only runs on CI as it requires administrator privileges
 
 test/development/basic/tailwind-jit.test.ts
 * TailwindCSS JIT works with JIT enabled
@@ -1115,6 +869,16 @@ test/development/client-dev-overlay/index.test.ts
 * client-dev-overlay should be able to minimize the fullscreen overlay
 * client-dev-overlay should be able to hide the minimized overlay
 * client-dev-overlay should have a role of "dialog" if the page is focused
+
+test/development/basic/styled-components.test.ts
+* styled-components SWC transform should not have hydration mismatch with styled-components transform enabled
+* styled-components SWC transform should render the page with correct styles
+* styled-components SWC transform should contain styles in initial HTML
+* styled-components SWC transform should only render once on the server per request
+
+test/development/experimental-https-server/https-server.provided-key.test.ts
+* experimental-https-server (provided certificate) should successfully load the app in app dir
+* experimental-https-server (provided certificate) should successfully load the app in pages dir
 
 test/development/gssp-notfound/index.test.ts
 * getServerSideProps returns notFound: true should not poll indefinitely
@@ -1133,22 +897,23 @@ test/development/middleware-warnings/index.test.ts
 * middlewares does not warn when returning null reponse body
 * middlewares does not warn when returning undefined response body
 
-test/development/project-directory-with-styled-jsx-suffix/index.test.ts
-* project directory with styled-jsx suffix should work
-
 test/development/jsconfig-path-reloading/index.test.ts
 * jsconfig-path-reloading jsconfig should load with initial paths config correctly
 * jsconfig-path-reloading jsconfig should recover from module not found when paths is updated
 * jsconfig-path-reloading jsconfig should automatically fast refresh content when path is added without error
 * jsconfig-path-reloading jsconfig added after starting dev should load with initial paths config correctly
 * jsconfig-path-reloading jsconfig added after starting dev should recover from module not found when paths is updated
+* jsconfig-path-reloading jsconfig added after starting dev should automatically fast refresh content when path is added without error
 
-test/development/watch-config-file/index.test.ts
-* watch-config-file should output config file change
+test/development/project-directory-with-styled-jsx-suffix/index.test.ts
+* project directory with styled-jsx suffix should work
 
 test/development/typescript-auto-install/index.test.ts
 * typescript-auto-install should work
 * typescript-auto-install should detect TypeScript being added and auto setup
+
+test/development/watch-config-file/index.test.ts
+* watch-config-file should output config file change
 
 test/development/tsconfig-path-reloading/index.test.ts
 * tsconfig-path-reloading tsconfig should load with initial paths config correctly
@@ -1164,9 +929,6 @@ test/e2e/app-dir/_allow-underscored-root-directory/_allow-underscored-root-direc
 
 test/e2e/app-dir/actions/app-action-export.test.ts
 * app-dir action handling - next export skip test for dev mode
-
-test/development/repeated-dev-edits/repeated-dev-edits.test.ts
-* repeated-dev-edits should not break the hydration 
 
 test/development/pages-dir/client-navigation/index.test.ts
 * Client Navigation should not reload when visiting /_error directly
@@ -1304,15 +1066,14 @@ test/development/pages-dir/client-navigation/index.test.ts
 * Client Navigation Rendering via HTTP with the HOC based router should include asPath
 * Client Navigation Rendering via HTTP should show a valid error when undefined is thrown
 
-test/development/middleware-errors/index.test.ts
-* middleware - development errors when middleware throws synchronously renders the error correctly and recovers
-* middleware - development errors when middleware contains an unhandled rejection logs the error correctly
-* middleware - development errors when middleware contains an unhandled rejection does not render the error
-* middleware - development errors when there is an unhandled rejection while loading the module logs the error correctly
-* middleware - development errors when there is an unhandled rejection while loading the module does not render the error
-* middleware - development errors when there is an unhandled rejection while loading a dependency logs the error correctly
-* middleware - development errors when there is an unhandled rejection while loading a dependency does not render the error
-* middleware - development errors when there is a compilation error after boot renders the error correctly and recovers
+test/e2e/app-dir/actions/app-action-invalid.test.ts
+* app-dir action invalid config skip test for dev mode
+
+test/development/repeated-dev-edits/repeated-dev-edits.test.ts
+* repeated-dev-edits should not break the hydration 
+
+test/e2e/app-dir/actions/app-action-size-limit-invalid.test.ts
+* app-dir action size limit invalid config skip test for dev mode
 
 test/e2e/app-dir/app-a11y/index.test.ts
 * app a11y features route announcer should not announce the initital title
@@ -1333,14 +1094,27 @@ test/e2e/app-dir/app-basepath/index.test.ts
 test/e2e/app-dir/app-client-cache/client-cache.test.ts
 * app dir client cache semantics should skip dev
 
+test/development/middleware-errors/index.test.ts
+* middleware - development errors when middleware throws synchronously renders the error correctly and recovers
+* middleware - development errors when middleware contains an unhandled rejection logs the error correctly
+* middleware - development errors when middleware contains an unhandled rejection does not render the error
+* middleware - development errors when there is an unhandled rejection while loading the module logs the error correctly
+* middleware - development errors when there is an unhandled rejection while loading the module does not render the error
+* middleware - development errors when there is an unhandled rejection while loading a dependency logs the error correctly
+* middleware - development errors when there is an unhandled rejection while loading a dependency does not render the error
+* middleware - development errors when there is a compilation error after boot renders the error correctly and recovers
+
+test/e2e/app-dir/app-css-pageextensions/index.test.ts
+* app dir - css with pageextensions css support with pageextensions page in app directory with pageextention, css should work should support global css inside layout
+
 test/e2e/app-dir/app-compilation/index.test.ts
 * app dir HMR should not cause error when removing loading.js
 
-test/e2e/app-dir/app-css-pageextensions/index.test.ts
-* app dir css with pageextensions css support with pageextensions page in app directory with pageextention, css should work should support global css inside layout
-
 test/e2e/app-dir/app-edge-root-layout/index.test.ts
 * app-dir edge runtime root layout should not emit metadata files into bad paths
+
+test/e2e/app-dir/app-edge/app-edge.test.ts
+* app-dir edge SSR should resolve module without error in edge runtime
 
 test/e2e/app-dir/app-external/app-external.test.ts
 * app dir - external dependency should handle external async module libraries correctly
@@ -1363,14 +1137,22 @@ test/e2e/app-dir/app-external/app-external.test.ts
 test/e2e/app-dir/app-fetch-deduping/app-fetch-deduping.test.ts
 * app-fetch-deduping during next dev should dedupe requests called from the same component
 
-test/e2e/app-dir/app-edge/app-edge.test.ts
-* app-dir edge SSR should resolve module without error in edge runtime
+test/e2e/app-dir/app-middleware/app-middleware.test.ts
+* app dir - middleware without pages dir Updates headers
 
 test/e2e/app-dir/app-prefetch-static/app-prefetch-static.test.ts
 * app-prefetch-static should skip next dev
 
 test/e2e/app-dir/app-prefetch/prefetching.test.ts
-* app dir prefetching should skip next dev for now
+* app dir - prefetching should skip next dev for now
+
+test/e2e/app-dir/app-rendering/rendering.test.ts
+* app dir rendering should serve app/page.server.js at /
+* app dir rendering SSR only should run data in layout and page
+* app dir rendering SSR only should run data fetch in parallel
+* app dir rendering static only should run data in layout and page
+* app dir rendering static only should run data in parallel during development
+* app dir rendering ISR should revalidate the page when revalidate is configured
 
 test/e2e/app-dir/app-routes-trailing-slash/app-routes-trailing-slash.test.ts
 * app-routes-trailing-slash should handle trailing slash for edge runtime
@@ -1432,21 +1214,6 @@ test/e2e/app-dir/app-routes/app-custom-route-base-path.test.ts
 * app-custom-routes invalid exports should print an error when exporting a default handler in dev
 * app-custom-routes no response returned should print an error when no response is returned
 
-test/e2e/app-dir/app-rendering/rendering.test.ts
-* app dir rendering should serve app/page.server.js at /
-* app dir rendering SSR only should run data in layout and page
-* app dir rendering SSR only should run data fetch in parallel
-* app dir rendering static only should run data in layout and page
-* app dir rendering static only should run data in parallel during development
-* app dir rendering ISR should revalidate the page when revalidate is configured
-
-test/e2e/app-dir/app-simple-routes/app-simple-routes.test.ts
-* app-simple-routes works with simple routes renders a node route
-* app-simple-routes works with simple routes renders a edge route
-
-test/e2e/app-dir/app-middleware/app-middleware.test.ts
-* app dir middleware without pages dir Updates headers
-
 test/e2e/app-dir/app-routes/app-custom-routes.test.ts
 * app-custom-routes works with api prefix correctly statically generates correctly with no dynamic usage
 * app-custom-routes works with api prefix correctly does not statically generate with dynamic usage
@@ -1503,8 +1270,9 @@ test/e2e/app-dir/app-routes/app-custom-routes.test.ts
 * app-custom-routes invalid exports should print an error when exporting a default handler in dev
 * app-custom-routes no response returned should print an error when no response is returned
 
-test/e2e/app-dir/app-static/app-static-custom-cache-handler-esm.test.ts
-* app-static-custom-cache-handler-esm should skip
+test/e2e/app-dir/app-simple-routes/app-simple-routes.test.ts
+* app-simple-routes works with simple routes renders a node route
+* app-simple-routes works with simple routes renders a edge route
 
 test/e2e/app-dir/app-static/app-fetch-logging.test.ts
 * app-dir - data fetching with cache logging with verbose logging should only log requests in dev mode
@@ -1514,90 +1282,47 @@ test/e2e/app-dir/app-static/app-fetch-logging.test.ts
 * app-dir - data fetching with cache logging with verbose logging for edge runtime should not log fetch requests at all
 * app-dir - data fetching with cache logging with default logging should not log fetch requests at all
 
+test/e2e/app-dir/app-static/app-static-custom-cache-handler-esm.test.ts
+* app-static-custom-cache-handler-esm should skip
+
+test/e2e/app-dir/app-css/index.test.ts
+* app dir - css css support server layouts should support css modules inside server layouts
+* app dir - css css support server pages should support global css inside server pages
+* app dir - css css support server pages should support css modules inside server pages
+* app dir - css css support server pages should not contain pages css in app dir page
+* app dir - css css support client layouts should support css modules inside client layouts
+* app dir - css css support client layouts should support global css inside client layouts
+* app dir - css css support client pages should support css modules inside client pages
+* app dir - css css support client pages should support global css inside client pages
+* app dir - css css support client components should support css modules inside client page
+* app dir - css css support client components should support css modules inside client components
+* app dir - css css support special entries should include css imported in client template.js
+* app dir - css css support special entries should include css imported in server template.js
+* app dir - css css support special entries should include css imported in client not-found.js
+* app dir - css css support special entries should include css imported in server not-found.js
+* app dir - css css support special entries should include root layout css for root not-found.js
+* app dir - css css support special entries should include css imported in root not-found.js
+* app dir - css css support special entries should include css imported in error.js
+* app dir - css css support page extensions should include css imported in MDX pages
+* app dir - css css support css ordering should have inner layers take precedence over outer layers
+* app dir - css css support should not affect css orders during HMR
+* app dir - css sass support server layouts should support global sass/scss inside server layouts
+* app dir - css sass support server layouts should support sass/scss modules inside server layouts
+* app dir - css sass support server pages should support global sass/scss inside server pages
+* app dir - css sass support server pages should support sass/scss modules inside server pages
+* app dir - css sass support client layouts should support global sass/scss inside client layouts
+* app dir - css sass support client layouts should support sass/scss modules inside client layouts
+* app dir - css sass support client pages should support global sass/scss inside client pages
+* app dir - css sass support client pages should support sass/scss modules inside client pages
+* app dir - css HMR should support HMR for CSS imports in client components
+* app dir - css HMR should not break HMR when CSS is imported in a server component
+* app dir - css Suspensey CSS should suspend on CSS imports if its slow on client navigation
+
 test/e2e/app-dir/app-validation/validation.test.ts
-* app dir validation should error when passing invalid router state tree
+* app dir - validation should error when passing invalid router state tree
 
 test/e2e/app-dir/app/experimental-compile.test.ts
 * should skip
-
-test/e2e/app-dir/app/standalone.test.ts
-* should skip for non-next start
-
-test/e2e/app-dir/app/useReportWebVitals.test.ts
-* useReportWebVitals hook should send web-vitals to vercel-insights
-
-test/e2e/app-dir/asset-prefix/asset-prefix.test.ts
-* app-dir assetPrefix handling should redirect route when requesting it directly
-* app-dir assetPrefix handling should render link
-* app-dir assetPrefix handling should redirect route when requesting it directly by browser
-* app-dir assetPrefix handling should redirect route when clicking link
-
-test/e2e/app-dir/async-component-preload/async-component-preload.test.ts
-* async-component-preload should handle redirect in an async page
-
-test/e2e/app-dir/autoscroll-with-css-modules/index.test.ts
-* router autoscrolling on navigation with css modules vertical scroll when page imports css modules should scroll to top of document when navigating between to pages without layout when
-* router autoscrolling on navigation with css modules vertical scroll when page imports css modules should scroll when clicking in JS
-
-test/e2e/app-dir/build-size/index.test.ts
-* app-dir build size should skip next dev for now
-
-test/e2e/app-dir/app-css/index.test.ts
-* app dir css css support server layouts should support css modules inside server layouts
-* app dir css css support server pages should support global css inside server pages
-* app dir css css support server pages should support css modules inside server pages
-* app dir css css support server pages should not contain pages css in app dir page
-* app dir css css support client layouts should support css modules inside client layouts
-* app dir css css support client layouts should support global css inside client layouts
-* app dir css css support client pages should support css modules inside client pages
-* app dir css css support client pages should support global css inside client pages
-* app dir css css support client components should support css modules inside client page
-* app dir css css support client components should support css modules inside client components
-* app dir css css support special entries should include css imported in client template.js
-* app dir css css support special entries should include css imported in server template.js
-* app dir css css support special entries should include css imported in client not-found.js
-* app dir css css support special entries should include css imported in server not-found.js
-* app dir css css support special entries should include root layout css for root not-found.js
-* app dir css css support special entries should include css imported in root not-found.js
-* app dir css css support special entries should include css imported in error.js
-* app dir css css support page extensions should include css imported in MDX pages
-* app dir css css support css ordering should have inner layers take precedence over outer layers
-* app dir css css support should not affect css orders during HMR
-* app dir css sass support server layouts should support global sass/scss inside server layouts
-* app dir css sass support server layouts should support sass/scss modules inside server layouts
-* app dir css sass support server pages should support global sass/scss inside server pages
-* app dir css sass support server pages should support sass/scss modules inside server pages
-* app dir css sass support client layouts should support global sass/scss inside client layouts
-* app dir css sass support client layouts should support sass/scss modules inside client layouts
-* app dir css sass support client pages should support global sass/scss inside client pages
-* app dir css sass support client pages should support sass/scss modules inside client pages
-* app dir css HMR should support HMR for CSS imports in client components
-* app dir css HMR should not break HMR when CSS is imported in a server component
-* app dir css Suspensey CSS should suspend on CSS imports if its slow on client navigation
-
-test/e2e/app-dir/crypto-globally-available/crypto-globally-available.test.ts
-* Web Crypto API is available globally should be available in Server Components
-* Web Crypto API is available globally should be available in Route Handlers
-
-test/e2e/app-dir/draft-mode/draft-mode.test.ts
-* app dir - draft mode in nodejs runtime should use initial rand when draft mode is disabled on /index
-* app dir - draft mode in nodejs runtime should use initial rand when draft mode is disabled on /with-cookies
-* app dir - draft mode in nodejs runtime should be disabled from api route handler
-* app dir - draft mode in nodejs runtime should have set-cookie header on enable
-* app dir - draft mode in nodejs runtime should have set-cookie header with redirect location
-* app dir - draft mode in nodejs runtime should genenerate rand when draft mode enabled
-* app dir - draft mode in nodejs runtime should read other cookies when draft mode enabled
-* app dir - draft mode in nodejs runtime should be enabled from api route handler when draft mode enabled
-* app dir - draft mode in nodejs runtime should not perform full page navigation on router.refresh()
-* app dir - draft mode in edge runtime should be disabled from api route handler
-* app dir - draft mode in edge runtime should have set-cookie header on enable
-* app dir - draft mode in edge runtime should have set-cookie header with redirect location
-* app dir - draft mode in edge runtime should be enabled from api route handler when draft mode enabled
-* app dir - draft mode in edge runtime should not perform full page navigation on router.refresh()
-
-test/e2e/app-dir/dynamic-href/dynamic-href.test.ts
-* dynamic-href should error when using dynamic href.pathname in app dir
-* dynamic-href should error when using dynamic href in app dir
 
 test/e2e/app-dir/app-static/app-static-custom-handler.test.ts
 * app-dir static/dynamic handling should correctly include headers instance in cache key
@@ -1648,6 +1373,32 @@ test/e2e/app-dir/app-static/app-static-custom-handler.test.ts
 * app-dir static/dynamic handling usePathname should have values from canonical url on rewrite
 * app-dir static/dynamic handling should keep querystring on static page
 * app-dir static/dynamic handling should have logs from cache-handler
+
+test/e2e/app-dir/app/standalone.test.ts
+* should skip for non-next start
+
+test/e2e/app-dir/app/useReportWebVitals.test.ts
+* useReportWebVitals hook should send web-vitals to vercel-insights
+
+test/e2e/app-dir/asset-prefix/asset-prefix.test.ts
+* app-dir assetPrefix handling should redirect route when requesting it directly
+* app-dir assetPrefix handling should render link
+* app-dir assetPrefix handling should redirect route when requesting it directly by browser
+* app-dir assetPrefix handling should redirect route when clicking link
+
+test/e2e/app-dir/async-component-preload/async-component-preload.test.ts
+* async-component-preload should handle redirect in an async page
+
+test/e2e/app-dir/autoscroll-with-css-modules/index.test.ts
+* router autoscrolling on navigation with css modules vertical scroll when page imports css modules should scroll to top of document when navigating between to pages without layout when
+* router autoscrolling on navigation with css modules vertical scroll when page imports css modules should scroll when clicking in JS
+
+test/e2e/app-dir/build-size/index.test.ts
+* app-dir build size should skip next dev for now
+
+test/e2e/app-dir/crypto-globally-available/crypto-globally-available.test.ts
+* Web Crypto API is available globally should be available in Server Components
+* Web Crypto API is available globally should be available in Route Handlers
 
 test/e2e/app-dir/app-static/app-static.test.ts
 * app-dir static/dynamic handling should correctly include headers instance in cache key
@@ -1704,6 +1455,26 @@ test/e2e/app-dir/app-static/app-static.test.ts
 * app-dir static/dynamic handling usePathname should have values from canonical url on rewrite
 * app-dir static/dynamic handling should keep querystring on static page
 
+test/e2e/app-dir/draft-mode/draft-mode.test.ts
+* app dir - draft mode in nodejs runtime should use initial rand when draft mode is disabled on /index
+* app dir - draft mode in nodejs runtime should use initial rand when draft mode is disabled on /with-cookies
+* app dir - draft mode in nodejs runtime should be disabled from api route handler
+* app dir - draft mode in nodejs runtime should have set-cookie header on enable
+* app dir - draft mode in nodejs runtime should have set-cookie header with redirect location
+* app dir - draft mode in nodejs runtime should genenerate rand when draft mode enabled
+* app dir - draft mode in nodejs runtime should read other cookies when draft mode enabled
+* app dir - draft mode in nodejs runtime should be enabled from api route handler when draft mode enabled
+* app dir - draft mode in nodejs runtime should not perform full page navigation on router.refresh()
+* app dir - draft mode in edge runtime should be disabled from api route handler
+* app dir - draft mode in edge runtime should have set-cookie header on enable
+* app dir - draft mode in edge runtime should have set-cookie header with redirect location
+* app dir - draft mode in edge runtime should be enabled from api route handler when draft mode enabled
+* app dir - draft mode in edge runtime should not perform full page navigation on router.refresh()
+
+test/e2e/app-dir/dynamic-href/dynamic-href.test.ts
+* dynamic-href should error when using dynamic href.pathname in app dir
+* dynamic-href should error when using dynamic href in app dir
+
 test/e2e/app-dir/error-boundary-navigation/index.test.ts
 * app dir - not found navigation should allow navigation on not-found
 * app dir - not found navigation should allow navigation on error
@@ -1717,11 +1488,28 @@ test/e2e/app-dir/dynamic/dynamic.test.ts
 * app dir - next/dynamic should handle next/dynamic in hydration correctly
 * app dir - next/dynamic should generate correct client manifest for dynamic chunks
 
-test/e2e/app-dir/global-error/layout-error/index.test.ts
-* app dir - global error - layout error should render global error for error in server components
+test/e2e/app-dir/externals/externals.test.ts
+* externals-app should have externals for those in config.experimental.serverComponentsExternalPackages
+* externals-app uses externals for predefined list in server-external-packages.json
 
 test/e2e/app-dir/front-redirect-issue/front-redirect-issue.test.ts
 * app dir - front redirect issue should redirect
+
+test/e2e/app-dir/error-boundary-navigation/override-node-env.test.ts
+* app dir - not found navigation should allow navigation on not-found
+* app dir - not found navigation should allow navigation on error
+* app dir - not found navigation should allow navigation to other routes on route that was initially not-found
+* app dir - not found navigation should allow navigation back to route that was initially not-found
+* app dir - not found navigation should allow navigating to a page calling notfound
+* app dir - not found navigation should allow navigating to a non-existent page
+* app dir - not found navigation should be able to navigate to other page from root not-found page
+* app dir - not found navigation - with overridden node env should allow navigation on not-found
+* app dir - not found navigation - with overridden node env should allow navigation on error
+* app dir - not found navigation - with overridden node env should allow navigation to other routes on route that was initially not-found
+* app dir - not found navigation - with overridden node env should allow navigation back to route that was initially not-found
+* app dir - not found navigation - with overridden node env should allow navigating to a page calling notfound
+* app dir - not found navigation - with overridden node env should allow navigating to a non-existent page
+* app dir - not found navigation - with overridden node env should be able to navigate to other page from root not-found page
 
 test/e2e/app-dir/global-error/basic/index.test.ts
 * app dir - global error should trigger error component when an error happens during rendering
@@ -1732,6 +1520,9 @@ test/e2e/app-dir/global-error/basic/index.test.ts
 
 test/e2e/app-dir/headers-static-bailout/headers-static-bailout.test.ts
 * headers-static-bailout should skip
+
+test/e2e/app-dir/global-error/layout-error/index.test.ts
+* app dir - global error - layout error should render global error for error in server components
 
 test/e2e/app-dir/hello-world/hello-world.test.ts
 * hello-world should work using cheerio
@@ -1750,28 +1541,6 @@ test/e2e/app-dir/i18n-hybrid/i18n-hybrid.test.js
 * i18n-hybrid does resolve /en-US/about
 * i18n-hybrid does resolve /fr-CA/about
 * i18n-hybrid does resolve /fr-FR/about
-
-test/e2e/app-dir/import/import.test.ts
-* app dir imports we can import all components from .js
-* app dir imports we can import all components from .jsx
-* app dir imports we can import all components from .ts
-* app dir imports we can import all components from .tsx
-
-test/e2e/app-dir/error-boundary-navigation/override-node-env.test.ts
-* app dir - not found navigation should allow navigation on not-found
-* app dir - not found navigation should allow navigation on error
-* app dir - not found navigation should allow navigation to other routes on route that was initially not-found
-* app dir - not found navigation should allow navigation back to route that was initially not-found
-* app dir - not found navigation should allow navigating to a page calling notfound
-* app dir - not found navigation should allow navigating to a non-existent page
-* app dir - not found navigation should be able to navigate to other page from root not-found page
-* app dir - not found navigation - with overridden node env should allow navigation on not-found
-* app dir - not found navigation - with overridden node env should allow navigation on error
-* app dir - not found navigation - with overridden node env should allow navigation to other routes on route that was initially not-found
-* app dir - not found navigation - with overridden node env should allow navigation back to route that was initially not-found
-* app dir - not found navigation - with overridden node env should allow navigating to a page calling notfound
-* app dir - not found navigation - with overridden node env should allow navigating to a non-existent page
-* app dir - not found navigation - with overridden node env should be able to navigate to other page from root not-found page
 
 test/e2e/app-dir/hooks/hooks.test.ts
 * app dir - hooks from pages should have the correct hooks
@@ -1801,13 +1570,11 @@ test/e2e/app-dir/hooks/hooks.test.ts
 * app dir - hooks useSelectedLayoutSegment should have the correct layout segment at /hooks/use-selected-layout-segment/first/slug2/second/a/b
 * app dir - hooks useSelectedLayoutSegment should return null in pages
 
-test/e2e/app-dir/layout-params/layout-params.test.ts
-* app dir - layout params basic params check layout without params get no params
-* app dir - layout params basic params check layout renders just it's params
-* app dir - layout params basic params check topmost layout renders all params
-* app dir - layout params catchall params should give catchall params just to last layout
-* app dir - layout params catchall params should give optional catchall params just to last layout
-* app dir - layout params catchall params should give empty optional catchall params won't give params to any layout
+test/e2e/app-dir/import/import.test.ts
+* app dir - imports we can import all components from .js
+* app dir - imports we can import all components from .jsx
+* app dir - imports we can import all components from .ts
+* app dir - imports we can import all components from .tsx
 
 test/e2e/app-dir/interoperability-with-pages/navigation.test.ts
 * navigation between pages and app dir It should be able to navigate app -> pages
@@ -1815,8 +1582,13 @@ test/e2e/app-dir/interoperability-with-pages/navigation.test.ts
 * navigation between pages and app dir It should be able to navigate pages -> app and go back an forward
 * navigation between pages and app dir It should be able to navigate app -> pages and go back and forward
 
-test/e2e/app-dir/metadata-missing-metadata-base/index.test.ts
-* app dir - metadata missing metadataBase should fallback to localhost if metadataBase is missing for absolute urls resolving
+test/e2e/app-dir/layout-params/layout-params.test.ts
+* app dir - layout params basic params check layout without params get no params
+* app dir - layout params basic params check layout renders just it's params
+* app dir - layout params basic params check topmost layout renders all params
+* app dir - layout params catchall params should give catchall params just to last layout
+* app dir - layout params catchall params should give optional catchall params just to last layout
+* app dir - layout params catchall params should give empty optional catchall params won't give params to any layout
 
 test/e2e/app-dir/mdx/mdx.test.ts
 * mdx with-mdx-rs app directory should work in initial html
@@ -1830,11 +1602,11 @@ test/e2e/app-dir/mdx/mdx.test.ts
 * mdx with-mdx-rs pages directory should work using browser with mdx import
 * mdx with-mdx-rs pages directory should allow overriding components
 
+test/e2e/app-dir/metadata-missing-metadata-base/index.test.ts
+* app dir - metadata missing metadataBase should fallback to localhost if metadataBase is missing for absolute urls resolving
+
 test/e2e/app-dir/metadata-suspense/index.test.ts
 * app dir - metadata dynamic routes should render metadata in head even root layout is wrapped with Suspense
-
-test/e2e/app-dir/next-config/index.test.ts
-* app dir - next config should support importing webpack in next.config
 
 test/e2e/app-dir/metadata-dynamic-routes/index.test.ts
 * app dir - metadata dynamic routes text routes should handle robots.[ext] dynamic routes
@@ -1850,8 +1622,50 @@ test/e2e/app-dir/metadata-dynamic-routes/index.test.ts
 * app dir - metadata dynamic routes should use localhost for local prod and fallback to deployment url when metadataBase is falsy
 * app dir - metadata dynamic routes should error when id is missing in generateImageMetadata
 
+test/e2e/app-dir/next-config/index.test.ts
+* app dir - next config should support importing webpack in next.config
+
 test/e2e/app-dir/next-image/next-image-https.test.ts
-* app dir next-image (with https) only runs on CI as it requires administrator privileges
+* app dir - next-image (with https) only runs on CI as it requires administrator privileges
+
+test/e2e/app-dir/metadata/metadata.test.ts
+* app dir - metadata basic should support title and description
+* app dir - metadata basic should support title template
+* app dir - metadata basic should support stashed title in one layer of page and layout
+* app dir - metadata basic should use parent layout title when no title is defined in page
+* app dir - metadata basic should support stashed title in two layers of page and layout
+* app dir - metadata basic should support other basic tags
+* app dir - metadata basic should support apple related tags \`itunes\` and \`appWebApp\`
+* app dir - metadata basic should support alternate tags
+* app dir - metadata basic should relative canonical url
+* app dir - metadata basic should support robots tags
+* app dir - metadata basic should support verification tags
+* app dir - metadata basic should support appLinks tags
+* app dir - metadata basic should apply metadata when navigating client-side
+* app dir - metadata basic should support generateMetadata export
+* app dir - metadata basic should handle metadataBase for urls resolved as only URL type
+* app dir - metadata opengraph should support opengraph tags
+* app dir - metadata opengraph should support opengraph with article type
+* app dir - metadata opengraph should override file based images when opengraph-image and twitter-image specify images property
+* app dir - metadata navigation should render root not-found with default metadata
+* app dir - metadata navigation should support notFound in generateMetadata
+* app dir - metadata navigation should support redirect in generateMetadata
+* app dir - metadata icons should support basic object icons field
+* app dir - metadata icons should support basic string icons field
+* app dir - metadata icons should support basic complex descriptor icons field
+* app dir - metadata icons should merge icons from layout if no static icons files are specified
+* app dir - metadata icons should not hoist meta[itemProp] to head
+* app dir - metadata twitter should support twitter card summary_large_image when image present
+* app dir - metadata twitter should render twitter card summary when image is not present
+* app dir - metadata twitter should support default twitter player card
+* app dir - metadata twitter should support default twitter app card
+* app dir - metadata static routes should have /favicon.ico as route
+* app dir - metadata static routes should support root dir robots.txt
+* app dir - metadata static routes should support sitemap.xml under every routes
+* app dir - metadata static routes should support static manifest.webmanifest
+* app dir - metadata react cache should have same title and page value on initial load
+* app dir - metadata react cache should have same title and page value when navigating
+* app dir - metadata should not effect metadata images convention like files under pages directory
 
 test/e2e/app-dir/navigation/navigation.test.ts
 * app dir - navigation query string should set query correctly
@@ -1893,44 +1707,10 @@ test/e2e/app-dir/navigation/navigation.test.ts
 * app dir - navigation SEO should not log 404 errors in ipc server
 * app dir - navigation navigations when attaching a Proxy to \`window.Promise\` should navigate without issue
 
-test/e2e/app-dir/metadata/metadata.test.ts
-* app dir - metadata basic should support title and description
-* app dir - metadata basic should support title template
-* app dir - metadata basic should support stashed title in one layer of page and layout
-* app dir - metadata basic should use parent layout title when no title is defined in page
-* app dir - metadata basic should support stashed title in two layers of page and layout
-* app dir - metadata basic should support other basic tags
-* app dir - metadata basic should support apple related tags \`itunes\` and \`appWebApp\`
-* app dir - metadata basic should support alternate tags
-* app dir - metadata basic should relative canonical url
-* app dir - metadata basic should support robots tags
-* app dir - metadata basic should support verification tags
-* app dir - metadata basic should support appLinks tags
-* app dir - metadata basic should apply metadata when navigating client-side
-* app dir - metadata basic should support generateMetadata export
-* app dir - metadata basic should handle metadataBase for urls resolved as only URL type
-* app dir - metadata opengraph should support opengraph tags
-* app dir - metadata opengraph should support opengraph with article type
-* app dir - metadata opengraph should override file based images when opengraph-image and twitter-image specify images property
-* app dir - metadata navigation should render root not-found with default metadata
-* app dir - metadata navigation should support notFound in generateMetadata
-* app dir - metadata navigation should support redirect in generateMetadata
-* app dir - metadata icons should support basic object icons field
-* app dir - metadata icons should support basic string icons field
-* app dir - metadata icons should support basic complex descriptor icons field
-* app dir - metadata icons should merge icons from layout if no static icons files are specified
-* app dir - metadata icons should not hoist meta[itemProp] to head
-* app dir - metadata twitter should support twitter card summary_large_image when image present
-* app dir - metadata twitter should render twitter card summary when image is not present
-* app dir - metadata twitter should support default twitter player card
-* app dir - metadata twitter should support default twitter app card
-* app dir - metadata static routes should have /favicon.ico as route
-* app dir - metadata static routes should support root dir robots.txt
-* app dir - metadata static routes should support sitemap.xml under every routes
-* app dir - metadata static routes should support static manifest.webmanifest
-* app dir - metadata react cache should have same title and page value on initial load
-* app dir - metadata react cache should have same title and page value when navigating
-* app dir - metadata should not effect metadata images convention like files under pages directory
+test/e2e/app-dir/next-image/next-image.test.ts
+* app dir - next-image image content should render images on /client route
+* app dir - next-image image content should render images nested under page dir on /nested route
+* app dir - next-image image content should render legacy images under /legacy route
 
 test/e2e/app-dir/not-found/conflict-route/index.test.ts
 * app dir - not-found - conflict route with default runtime should use the not-found page for non-matching routes
@@ -1942,16 +1722,15 @@ test/e2e/app-dir/not-found/group-route-root-not-found/index.test.ts
 * app dir - group routes with root not-found should render default 404 with root layout for non-existent page
 * app dir - group routes with root not-found should render root not found for group routes if hit 404
 
-test/e2e/app-dir/next-image/next-image.test.ts
-* app dir next-image image content should render images on /client route
-* app dir next-image image content should render images nested under page dir on /nested route
-* app dir next-image image content should render legacy images under /legacy route
-
 test/e2e/app-dir/not-found/group-route/index.test.ts
 * app dir - not-found - group route with default runtime should use the not-found page under group routes
 
 test/e2e/app-dir/pages-to-app-routing/pages-to-app-routing.test.ts
 * pages-to-app-routing should work using browser
+
+test/e2e/app-dir/not-found-default/index.test.ts
+* app dir - not found with default 404 page should error on client notFound from root layout in browser
+* app dir - not found with default 404 page should error on server notFound from root layout on server-side
 
 test/e2e/app-dir/params-hooks-compat/index.test.ts
 * app-dir - params hooks compat should only access search params with useSearchParams
@@ -1975,21 +1754,14 @@ test/e2e/app-dir/root-layout-redirect/root-layout-redirect.test.ts
 test/e2e/app-dir/root-layout-render-once/index.test.ts
 * app-dir root layout render once should only render root layout once
 
-test/e2e/app-dir/not-found-default/index.test.ts
-* app dir - not found with default 404 page should error on client notFound from root layout in browser
-* app dir - not found with default 404 page should error on server notFound from root layout on server-side
-
-test/e2e/app-dir/route-page-manifest-bug/route-page-manifest-bug.test.ts
-* route-page-manifest-bug should work when requesting route handler after page
-
 test/e2e/app-dir/not-found/basic/index.test.ts
 * app dir - not-found - basic with default runtime should use the not-found page for non-matching routes
 * app dir - not-found - basic with default runtime should match dynamic route not-found boundary correctly
 * app dir - not-found - basic with default runtime should escalate notFound to parent layout if no not-found boundary present in current layer
 * app dir - not-found - basic with default runtime should not reload the page
 
-test/e2e/app-dir/router-stuck-dynamic-static-segment/router-stuck-dynamic-static-segment.test.ts
-* router-stuck-dynamic-static-segment should allow navigation between dynamic parameter and static parameter of the same value
+test/e2e/app-dir/route-page-manifest-bug/route-page-manifest-bug.test.ts
+* route-page-manifest-bug should work when requesting route handler after page
 
 test/e2e/app-dir/router-autoscroll/router-autoscroll.test.ts
 * router autoscrolling on navigation vertical scroll should scroll to top of document when navigating between to pages without layout
@@ -2006,94 +1778,1251 @@ test/e2e/app-dir/router-autoscroll/router-autoscroll.test.ts
 * router autoscrolling on navigation bugs Should scroll to the top of the layout when the first child is position sticky
 * router autoscrolling on navigation bugs Should apply scroll when loading.js is used
 
-test/e2e/app-dir/search-params-react-key/layout-params.test.ts
-* app dir - search params keys should keep the React router instance the same when changing the search params
+test/e2e/app-dir/router-stuck-dynamic-static-segment/router-stuck-dynamic-static-segment.test.ts
+* router-stuck-dynamic-static-segment should allow navigation between dynamic parameter and static parameter of the same value
 
 test/e2e/app-dir/app/index.test.ts
-* app dir should have correct searchParams and params (server)
-* app dir should have correct searchParams and params (client)
-* app dir should match redirects in pages correctly $path
-* app dir should match redirects in pages correctly $path
-* app dir should match redirects in pages correctly $path
-* app dir should match redirects in pages correctly $path
-* app dir should match redirects in pages correctly $path
-* app dir should not apply client router filter on shallow
-* app dir should not have duplicate config warnings
-* app dir should use text/x-component for flight
-* app dir should return the \`vary\` header from pages for flight requests
-* app dir should serve from pages
-* app dir should serve dynamic route from pages
-* app dir should serve from public
-* app dir should ensure the </body></html> suffix is at the end of the stream
-* app dir should serve /index as separate page
-* app dir should include layouts when no direct parent layout
-* app dir should use new root layout when provided
-* app dir should not create new root layout when nested (optional)
-* app dir should include parent document when no direct parent layout
-* app dir should not include parent when not in parent directory
-* app dir should serve page as a segment name correctly
-* app dir should not serve when layout is provided but no folder index
-* app dir should handle hash in initial url
-* app dir <Link /> should allow linking from app page to pages page
-* app dir <Link /> should navigate to pages dynamic route from pages page if it overlaps with an app page
-* app dir <Link /> should push to external url
-* app dir <Link /> should replace to external url
-* app dir server components should not serve .server.js as a path
-* app dir server components should not serve .client.js as a path
-* app dir server components should serve shared component
-* app dir server components dynamic routes should only pass params that apply to the layout
-* app dir server components catch-all routes should handle optional segments
-* app dir server components catch-all routes should handle optional segments root
-* app dir server components catch-all routes should handle optional catch-all segments link
-* app dir server components catch-all routes should handle required segments
-* app dir server components catch-all routes should handle required segments root as not found
-* app dir server components catch-all routes should handle catch-all segments link
-* app dir server components should serve client component should serve server-side
-* app dir server components should serve client component should serve client-side
-* app dir server components should include client component layout with server component route should include it server-side
-* app dir server components should include client component layout with server component route should include it client-side
-* app dir server components Loading should render loading.js in initial html for slow layout
-* app dir server components Loading should render loading.js in browser for slow layout
-* app dir server components Loading should render loading.js in initial html for slow layout and page
-* app dir server components Loading should render loading.js in browser for slow layout and page
-* app dir server components middleware should strip internal query parameters from requests to middleware for rewrite
-* app dir server components middleware should strip internal query parameters from requests to middleware for redirect
-* app dir server components next/router should support router.back and router.forward
-* app dir server components client components should have consistent query and params handling
-* app dir searchParams prop client component should have the correct search params
-* app dir searchParams prop client component should have the correct search params on rewrite
-* app dir searchParams prop client component should have the correct search params on middleware rewrite
-* app dir searchParams prop server component should have the correct search params
-* app dir searchParams prop server component should have the correct search params on rewrite
-* app dir searchParams prop server component should have the correct search params on middleware rewrite
-* app dir template component should render the template that holds state in a client component and reset on navigation
-* app dir error component should trigger error component when an error happens during rendering
-* app dir error component should trigger error component when an error happens during server components rendering
-* app dir error component should use default error boundary for prod and overlay for dev when no error component specified
-* app dir error component should display error digest for error in server component with default error boundary
-* app dir known bugs should support React cache server component
-* app dir known bugs should support React cache server component client-navigation
-* app dir known bugs should support React cache client component
-* app dir known bugs should support React cache client component client-navigation
-* app dir known bugs should support React cache middleware overriding headers
-* app dir known bugs should support React fetch instrumentation server component
-* app dir known bugs should support React fetch instrumentation server component client-navigation
-* app dir known bugs should not share flight data between requests
-* app dir known bugs should handle router.refresh without resetting state
-* app dir known bugs should handle as on next/link
-* app dir known bugs should handle next/link back to initially loaded page
-* app dir known bugs should not do additional pushState when already on the page
-* app dir next/script should support next/script and render in correct order
-* app dir next/script should insert preload tags for beforeInteractive and afterInteractive scripts
-* app dir next/script should load stylesheets for next/scripts
-* app dir data fetch with response over 16KB with chunked encoding should load page when fetching a large amount of data
-* app dir bootstrap scripts should only bootstrap with one script, prinitializing the rest
+* app dir - basic should have correct searchParams and params (server)
+* app dir - basic should have correct searchParams and params (client)
+* app dir - basic should match redirects in pages correctly $path
+* app dir - basic should match redirects in pages correctly $path
+* app dir - basic should match redirects in pages correctly $path
+* app dir - basic should match redirects in pages correctly $path
+* app dir - basic should match redirects in pages correctly $path
+* app dir - basic should not apply client router filter on shallow
+* app dir - basic should not have duplicate config warnings
+* app dir - basic should use text/x-component for flight
+* app dir - basic should return the \`vary\` header from pages for flight requests
+* app dir - basic should serve from pages
+* app dir - basic should serve dynamic route from pages
+* app dir - basic should serve from public
+* app dir - basic should ensure the </body></html> suffix is at the end of the stream
+* app dir - basic should serve /index as separate page
+* app dir - basic should include layouts when no direct parent layout
+* app dir - basic should use new root layout when provided
+* app dir - basic should not create new root layout when nested (optional)
+* app dir - basic should include parent document when no direct parent layout
+* app dir - basic should not include parent when not in parent directory
+* app dir - basic should serve page as a segment name correctly
+* app dir - basic should not serve when layout is provided but no folder index
+* app dir - basic should handle hash in initial url
+* app dir - basic <Link /> should allow linking from app page to pages page
+* app dir - basic <Link /> should push to external url
+* app dir - basic <Link /> should replace to external url
+* app dir - basic server components should not serve .server.js as a path
+* app dir - basic server components should not serve .client.js as a path
+* app dir - basic server components should serve shared component
+* app dir - basic server components dynamic routes should only pass params that apply to the layout
+* app dir - basic server components catch-all routes should handle optional segments
+* app dir - basic server components catch-all routes should handle optional segments root
+* app dir - basic server components catch-all routes should handle optional catch-all segments link
+* app dir - basic server components catch-all routes should handle required segments
+* app dir - basic server components catch-all routes should handle required segments root as not found
+* app dir - basic server components catch-all routes should handle catch-all segments link
+* app dir - basic server components should serve client component should serve server-side
+* app dir - basic server components should serve client component should serve client-side
+* app dir - basic server components should include client component layout with server component route should include it server-side
+* app dir - basic server components should include client component layout with server component route should include it client-side
+* app dir - basic server components Loading should render loading.js in initial html for slow layout
+* app dir - basic server components Loading should render loading.js in browser for slow layout
+* app dir - basic server components Loading should render loading.js in initial html for slow layout and page
+* app dir - basic server components Loading should render loading.js in browser for slow layout and page
+* app dir - basic server components middleware should strip internal query parameters from requests to middleware for rewrite
+* app dir - basic server components middleware should strip internal query parameters from requests to middleware for redirect
+* app dir - basic server components next/router should support router.back and router.forward
+* app dir - basic server components client components should have consistent query and params handling
+* app dir - basic searchParams prop client component should have the correct search params
+* app dir - basic searchParams prop client component should have the correct search params on rewrite
+* app dir - basic searchParams prop client component should have the correct search params on middleware rewrite
+* app dir - basic searchParams prop server component should have the correct search params
+* app dir - basic searchParams prop server component should have the correct search params on rewrite
+* app dir - basic searchParams prop server component should have the correct search params on middleware rewrite
+* app dir - basic template component should render the template that holds state in a client component and reset on navigation
+* app dir - basic error component should trigger error component when an error happens during rendering
+* app dir - basic error component should trigger error component when an error happens during server components rendering
+* app dir - basic error component should use default error boundary for prod and overlay for dev when no error component specified
+* app dir - basic error component should display error digest for error in server component with default error boundary
+* app dir - basic known bugs should support React cache server component
+* app dir - basic known bugs should support React cache server component client-navigation
+* app dir - basic known bugs should support React cache client component
+* app dir - basic known bugs should support React cache client component client-navigation
+* app dir - basic known bugs should support React cache middleware overriding headers
+* app dir - basic known bugs should support React fetch instrumentation server component
+* app dir - basic known bugs should support React fetch instrumentation server component client-navigation
+* app dir - basic known bugs should not share flight data between requests
+* app dir - basic known bugs should handle router.refresh without resetting state
+* app dir - basic known bugs should handle as on next/link
+* app dir - basic known bugs should handle next/link back to initially loaded page
+* app dir - basic known bugs should not do additional pushState when already on the page
+* app dir - basic next/script should support next/script and render in correct order
+* app dir - basic next/script should insert preload tags for beforeInteractive and afterInteractive scripts
+* app dir - basic next/script should load stylesheets for next/scripts
+* app dir - basic data fetch with response over 16KB with chunked encoding should load page when fetching a large amount of data
+* app dir - basic bootstrap scripts should only bootstrap with one script, prinitializing the rest
 
 test/e2e/app-dir/root-layout/root-layout.test.ts
 * app-dir root layout Should do a mpa navigation when switching root layout should work with basic routes
 * app-dir root layout Should do a mpa navigation when switching root layout should work with dynamic catchall routes
 * app-dir root layout Should do a mpa navigation when switching root layout should work with static routes
 * app-dir root layout should correctly handle navigation between multiple root layouts
+
+test/e2e/app-dir/actions/app-action.test.ts
+* app-dir action handling should support headers and cookies
+* app-dir action handling should push new route when redirecting
+* app-dir action handling should support setting cookies in route handlers with the correct overrides
+* app-dir action handling should support hoc auth wrappers
+* app-dir action handling fetch actions should handle a fetch action initiated from a static page
+* app-dir action handling fetch actions should handle revalidatePath
+* app-dir action handling fetch actions should handle revalidateTag
+* app-dir action handling fetch actions should revalidate when cookies.set is called
+* app-dir action handling fetch actions should invalidate client cache on other routes when cookies.set is called
+* app-dir action handling fetch actions should revalidate when cookies.set is called in a client action
+* app-dir action handling fetch actions should invalidate client cache when tag is revalidated
+* app-dir action handling fetch actions should invalidate client cache when path is revalidated
+
+test/e2e/app-dir/parallel-routes-and-interception/parallel-routes-and-interception.test.ts
+* parallel-routes-and-interception parallel routes should match parallel routes
+* parallel-routes-and-interception parallel routes should render nested parallel routes
+* parallel-routes-and-interception parallel routes should apply the catch-all route to the parallel route if no matching route is found
+* parallel-routes-and-interception route intercepting with dynamic routes should render intercepted route
+* parallel-routes-and-interception route intercepting with dynamic optional catch-all routes should render intercepted route
+* parallel-routes-and-interception route intercepting with dynamic catch-all routes should render intercepted route
+* parallel-routes-and-interception route intercepting should render intercepted route
+* parallel-routes-and-interception route intercepting should render intercepted route from a nested route
+* parallel-routes-and-interception route intercepting should re-render the layout on the server when it had a default child route
+
+test/integration/app-functional/test/index.test.js
+* Document and App should not have any missing key warnings
+
+test/integration/app-tree/test/index.test.js
+* AppTree dev mode should provide router context in AppTree on SSR
+* AppTree dev mode should provide router context in AppTree on CSR
+* AppTree dev mode should pass AppTree to NextPageContext
+
+test/integration/bigint/test/index.test.js
+* bigint API route support dev mode should return 200
+* bigint API route support dev mode should return the BigInt result text
+
+test/integration/app-document/test/index.test.js
+* Document and App should not have any missing key warnings
+* Document and App Rendering via HTTP _document should include required elements in rendered html
+* Document and App Rendering via HTTP _document Document.getInitialProps returns html prop representing app shell
+* Document and App Rendering via HTTP _document It adds nonces to all scripts and preload links
+* Document and App Rendering via HTTP _document It adds crossOrigin to all scripts and preload links
+* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhancer correctly
+* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhanceComponent correctly
+* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhanceApp correctly
+* Document and App Rendering via HTTP _document It renders ctx.renderPage with enhanceApp and enhanceComponent correctly
+* Document and App Rendering via HTTP _document It adds a timestamp to link tags with preload attribute to invalidate the cache (DEV only)
+* Document and App Rendering via HTTP _app It shows a custom tag
+* Document and App Rendering via HTTP _app It should share module state with pages
+* Document and App Rendering via HTTP _app It should show valid error when thrown in _app getInitialProps
+* Document and App Client side should detect the changes to pages/_app.js and display it
+* Document and App Client side should detect the changes to pages/_document.js and display it
+* Document and App Client side should keep state between page navigations
+* Document and App Client side It should share module state with pages
+* Document and App With CSP enabled should load inline script by hash
+* Document and App With CSP enabled should load inline script by nonce
+
+test/integration/auto-export/test/index.test.js
+* Auto Export dev Supports commonjs 1
+* Auto Export dev Supports commonjs 2
+* Auto Export dev Refreshes query on mount
+* Auto Export dev should update asPath after mount
+* Auto Export dev should not replace URL with page name while asPath is delayed
+* Auto Export dev should not show hydration warning from mismatching asPath
+* Auto Export dev should include error link when hydration error does occur
+
+test/integration/catches-missing-getStaticProps/test/index.test.js
+* Catches Missing getStaticProps development mode should catch it in dev mode
+
+test/integration/build-indicator/test/index.test.js
+* Build Activity Indicator should validate buildActivityPosition config
+* Build Activity Indicator Enabled Adds the build indicator container
+* Build Activity Indicator Enabled Shows build indicator when page is built from modifying
+* Build Activity Indicator Disabled with next.config.js Does not add the build indicator container
+
+test/integration/client-404/test/index.test.js
+* Client 404 dev mode Client Navigation 404 should show 404 upon client replacestate should navigate the page
+* Client 404 dev mode Client Navigation 404 should hard navigate to URL on failing to load bundle
+
+test/integration/compression/test/index.test.js
+* Compression should compress responses by default
+
+test/integration/client-navigation-a11y/test/index.test.js
+* Client Navigation accessibility <RouteAnnouncer /> should not have the initial route announced
+* Client Navigation accessibility <RouteAnnouncer /> has aria-live="assertive" and role="alert"
+* Client Navigation accessibility <RouteAnnouncer /> There is a title but no h1 tag has the innerText equal to the value of document.title
+* Client Navigation accessibility <RouteAnnouncer /> There is no title but a h1 tag has the innerText equal to the value of h1
+* Client Navigation accessibility <RouteAnnouncer /> There is a title and a h1 tag has the innerText equal to the value of h1
+* Client Navigation accessibility <RouteAnnouncer /> There is no title and no h1 tag has the innerText equal to the value of the pathname
+
+test/integration/config-mjs/test/index.test.js
+* Configuration should disable X-Powered-By header support
+* Configuration renders server config on the server only
+* Configuration renders public config on the server only
+* Configuration correctly imports a package that defines \`module\` but no \`main\` in package.json
+* Configuration should have config available on the client
+
+test/integration/client-shallow-routing/test/index.test.js
+* Client Shallow Routing dev mode should not shallowly navigate back in history when current page was not shallow
+* Client Shallow Routing dev mode should not shallowly navigate forwards in history when current page was not shallow
+
+test/integration/config-experimental-warning/test/index.test.js
+* Config Experimental Warning should not show warning with default config from function
+* Config Experimental Warning should not show warning with config from object
+* Config Experimental Warning should show warning with config from object with experimental
+* Config Experimental Warning should show warning with config from function with experimental
+* Config Experimental Warning should not show warning with default value
+* Config Experimental Warning should show warning with config from object with experimental and multiple keys
+
+test/integration/clean-distdir/test/index.test.js
+* Cleaning distDir disabled write should not clean up .next before build start
+
+test/integration/cli/test/index.test.js
+* CLI Usage no command --help
+* CLI Usage no command -h
+* CLI Usage no command --version
+* CLI Usage no command -v
+* CLI Usage no command invalid directory
+* CLI Usage no command detects command typos
+* CLI Usage build --help
+* CLI Usage build -h
+* CLI Usage build should warn when unknown argument provided
+* CLI Usage build should not throw UnhandledPromiseRejectionWarning
+* CLI Usage build should exit when SIGINT is signalled
+* CLI Usage build should exit when SIGTERM is signalled
+* CLI Usage build invalid directory
+* CLI Usage dev --help
+* CLI Usage dev -h
+* CLI Usage dev custom directory
+* CLI Usage dev --port
+* CLI Usage dev --port 0
+* CLI Usage dev PORT=0
+* CLI Usage dev NODE_OPTIONS='--inspect'
+* CLI Usage dev -p
+* CLI Usage dev --hostname
+* CLI Usage dev -H
+* CLI Usage dev --experimental-https
+* CLI Usage dev --experimental-https with provided key/cert
+* CLI Usage dev should format IPv6 addresses correctly
+* CLI Usage dev should warn when unknown argument provided
+* CLI Usage dev should not throw UnhandledPromiseRejectionWarning
+* CLI Usage dev should exit when SIGINT is signalled
+* CLI Usage dev should exit when SIGTERM is signalled
+* CLI Usage dev invalid directory
+* CLI Usage export --help
+* CLI Usage export -h
+* CLI Usage export should warn when unknown argument provided
+* CLI Usage export should not throw UnhandledPromiseRejectionWarning
+* CLI Usage export invalid directory
+* CLI Usage info --help
+* CLI Usage info -h
+* CLI Usage info should print output
+* CLI Usage info should print output with next.config.mjs
+
+test/e2e/app-dir/set-cookies/set-cookies.test.ts
+* set-cookies for edge runtime for /app should set two set-cookie headers
+* set-cookies for experimental-edge runtime for /app should set two set-cookie headers
+* set-cookies for node runtime for /pages should set two set-cookie headers
+* set-cookies for node runtime for /app should set two set-cookie headers
+
+test/e2e/app-dir/similar-pages-paths/similar-pages-paths.test.ts
+* app-dir similar pages paths should not have conflicts for similar pattern page paths between app and pages
+
+test/e2e/app-dir/searchparams-static-bailout/searchparams-static-bailout.test.ts
+* searchparams-static-bailout server component should bailout when using searchParams
+* searchparams-static-bailout server component should not bailout when not using searchParams
+* searchparams-static-bailout client component should bailout when using searchParams
+* searchparams-static-bailout client component should bailout when using searchParams is passed to client component
+* searchparams-static-bailout client component should not bailout when not using searchParams
+
+test/e2e/app-dir/search-params-react-key/layout-params.test.ts
+* app dir - search params keys should keep the React router instance the same when changing the search params
+
+test/e2e/app-dir/third-parties/basic.test.ts
+* @next/third-parties basic usage renders YoutubeEmbed
+* @next/third-parties basic usage renders GoogleMapsEmbed
+
+test/e2e/app-dir/test-template/{{ toFileName name }}/{{ toFileName name }}.test.ts
+* {{name}} should work using cheerio
+* {{name}} should work using browser
+* {{name}} should work with html
+* {{name}} should work with fetch
+
+test/e2e/app-dir/trailingslash/trailingslash.test.ts
+* app-dir trailingSlash handling should redirect route when requesting it directly
+* app-dir trailingSlash handling should render link with trailing slash
+* app-dir trailingSlash handling should redirect route when requesting it directly by browser
+* app-dir trailingSlash handling should redirect route when clicking link
+
+test/e2e/app-dir/underscore-ignore-app-paths/underscore-ignore-app-paths.test.ts
+* underscore-ignore-app-paths should not serve app path with underscore
+* underscore-ignore-app-paths should serve pages path with underscore
+
+test/e2e/app-dir/with-exported-function-config/with-exported-function-config.test.ts
+* with-exported-function-config should have correct values in function config manifest
+
+test/e2e/app-dir/use-params/use-params.test.ts
+* use-params should work for single dynamic param
+* use-params should work for nested dynamic params
+* use-params should work for catch all params
+* use-params should work for single dynamic param client navigating
+* use-params should work for nested dynamic params client navigating
+
+test/e2e/app-dir/use-selected-layout-segment-s/use-selected-layout-segment-s.test.ts
+* useSelectedLayoutSegment(s) should return correct values for root layout
+* useSelectedLayoutSegment(s) should return correct values in layout before static segment
+* useSelectedLayoutSegment(s) should return correct values in layout before param segment
+* useSelectedLayoutSegment(s) should return correct values in layout before catchall segment
+* useSelectedLayoutSegment(s) should return correct values in layout after last segment
+* useSelectedLayoutSegment(s) should correctly update when changing static segment
+* useSelectedLayoutSegment(s) should correctly update when changing param segment
+* useSelectedLayoutSegment(s) should correctly update when changing catchall segment
+
+test/e2e/basepath-trailing-slash.test.ts
+* basePath + trailingSlash should allow URL query strings without refresh
+* basePath + trailingSlash should allow URL query strings on index without refresh
+* basePath + trailingSlash should correctly replace state when same asPath but different url
+
+test/e2e/browserslist-extends/index.test.ts
+* browserslist-extends should work
+
+test/e2e/cancel-request/stream-cancel.test.ts
+* streaming responses cancel inner stream after disconnect middleware cancels stream making progress
+* streaming responses cancel inner stream after disconnect middleware cancels stalled stream
+* streaming responses cancel inner stream after disconnect middleware cancels stream that never sent data
+* streaming responses cancel inner stream after disconnect edge app route handler cancels stream making progress
+* streaming responses cancel inner stream after disconnect edge app route handler cancels stalled stream
+* streaming responses cancel inner stream after disconnect edge app route handler cancels stream that never sent data
+* streaming responses cancel inner stream after disconnect node app route handler cancels stream making progress
+* streaming responses cancel inner stream after disconnect node app route handler cancels stalled stream
+* streaming responses cancel inner stream after disconnect node app route handler cancels stream that never sent data
+* streaming responses cancel inner stream after disconnect edge pages api cancels stream making progress
+* streaming responses cancel inner stream after disconnect edge pages api cancels stalled stream
+* streaming responses cancel inner stream after disconnect edge pages api cancels stream that never sent data
+* streaming responses cancel inner stream after disconnect node pages api cancels stream making progress
+* streaming responses cancel inner stream after disconnect node pages api cancels stalled stream
+* streaming responses cancel inner stream after disconnect node pages api cancels stream that never sent data
+
+test/e2e/children-page/index.test.ts
+* children-page with app dir should show the content if you have a page named children
+* children-page with pages dir should show the content if you have a page named children
+
+test/e2e/config-promise-export/async-function.test.ts
+* async export should work
+
+test/e2e/config-promise-export/promise.test.ts
+* promise export should work
+
+test/e2e/basepath.test.ts
+* basePath should navigate to /404 correctly client-side
+* basePath should navigate to /_error correctly client-side
+* basePath should navigate to external site and back
+* basePath should handle query/hash correctly during query updating #hello? $search
+* basePath should handle query/hash correctly during query updating #? $search
+* basePath should handle query/hash correctly during query updating ## $search
+* basePath should handle query/hash correctly during query updating ##? $search
+* basePath should handle query/hash correctly during query updating ##hello? $search
+* basePath should handle query/hash correctly during query updating ##hello $search
+* basePath should handle query/hash correctly during query updating #hello?world $search
+* basePath should handle query/hash correctly during query updating #a ?hello=world
+* basePath should handle query/hash correctly during query updating #a ?hello
+* basePath should handle query/hash correctly during query updating #a ?hello=
+* basePath should navigate back correctly to a dynamic route
+* basePath should respect basePath in amphtml link rel
+* basePath should 404 for public file without basePath
+* basePath should serve public file with basePath correctly
+* basePath should rewrite with basePath by default
+* basePath should not rewrite without basePath without disabling
+* basePath should not rewrite with basePath when set to false
+* basePath should rewrite without basePath when set to false
+* basePath should redirect with basePath by default
+* basePath should not redirect without basePath without disabling
+* basePath should not redirect with basePath when set to false
+* basePath should redirect without basePath when set to false
+* basePath should add header with basePath by default
+* basePath should not add header without basePath without disabling
+* basePath should not add header with basePath when set to false
+* basePath should add header without basePath when set to false
+* basePath should not update URL for a 404
+* basePath should handle 404 urls that start with basePath
+* basePath should update dynamic params after mount correctly
+* basePath should navigate to index page with getStaticProps
+* basePath should work with nested folder with same name as basePath
+* basePath should work with normal dynamic page
+* basePath should work with hash links
+* basePath should work with catch-all page
+* basePath should redirect trailing slash correctly
+* basePath should redirect trailing slash on root correctly
+* basePath should navigate an absolute url
+* basePath should navigate an absolute local url with basePath
+* basePath should navigate an absolute local url without basePath
+* basePath should 404 when manually adding basePath with <Link>
+* basePath should 404 when manually adding basePath with router.push
+* basePath should 404 when manually adding basePath with router.replace
+* basePath should show the hello page under the /docs prefix
+* basePath should have correct router paths on first load of /
+* basePath should have correct router paths on first load of /hello
+* basePath should fetch data for getStaticProps without reloading
+* basePath should fetch data for getServerSideProps without reloading
+* basePath should show 404 for page not under the /docs prefix
+* basePath should show the other-page page under the /docs prefix
+* basePath should have basePath field on Router
+* basePath should navigate to the page without refresh
+* basePath should use urls with basepath in router events
+* basePath should use urls with basepath in router events for hash changes
+* basePath should use urls with basepath in router events for cancelled routes
+* basePath should use urls with basepath in router events for failed route change
+* basePath should allow URL query strings without refresh
+* basePath should allow URL query strings on index without refresh
+* basePath should correctly replace state when same asPath but different url
+
+test/e2e/disable-js-preload/test/index.test.js
+* disabled JS preloads should render the page
+* disabled JS preloads should not have JS preload links
+
+test/e2e/dynamic-route-interpolation/index.test.ts
+* Dynamic Route Interpolation should work
+* Dynamic Route Interpolation should work with parameter itself
+* Dynamic Route Interpolation should work with brackets
+* Dynamic Route Interpolation should work with parameter itself in API routes
+* Dynamic Route Interpolation should work with brackets in API routes
+* Dynamic Route Interpolation should bust data cache
+* Dynamic Route Interpolation should bust data cache with symbol
+
+test/e2e/edge-api-endpoints-can-receive-body/index.test.ts
+* Edge API endpoints can receive body reads the body as text
+* Edge API endpoints can receive body reads the body from index
+
+test/e2e/edge-can-read-request-body/index.test.ts
+* Edge can read request body renders the static page
+* Edge can read request body middleware reads a JSON body
+* Edge can read request body middleware reads a text body
+* Edge can read request body middleware reads an URL encoded form data
+* Edge can read request body middleware reads a multipart form data
+
+test/e2e/edge-async-local-storage/index.test.ts
+* edge api can use async local storage cans use a single instance per request
+* edge api can use async local storage cans use multiple instances per request
+
+test/e2e/edge-compiler-can-import-blob-assets/index.test.ts
+* Edge Compiler can import asset assets allows to fetch a remote URL
+* Edge Compiler can import asset assets allows to fetch a remote URL with a path and basename
+
+test/e2e/edge-compiler-module-exports-preference/index.test.ts
+* Edge compiler module exports preference favors the browser export
+
+test/e2e/conflicting-app-page-error/index.test.ts
+* Conflict between app file and pages file should not show error overlay for non conflict pages under app or pages dir
+
+test/e2e/edge-pages-support/index.test.ts
+* edge-render-getserversideprops should have correct query for pages/api
+* edge-render-getserversideprops should have correct query for pages/api dynamic
+
+test/e2e/favicon-short-circuit/favicon-short-circuit.test.ts
+* favicon-short-circuit should short circuit the favicon in development
+
+test/e2e/edge-configurable-runtime/index.test.ts
+* Configurable runtime for src/pages and API routes In dev mode runs with no warning API route on the edge runtime
+* Configurable runtime for pages and API routes In dev mode runs with no warning API route on the edge runtime
+
+test/e2e/handle-non-hoisted-swc-helpers/index.test.ts
+* handle-non-hoisted-swc-helpers should work
+
+test/e2e/hello-world/hello-world.test.ts
+* hello-world should work using cheerio
+* hello-world should work using browser
+* hello-world should work with html
+* hello-world should work with fetch
+
+test/e2e/getserversideprops/test/index.test.ts
+* getServerSideProps should navigate between pages successfully
+* getServerSideProps should work with early request ending
+* getServerSideProps should allow POST request for getServerSideProps page
+* getServerSideProps should render correctly when notFound is false (non-dynamic)
+* getServerSideProps should render 404 correctly when notFound is returned (non-dynamic)
+* getServerSideProps should render 404 correctly when notFound is returned client-transition (non-dynamic)
+* getServerSideProps should render correctly when notFound is false (dynamic)
+* getServerSideProps should render 404 correctly when notFound is returned (dynamic)
+* getServerSideProps should render 404 correctly when notFound is returned client-transition (dynamic)
+* getServerSideProps should SSR normal page correctly
+* getServerSideProps should SSR getServerSideProps page correctly
+* getServerSideProps should handle throw ENOENT correctly
+* getServerSideProps should have gssp in __NEXT_DATA__
+* getServerSideProps should not have gssp in __NEXT_DATA__ for non-GSSP page
+* getServerSideProps should supply query values SSR
+* getServerSideProps should supply params values for catchall correctly
+* getServerSideProps should have original req.url for /_next/data request dynamic page
+* getServerSideProps should have original req.url for /_next/data request dynamic page with query
+* getServerSideProps should have original req.url for /_next/data request
+* getServerSideProps should have original req.url for /_next/data request with query
+* getServerSideProps should have correct req.url and query for direct visit dynamic page
+* getServerSideProps should have correct req.url and query for direct visit dynamic page rewrite direct
+* getServerSideProps should have correct req.url and query for direct visit dynamic page rewrite direct with internal query
+* getServerSideProps should have correct req.url and query for direct visit dynamic page rewrite param
+* getServerSideProps should have correct req.url and query for direct visit dynamic page with query
+* getServerSideProps should have correct req.url and query for direct visit
+* getServerSideProps should return data correctly
+* getServerSideProps should pass query for data request
+* getServerSideProps should return data correctly for dynamic page
+* getServerSideProps should return data correctly when props is a promise
+* getServerSideProps should navigate to a normal page and back
+* getServerSideProps should load a fast refresh page
+* getServerSideProps should provide correct query value for dynamic page
+* getServerSideProps should parse query values on mount correctly
+* getServerSideProps should pass query for data request on navigation
+* getServerSideProps should reload page on failed data request
+* getServerSideProps should always call getServerSideProps without caching
+* getServerSideProps should not re-call getServerSideProps when updating query
+* getServerSideProps should dedupe server data requests
+* getServerSideProps should not show warning from url prop being returned
+* getServerSideProps should show error for extra keys returned from getServerSideProps
+* getServerSideProps should show error for invalid JSON returned from getServerSideProps
+* getServerSideProps should show error for invalid JSON returned from getStaticProps on CST
+* getServerSideProps should show error for accessing res after gssp returns
+* getServerSideProps should show error for accessing res through props promise after gssp returns
+* getServerSideProps should only warn for accessing res if not streaming
+
+test/e2e/i18n-api-support/index.test.ts
+* i18n API support should respond to normal API request
+* i18n API support should respond to normal dynamic API request
+* i18n API support should fallback rewrite non-matching API request
+
+test/e2e/i18n-data-route/i18n-data-route.test.ts
+* i18n-data-route with locale prefix /en-CA should render /about via /en-CA/about
+* i18n-data-route with locale prefix /en-CA should render /[slug]/about via /en-CA/blog/about
+* i18n-data-route with locale prefix /en-CA should serve data for /about
+* i18n-data-route with locale prefix /en-CA should serve data for /[slug]/about
+* i18n-data-route with locale prefix /fr-CA should render /about via /fr-CA/about
+* i18n-data-route with locale prefix /fr-CA should render /[slug]/about via /fr-CA/blog/about
+* i18n-data-route with locale prefix /fr-CA should serve data for /about
+* i18n-data-route with locale prefix /fr-CA should serve data for /[slug]/about
+* i18n-data-route without locale prefix should render /about via /about
+* i18n-data-route without locale prefix should render /[slug]/about via /blog/about
+* i18n-data-route without locale prefix should serve data for /about
+* i18n-data-route without locale prefix should serve data for /[slug]/about
+
+test/e2e/i18n-default-locale-redirect/i18n-default-locale-redirect.test.ts
+* i18-default-locale-redirect should not request a path prefixed with default locale
+* i18-default-locale-redirect should request a path prefixed with non-default locale
+
+test/e2e/i18n-disallow-multiple-locales/i18n-disallow-multiple-locales.test.ts
+* i18n-disallow-multiple-locales should verify the default locale works
+* i18n-disallow-multiple-locales /en-US should 200
+* i18n-disallow-multiple-locales /en should 200
+* i18n-disallow-multiple-locales /nl-NL should 200
+* i18n-disallow-multiple-locales /nl-BE should 200
+* i18n-disallow-multiple-locales /nl should 200
+* i18n-disallow-multiple-locales /fr-BE should 200
+* i18n-disallow-multiple-locales /fr should 200
+* i18n-disallow-multiple-locales /en-US/en-US should 404
+* i18n-disallow-multiple-locales /en-US/en should 404
+* i18n-disallow-multiple-locales /en-US/nl-NL should 404
+* i18n-disallow-multiple-locales /en-US/nl-BE should 404
+* i18n-disallow-multiple-locales /en-US/nl should 404
+* i18n-disallow-multiple-locales /en-US/fr-BE should 404
+* i18n-disallow-multiple-locales /en-US/fr should 404
+* i18n-disallow-multiple-locales /en/en-US should 404
+* i18n-disallow-multiple-locales /en/en should 404
+* i18n-disallow-multiple-locales /en/nl-NL should 404
+* i18n-disallow-multiple-locales /en/nl-BE should 404
+* i18n-disallow-multiple-locales /en/nl should 404
+* i18n-disallow-multiple-locales /en/fr-BE should 404
+* i18n-disallow-multiple-locales /en/fr should 404
+* i18n-disallow-multiple-locales /nl-NL/en-US should 404
+* i18n-disallow-multiple-locales /nl-NL/en should 404
+* i18n-disallow-multiple-locales /nl-NL/nl-NL should 404
+* i18n-disallow-multiple-locales /nl-NL/nl-BE should 404
+* i18n-disallow-multiple-locales /nl-NL/nl should 404
+* i18n-disallow-multiple-locales /nl-NL/fr-BE should 404
+* i18n-disallow-multiple-locales /nl-NL/fr should 404
+* i18n-disallow-multiple-locales /nl-BE/en-US should 404
+* i18n-disallow-multiple-locales /nl-BE/en should 404
+* i18n-disallow-multiple-locales /nl-BE/nl-NL should 404
+* i18n-disallow-multiple-locales /nl-BE/nl-BE should 404
+* i18n-disallow-multiple-locales /nl-BE/nl should 404
+* i18n-disallow-multiple-locales /nl-BE/fr-BE should 404
+* i18n-disallow-multiple-locales /nl-BE/fr should 404
+* i18n-disallow-multiple-locales /nl/en-US should 404
+* i18n-disallow-multiple-locales /nl/en should 404
+* i18n-disallow-multiple-locales /nl/nl-NL should 404
+* i18n-disallow-multiple-locales /nl/nl-BE should 404
+* i18n-disallow-multiple-locales /nl/nl should 404
+* i18n-disallow-multiple-locales /nl/fr-BE should 404
+* i18n-disallow-multiple-locales /nl/fr should 404
+* i18n-disallow-multiple-locales /fr-BE/en-US should 404
+* i18n-disallow-multiple-locales /fr-BE/en should 404
+* i18n-disallow-multiple-locales /fr-BE/nl-NL should 404
+* i18n-disallow-multiple-locales /fr-BE/nl-BE should 404
+* i18n-disallow-multiple-locales /fr-BE/nl should 404
+* i18n-disallow-multiple-locales /fr-BE/fr-BE should 404
+* i18n-disallow-multiple-locales /fr-BE/fr should 404
+* i18n-disallow-multiple-locales /fr/en-US should 404
+* i18n-disallow-multiple-locales /fr/en should 404
+* i18n-disallow-multiple-locales /fr/nl-NL should 404
+* i18n-disallow-multiple-locales /fr/nl-BE should 404
+* i18n-disallow-multiple-locales /fr/nl should 404
+* i18n-disallow-multiple-locales /fr/fr-BE should 404
+* i18n-disallow-multiple-locales /fr/fr should 404
+
+test/e2e/i18n-ignore-redirect-source-locale/redirects-with-basepath.test.ts
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from:  to: sv
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /en to: sv
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /sv to: sv
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /nl to: sv
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from:  to: en
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /en to: en
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /sv to: en
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /nl to: en
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from:  to: /
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /en to: /
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /sv to: /
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /nl to: /
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: 
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: /en
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: /sv
+* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: /nl
+
+test/e2e/i18n-ignore-redirect-source-locale/redirects.test.ts
+* i18n-ignore-redirect-source-locale get redirected to the new page, from:  to: sv
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /en to: sv
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /sv to: sv
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /nl to: sv
+* i18n-ignore-redirect-source-locale get redirected to the new page, from:  to: en
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /en to: en
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /sv to: en
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /nl to: en
+* i18n-ignore-redirect-source-locale get redirected to the new page, from:  to: /
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /en to: /
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /sv to: /
+* i18n-ignore-redirect-source-locale get redirected to the new page, from: /nl to: /
+* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: 
+* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: /en
+* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: /sv
+* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: /nl
+
+test/e2e/i18n-ignore-rewrite-source-locale/rewrites-with-basepath.test.ts
+* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: 
+* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: /en
+* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: /sv
+* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: /nl
+* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: 
+* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: /en
+* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: /sv
+* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: /nl
+
+test/e2e/i18n-ignore-rewrite-source-locale/rewrites.test.ts
+* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: 
+* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: /en
+* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: /sv
+* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: /nl
+* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: 
+* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: /en
+* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: /sv
+* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: /nl
+
+test/e2e/i18n-data-fetching-redirect/index.test.ts
+* i18n-data-fetching-redirect Redirect to another locale gssp-redirect en -> sv
+* i18n-data-fetching-redirect Redirect to another locale gssp-redirect sv -> en
+* i18n-data-fetching-redirect Redirect to another locale gsp-blocking-redirect en -> sv
+* i18n-data-fetching-redirect Redirect to another locale gsp-blocking-redirect sv -> en
+* i18n-data-fetching-redirect Redirect to another locale gsp-fallback-redirect en -> sv
+* i18n-data-fetching-redirect Redirect to another locale gsp-fallback-redirect sv -> en
+* i18n-data-fetching-redirect Redirect to another locale next/link gssp-redirect en -> sv
+* i18n-data-fetching-redirect Redirect to another locale next/link gssp-redirect sv -> en
+* i18n-data-fetching-redirect Redirect to another locale next/link gsp-blocking-redirect en -> sv
+* i18n-data-fetching-redirect Redirect to another locale next/link gsp-blocking-redirect sv -> en
+* i18n-data-fetching-redirect Redirect to another locale next/link gsp-fallback-redirect en -> sv
+* i18n-data-fetching-redirect Redirect to another locale next/link gsp-fallback-redirect sv -> en
+* i18n-data-fetching-redirect Redirect to locale from context gssp-redirect en
+* i18n-data-fetching-redirect Redirect to locale from context gssp-redirect sv
+* i18n-data-fetching-redirect Redirect to locale from context gsp-blocking-redirect en
+* i18n-data-fetching-redirect Redirect to locale from context gsp-blocking-redirect sv
+* i18n-data-fetching-redirect Redirect to locale from context gsp-fallback-redirect en
+* i18n-data-fetching-redirect Redirect to locale from context gsp-fallback-redirect sv
+* i18n-data-fetching-redirect Redirect to locale from context next/link gssp-redirect en
+* i18n-data-fetching-redirect Redirect to locale from context next/link gssp-redirect sv
+* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-blocking-redirect en
+* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-blocking-redirect sv
+* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-fallback-redirect en
+* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-fallback-redirect sv
+
+test/e2e/ignore-invalid-popstateevent/with-i18n.test.ts
+* i18n: Event with stale state - static route previously was dynamic Ignore event without query param
+* i18n: Event with stale state - static route previously was dynamic Ignore event with query param
+* i18n: Event with stale state - static route previously was dynamic Don't ignore event with different locale
+
+test/e2e/ignore-invalid-popstateevent/without-i18n.test.ts
+* Event with stale state - static route previously was dynamic Ignore event without query param
+* Event with stale state - static route previously was dynamic Ignore event with query param
+
+test/e2e/link-with-api-rewrite/index.test.ts
+* link-with-api-rewrite should perform hard navigation for rewritten urls
+* link-with-api-rewrite should perform hard navigation for direct urls
+
+test/e2e/middleware-base-path/test/index.test.ts
+* Middleware base tests should execute from absolute paths
+* Middleware base tests router.query must exist when Link clicked page routing
+
+test/e2e/middleware-custom-matchers-basepath/test/index.test.ts
+* Middleware custom matchers basePath should match
+* Middleware custom matchers basePath should not match
+* Middleware custom matchers basePath should not match
+* Middleware custom matchers basePath should match has query on client routing
+
+test/e2e/middleware-custom-matchers/test/index.test.ts
+* Middleware custom matchers should match missing header correctly
+* Middleware custom matchers should match missing query correctly
+* Middleware custom matchers should match source path
+* Middleware custom matchers should match has header
+* Middleware custom matchers should match has query
+* Middleware custom matchers should match has cookie
+* Middleware custom matchers should match has host
+* Middleware custom matchers should match has header value
+* Middleware custom matchers should match has query on client routing
+* Middleware custom matchers should match has cookie on client routing
+
+test/e2e/middleware-custom-matchers-i18n/test/index.test.ts
+* Middleware custom matchers i18n should match
+* Middleware custom matchers i18n should match
+* Middleware custom matchers i18n should match
+* Middleware custom matchers i18n should match
+* Middleware custom matchers i18n should not match
+* Middleware custom matchers i18n should not match
+* Middleware custom matchers i18n should not match
+* Middleware custom matchers i18n should not match
+* Middleware custom matchers i18n should match has query on client routing
+* Middleware custom matchers i18n should match has query on client routing
+* Middleware custom matchers i18n should match has query on client routing
+* Middleware custom matchers i18n should match has query on client routing
+* Middleware custom matchers with root should not match
+
+test/e2e/middleware-dynamic-basepath-matcher/test/index.test.ts
+* Middleware custom matchers basePath should match
+* Middleware custom matchers basePath should not match
+* Middleware custom matchers basePath should not match
+* Middleware custom matchers basePath should match query path
+
+test/e2e/middleware-fetches-with-any-http-method/index.test.ts
+* Middleware fetches with any HTTP method passes the method on a direct fetch request
+* Middleware fetches with any HTTP method passes the method when providing a Request object
+
+test/e2e/middleware-fetches-with-body/index.test.ts
+* Middleware fetches with body with default bodyParser sizeLimit (1mb) should return 413 for body greater than 1mb
+* Middleware fetches with body with default bodyParser sizeLimit (1mb) should be able to send and return body size equal to 1mb
+* Middleware fetches with body with default bodyParser sizeLimit (1mb) should be able to send and return body greater than default highWaterMark (16KiB)
+* Middleware fetches with body with custom bodyParser sizeLimit (5kb) should return 413 for body greater than 5kb
+* Middleware fetches with body with custom bodyParser sizeLimit (5kb) should be able to send and return body size equal to 5kb
+* Middleware fetches with body with custom bodyParser sizeLimit (5mb) should return 413 for body greater than 5mb
+* Middleware fetches with body with custom bodyParser sizeLimit (5mb) should be able to send and return body size equal to 5mb
+* Middleware fetches with body with bodyParser = false should be able to send and return with body size equal to 16KiB
+* Middleware fetches with body with bodyParser = false should be able to send and return with body greater than 16KiB
+* Middleware fetches with body should return 413 for body equal to 10mb
+
+test/e2e/manual-client-base-path/index.test.ts
+* manual-client-base-path should not warn for flag in output
+* manual-client-base-path should not update with basePath on mount /
+* manual-client-base-path should not update with basePath on mount /another
+* manual-client-base-path should not update with basePath on mount /dynamic/first
+* manual-client-base-path should not update with basePath on mount /dynamic/second
+* manual-client-base-path should navigate correctly from index
+* manual-client-base-path should navigate correctly from another
+
+test/e2e/middleware-redirects/test/index.test.ts
+* Middleware Redirect should redirect correctly with redirect in next.config.js
+* Middleware Redirect does not include the locale in redirects by default
+* Middleware Redirect should redirect to data urls with data requests and internal redirects
+* Middleware Redirect should redirect to external urls with data requests and external redirects
+* Middleware Redirect should redirect
+* Middleware Redirect should implement internal redirects
+* Middleware Redirect should redirect cleanly with the original url param
+* Middleware Redirect should redirect multiple times
+* Middleware Redirect should redirect (infinite-loop)
+* Middleware Redirect should redirect to api route with locale
+* Middleware Redirect should redirect with a fragment
+* Middleware Redirect /fr should redirect
+* Middleware Redirect /fr should implement internal redirects
+* Middleware Redirect /fr should redirect cleanly with the original url param
+* Middleware Redirect /fr should redirect multiple times
+* Middleware Redirect /fr should redirect (infinite-loop)
+* Middleware Redirect /fr should redirect to api route with locale
+* Middleware Redirect /fr should redirect with a fragment
+
+test/e2e/middleware-request-header-overrides/test/index.test.ts
+* Middleware Request Headers Overrides Serverless Functions Backend Adds new headers
+* Middleware Request Headers Overrides Serverless Functions Backend Deletes headers
+* Middleware Request Headers Overrides Serverless Functions Backend Updates headers
+* Middleware Request Headers Overrides Edge Functions Backend Adds new headers
+* Middleware Request Headers Overrides Edge Functions Backend Deletes headers
+* Middleware Request Headers Overrides Edge Functions Backend Updates headers
+* Middleware Request Headers Overrides getServerSideProps Backend Adds new headers
+* Middleware Request Headers Overrides getServerSideProps Backend Deletes headers
+* Middleware Request Headers Overrides getServerSideProps Backend Updates headers
+
+test/e2e/middleware-responses/test/index.test.ts
+* Middleware Responses responds with multiple cookies
+* Middleware Responses should not fail when returning a stream
+* Middleware Responses should not fail when returning a text body
+* Middleware Responses should respond with a 401 status code
+* Middleware Responses should respond with one header
+* Middleware Responses should respond with two headers
+* Middleware Responses should respond appending headers headers
+* Middleware Responses /fr responds with multiple cookies
+* Middleware Responses /fr should not fail when returning a stream
+* Middleware Responses /fr should not fail when returning a text body
+* Middleware Responses /fr should respond with a 401 status code
+* Middleware Responses /fr should respond with one header
+* Middleware Responses /fr should respond with two headers
+* Middleware Responses /fr should respond appending headers headers
+
+test/e2e/middleware-matcher/index.test.ts
+* Middleware can set the matcher in its config does add the header for root request
+* Middleware can set the matcher in its config adds the header for a matched path
+* Middleware can set the matcher in its config adds the header for a matched data path (with header)
+* Middleware can set the matcher in its config adds the header for a matched data path (without header)
+* Middleware can set the matcher in its config adds the header for another matched path
+* Middleware can set the matcher in its config adds the header for another matched data path
+* Middleware can set the matcher in its config does add the header for root data request
+* Middleware can set the matcher in its config should load matches in client matchers correctly
+* Middleware can set the matcher in its config should navigate correctly with matchers
+* using a single matcher does not add the header for root request
+* using a single matcher does not add the header for root data request
+* using a single matcher adds the header for a matched path
+* using a single matcher adds the headers for a matched data path (with header)
+* using a single matcher adds the header for a matched data path (without header)
+* using a single matcher does not add the header for an unmatched path
+* using root matcher adds the header to the /
+* using root matcher adds the header to the /index
+* using root matcher adds the header for a matched data path (with header)
+* using root matcher adds the header for a matched data path (without header)
+* using a single matcher with i18n adds the header for a matched path
+* using a single matcher with i18n adds the header for a mathed root path with /index
+* using a single matcher with i18n adds the headers for a matched data path
+* using a single matcher with i18n does not add the header for an unmatched path
+* using a single matcher with i18n and trailingSlash adds the header for a matched path
+* using a single matcher with i18n and trailingSlash adds the header for a mathed root path with /index
+* using a single matcher with i18n and trailingSlash adds the headers for a matched data path
+* using a single matcher with i18n and trailingSlash does not add the header for an unmatched path
+* using a single matcher with i18n and basePath adds the header for a matched path
+* using a single matcher with i18n and basePath adds the header for a mathed root path with /index
+* using a single matcher with i18n and basePath adds the headers for a matched data path
+* using a single matcher with i18n and basePath does not add the header for an unmatched path
+* using a single matcher with i18n and basePath and trailingSlash adds the header for a matched path
+* using a single matcher with i18n and basePath and trailingSlash adds the header for a mathed root path with /index
+* using a single matcher with i18n and basePath and trailingSlash adds the headers for a matched data path
+* using a single matcher with i18n and basePath and trailingSlash does not add the header for an unmatched path
+
+test/e2e/middleware-shallow-link/index.test.ts
+* browser-shallow-navigation should render the correct page
+
+test/e2e/middleware-rewrites/test/index.test.ts
+* Middleware Rewrite should handle next.config.js rewrite with body correctly
+* Middleware Rewrite should handle middleware rewrite with body correctly
+* Middleware Rewrite should handle static dynamic rewrite from middleware correctly
+* Middleware Rewrite should not have un-necessary data request on rewrite
+* Middleware Rewrite should not mix component cache when navigating between dynamic routes
+* Middleware Rewrite should hard navigate on 404 for data request
+* Middleware Rewrite should rewrite correctly when navigating via history
+* Middleware Rewrite should rewrite correctly when navigating via history after query update
+* Middleware Rewrite should return HTML/data correctly for pre-rendered page
+* Middleware Rewrite should override with rewrite internally correctly
+* Middleware Rewrite should rewrite to data urls for incoming data request internally rewritten
+* Middleware Rewrite should override with rewrite externally correctly
+* Middleware Rewrite should rewrite to the external url for incoming data request externally rewritten
+* Middleware Rewrite should rewrite to fallback: true page successfully
+* Middleware Rewrite should allow to opt-out prefetch caching
+* Middleware Rewrite should allow to rewrite keeping the locale in pathname
+* Middleware Rewrite should allow to rewrite to a different locale
+* Middleware Rewrite should behave consistently on recursive rewrites
+* Middleware Rewrite should allow to switch locales
+* Middleware Rewrite should have correct query info for dynamic route after query hydration
+* Middleware Rewrite should handle shallow navigation correctly (non-dynamic page)
+* Middleware Rewrite should handle shallow navigation correctly (dynamic page)
+* Middleware Rewrite should resolve dynamic route after rewrite correctly
+* Middleware Rewrite should add a cookie and rewrite to a/b test
+* Middleware Rewrite should clear query parameters
+* Middleware Rewrite should rewrite to about page
+* Middleware Rewrite support colons in path
+* Middleware Rewrite can rewrite to path with colon
+* Middleware Rewrite can rewrite from path with colon
+* Middleware Rewrite can rewrite from path with colon and retain query parameter
+* Middleware Rewrite can rewrite to path with colon and retain query parameter
+* Middleware Rewrite should rewrite when not using localhost
+* Middleware Rewrite should rewrite to Vercel
+* Middleware Rewrite should rewrite without hard navigation
+* Middleware Rewrite should not call middleware with shallow push
+* Middleware Rewrite should correctly rewriting to a different dynamic path
+* Middleware Rewrite should not have unexpected errors
+* Middleware Rewrite /fr should add a cookie and rewrite to a/b test
+* Middleware Rewrite /fr should clear query parameters
+* Middleware Rewrite /fr should rewrite to about page
+* Middleware Rewrite /fr support colons in path
+* Middleware Rewrite /fr can rewrite to path with colon
+* Middleware Rewrite /fr can rewrite from path with colon
+* Middleware Rewrite /fr can rewrite from path with colon and retain query parameter
+* Middleware Rewrite /fr can rewrite to path with colon and retain query parameter
+* Middleware Rewrite /fr should rewrite when not using localhost
+* Middleware Rewrite /fr should rewrite to Vercel
+* Middleware Rewrite /fr should rewrite without hard navigation
+* Middleware Rewrite /fr should not call middleware with shallow push
+* Middleware Rewrite /fr should correctly rewriting to a different dynamic path
+* Middleware Rewrite should not have unexpected errors
+
+test/e2e/multi-zone/multi-zone.test.ts
+* multi-zone should correctly respond for /first
+* multi-zone should correctly respond for /second
+* multi-zone should correctly respond for /first/blog/post-1
+* multi-zone should correctly respond for /second/blog/post-1
+* multi-zone should correctly respond for /second/another/post-1
+
+test/e2e/new-link-behavior/child-a-tag-error.test.ts
+* New Link Behavior with <a> child should throw error with <a> child
+
+test/e2e/new-link-behavior/index.test.ts
+* New Link Behavior should render link with <a>
+* New Link Behavior should navigate to /about
+* New Link Behavior should handle onclick
+* New Link Behavior should handle preventdefault
+* New Link Behavior should render link with id
+* New Link Behavior should render link with classname
+* New Link Behavior should render link with multiple children
+
+test/e2e/new-link-behavior/material-ui.test.ts
+* New Link Behavior with material-ui should render MuiLink with <a>
+
+test/e2e/new-link-behavior/stitches.test.ts
+* New Link Behavior with stitches should render <a>
+
+test/e2e/new-link-behavior/typescript.test.ts
+* New Link Behavior should render link with <a>
+* New Link Behavior should apply ref on link
+
+test/e2e/middleware-trailing-slash/test/index.test.ts
+* Middleware Runtime trailing slash with .html extension should work when requesting the page directly
+* Middleware Runtime trailing slash with .html extension should work using browser
+* Middleware Runtime trailing slash with .html extension should work when navigating
+* Middleware Runtime trailing slash without .html extension should work when requesting the page directly
+* Middleware Runtime trailing slash without .html extension should work using browser
+* Middleware Runtime trailing slash without .html extension should work when navigating
+* Middleware Runtime trailing slash should have correct dynamic route params on client-transition to dynamic route
+* Middleware Runtime trailing slash should have correct dynamic route params for middleware rewrite to dynamic route
+* Middleware Runtime trailing slash should redirect the same for direct visit and client-transition
+* Middleware Runtime trailing slash should rewrite the same for direct visit and client-transition
+* Middleware Runtime trailing slash should rewrite correctly for non-SSG/SSP page
+* Middleware Runtime trailing slash should respond with 400 on decode failure
+* Middleware Runtime trailing slash should validate & parse request url from any route
+* Middleware Runtime trailing slash should trigger middleware for data requests
+* Middleware Runtime trailing slash should normalize data requests into page requests
+* Middleware Runtime trailing slash should keep non data requests in their original shape
+* Middleware Runtime trailing slash should add a rewrite header on data requests for rewrites
+
+test/e2e/config-schema-check/index.test.ts
+* next.config.js schema validating - defaultConfig should validate against defaultConfig
+
+test/e2e/next-font/without-preloaded-fonts.test.ts
+* next/font/google without-preloaded-fonts without _app without fonts
+
+test/e2e/next-head/index.test.ts
+* next/head should place charset element at the top of <head>
+* next/head should have correct head tags in initial document
+* next/head should have correct head tags from a fragment
+* next/head should have correct head tags after hydration
+* next/head should have current head tags from a _document getInitialProps
+
+test/e2e/next-font/index.test.ts
+* next/font app import values page with font
+* next/font app import values page with local fonts
+* next/font app import values Variable font without weight range
+* next/font app computed styles page with fonts
+* next/font app computed styles page using variables
+* next/font app computed styles page using fallback fonts
+* next/font app Fallback fontfaces local Indie flower
+* next/font app Fallback fontfaces local Fraunces
+* next/font app Fallback fontfaces local Roboto multiple weights and styles
+* next/font app Fallback fontfaces local Roboto multiple weights and styles - variable 1
+* next/font app Fallback fontfaces local Roboto multiple weights and styles - variable 2
+* next/font app Fallback fontfaces google Fraunces
+* next/font app-old import values page with font
+* next/font app-old import values page with local fonts
+* next/font app-old import values Variable font without weight range
+* next/font app-old computed styles page with fonts
+* next/font app-old computed styles page using variables
+* next/font app-old computed styles page using fallback fonts
+* next/font app-old Fallback fontfaces local Indie flower
+* next/font app-old Fallback fontfaces local Fraunces
+* next/font app-old Fallback fontfaces local Roboto multiple weights and styles
+* next/font app-old Fallback fontfaces local Roboto multiple weights and styles - variable 1
+* next/font app-old Fallback fontfaces local Roboto multiple weights and styles - variable 2
+* next/font app-old Fallback fontfaces google Fraunces
+
+test/e2e/next-image-forward-ref/index.test.ts
+* next-image-forward-ref allows framer-motion to animate opacity
+
+test/e2e/no-eslint-warn-with-no-eslint-config/index.test.ts
+* no-eslint-warn-with-no-eslint-config should render
+* no-eslint-warn-with-no-eslint-config should not have eslint warnings when no eslint config
+
+test/e2e/og-api/index.test.ts
+* og-api should respond from index
+* og-api should work in app route in node runtime
+* og-api should throw error when returning a response object in pages/api in node runtime
+
+test/e2e/next-script/index.test.ts
+* beforeInteractive in document Head Script is injected server-side
+* beforeInteractive in document body Script is injected server-side
+
+test/e2e/middleware-general/test/index.test.ts
+* Middleware Runtime with i18n should work with notFound: true correctly
+* Middleware Runtime with i18n should be able to rewrite on _next/static/chunks/pages/ 404
+* Middleware Runtime with i18n should have correct query values for rewrite to ssg page
+* Middleware Runtime with i18n should have correct dynamic route params on client-transition to dynamic route
+* Middleware Runtime with i18n should have correct dynamic route params for middleware rewrite to dynamic route
+* Middleware Runtime with i18n should redirect the same for direct visit and client-transition
+* Middleware Runtime with i18n should rewrite the same for direct visit and client-transition
+* Middleware Runtime with i18n should rewrite correctly for non-SSG/SSP page
+* Middleware Runtime with i18n should respond with 400 on decode failure
+* Middleware Runtime with i18n should set fetch user agent correctly
+* Middleware Runtime with i18n allows to access env variables
+* Middleware Runtime with i18n should contain \`globalThis\`
+* Middleware Runtime with i18n should contain crypto APIs
+* Middleware Runtime with i18n should accept a URL instance for fetch
+* Middleware Runtime with i18n should allow to abort a fetch request
+* Middleware Runtime with i18n should validate & parse request url from any route
+* Middleware Runtime with i18n should validate & parse request url from a dynamic route with params
+* Middleware Runtime with i18n should validate & parse request url from a dynamic route with params and no query
+* Middleware Runtime with i18n should validate & parse request url from a dynamic route with params and query
+* Middleware Runtime with i18n should throw when using URL with a relative URL
+* Middleware Runtime with i18n should throw when using NextRequest with a relative URL
+* Middleware Runtime with i18n should throw when using Request with a relative URL
+* Middleware Runtime with i18n should warn when using Response.redirect with a relative URL
+* Middleware Runtime with i18n should warn when using NextResponse.redirect with a relative URL
+* Middleware Runtime with i18n should throw when using NextResponse.rewrite with a relative URL
+* Middleware Runtime with i18n should trigger middleware for data requests
+* Middleware Runtime with i18n should normalize data requests into page requests
+* Middleware Runtime with i18n should keep non data requests in their original shape
+* Middleware Runtime with i18n should add a rewrite header on data requests for rewrites
+* Middleware Runtime with i18n hard-navigates when the data request failed
+* Middleware Runtime without i18n should work with notFound: true correctly
+* Middleware Runtime without i18n should be able to rewrite on _next/static/chunks/pages/ 404
+* Middleware Runtime without i18n should only contain middleware route in dev middleware manifest
+* Middleware Runtime without i18n should have correct query values for rewrite to ssg page
+* Middleware Runtime without i18n should have correct dynamic route params on client-transition to dynamic route
+* Middleware Runtime without i18n should have correct dynamic route params for middleware rewrite to dynamic route
+* Middleware Runtime without i18n should redirect the same for direct visit and client-transition
+* Middleware Runtime without i18n should rewrite the same for direct visit and client-transition
+* Middleware Runtime without i18n should rewrite correctly for non-SSG/SSP page
+* Middleware Runtime without i18n should respond with 400 on decode failure
+* Middleware Runtime without i18n should set fetch user agent correctly
+* Middleware Runtime without i18n allows to access env variables
+* Middleware Runtime without i18n should contain \`globalThis\`
+* Middleware Runtime without i18n should contain crypto APIs
+* Middleware Runtime without i18n should accept a URL instance for fetch
+* Middleware Runtime without i18n should allow to abort a fetch request
+* Middleware Runtime without i18n should validate & parse request url from any route
+* Middleware Runtime without i18n should validate & parse request url from a dynamic route with params and query
+* Middleware Runtime without i18n should throw when using URL with a relative URL
+* Middleware Runtime without i18n should throw when using NextRequest with a relative URL
+* Middleware Runtime without i18n should throw when using Request with a relative URL
+* Middleware Runtime without i18n should warn when using Response.redirect with a relative URL
+* Middleware Runtime without i18n should warn when using NextResponse.redirect with a relative URL
+* Middleware Runtime without i18n should throw when using NextResponse.rewrite with a relative URL
+* Middleware Runtime without i18n should trigger middleware for data requests
+* Middleware Runtime without i18n should normalize data requests into page requests
+* Middleware Runtime without i18n should keep non data requests in their original shape
+* Middleware Runtime without i18n should add a rewrite header on data requests for rewrites
+* Middleware Runtime without i18n hard-navigates when the data request failed
+
+test/e2e/optimized-loading/test/index.test.ts
+* Optimized loading page / should render the page /
+* Optimized loading page / should not have JS preload links
+* Optimized loading page / should load scripts with defer in head
+* Optimized loading page /page1 should render the page /page1
+* Optimized loading page /page1 should not have JS preload links
+* Optimized loading page /page1 should load scripts with defer in head
+
+test/e2e/pages-performance-mark/index.test.ts
+* pages performance mark should render the page correctly without crashing with performance mark
+
+test/e2e/postcss-config-cjs/index.test.ts
+* postcss-config-cjs works with postcss.config.cjs files
+
+test/e2e/prerender-crawler.test.ts
+* Prerender crawler handling should return prerendered page for correctly
+* Prerender crawler handling should return fallback for non-crawler correctly
+* Prerender crawler handling should block for crawler correctly
+
+test/e2e/prerender-native-module.test.ts
+* prerender native module should render index correctly
+* prerender native module should render /blog/first correctly
+* prerender native module should render /blog/second correctly
+
+test/e2e/proxy-request-with-middleware/test/index.test.ts
+* Requests not effected when middleware used should proxy GET request 
+* Requests not effected when middleware used should proxy POST request with body
+
+test/e2e/repeated-forward-slashes-error/repeated-forward-slashes-error.test.ts
+* repeated-forward-slashes-error should log error when href has repeated forward-slashes
+
+test/e2e/reload-scroll-backforward-restoration/index.test.ts
+* reload-scroll-back-restoration should restore the scroll position on navigating back
+* reload-scroll-back-restoration should restore the scroll position on navigating forward
+
+test/e2e/ssr-react-context/index.test.ts
+* React Context should render a page with context
+* React Context should render correctly with context consumer
+* React Context should render with context after change
+
+test/e2e/skip-trailing-slash-redirect/index.test.ts
+* skip-trailing-slash-redirect should parse locale info for data request correctly
+* skip-trailing-slash-redirect should be able to redirect locale casing $1
+* skip-trailing-slash-redirect should be able to redirect locale casing $1
+* skip-trailing-slash-redirect should handle external rewrite correctly /chained-rewrite-ssg
+* skip-trailing-slash-redirect should handle external rewrite correctly /chained-rewrite-static
+* skip-trailing-slash-redirect should handle external rewrite correctly /chained-rewrite-ssr
+* skip-trailing-slash-redirect should handle external rewrite correctly /docs/first
+* skip-trailing-slash-redirect should handle external rewrite correctly /docs-auto-static/first
+* skip-trailing-slash-redirect should handle external rewrite correctly /docs-ssr/first
+* skip-trailing-slash-redirect should allow rewriting invalid buildId correctly
+* skip-trailing-slash-redirect should provide original _next/data URL with skipMiddlewareUrlNormalize
+* skip-trailing-slash-redirect should allow response body from middleware with flag
+* skip-trailing-slash-redirect should merge cookies from middleware and API routes correctly
+* skip-trailing-slash-redirect should merge cookies from middleware and edge API routes correctly
+* skip-trailing-slash-redirect should correct skip URL normalizing in middleware
+* skip-trailing-slash-redirect should apply config redirect correctly
+* skip-trailing-slash-redirect should apply config rewrites correctly
+* skip-trailing-slash-redirect should not apply trailing slash on load on client
+* skip-trailing-slash-redirect pages dir should not apply trailing slash redirect (with slash)
+* skip-trailing-slash-redirect pages dir should not apply trailing slash redirect (without slash)
+* skip-trailing-slash-redirect pages dir should respond to index correctly
+* skip-trailing-slash-redirect pages dir should respond to dynamic route correctly
+* skip-trailing-slash-redirect pages dir should navigate client side correctly
+* skip-trailing-slash-redirect app dir - skip trailing slash redirect should not apply trailing slash redirect (with slash)
+* skip-trailing-slash-redirect app dir - skip trailing slash redirect should not apply trailing slash redirect (without slash)
+* skip-trailing-slash-redirect app dir - skip trailing slash redirect should preserve original trailing slashes to links on client
+* skip-trailing-slash-redirect app dir - skip trailing slash redirect should respond to index correctly
+* skip-trailing-slash-redirect app dir - skip trailing slash redirect should respond to dynamic route correctly
+* skip-trailing-slash-redirect app dir - skip trailing slash redirect should navigate client side correctly
+
+test/e2e/streaming-ssr/index.test.ts
+* streaming SSR with custom next configs should match more specific route along with dynamic routes
+* streaming SSR with custom next configs should work with custom document
+
+test/e2e/styled-jsx/index.test.ts
+* styled-jsx should contain styled-jsx styles during SSR
+* styled-jsx should render styles during CSR
+* styled-jsx should render styles during CSR (AMP)
+* styled-jsx should render styles during SSR (AMP)
+
+test/e2e/switchable-runtime/index.test.ts
+* Switchable runtime Switchable runtime (dev) should not include edge api routes and edge ssr routes into dev middleware manifest
+* Switchable runtime Switchable runtime (dev) should not consume server.js file extension
+* Switchable runtime Switchable runtime (dev) should be possible to switch between runtimes in API routes
+
+test/e2e/test-template/{{ toFileName name }}/{{ toFileName name }}.test.ts
+* {{name}} should work using cheerio
+* {{name}} should work using browser
+* {{name}} should work with html
+* {{name}} should work with fetch
+
+test/e2e/prerender.test.ts
+* Prerender should navigate between pages successfully
+* Prerender should respond with 405 for POST to static page
+* Prerender should SSR normal page correctly
+* Prerender should SSR incremental page correctly
+* Prerender should SSR blocking path correctly (blocking)
+* Prerender should SSR blocking path correctly (pre-rendered)
+* Prerender should have gsp in __NEXT_DATA__
+* Prerender should not have gsp in __NEXT_DATA__ for non-GSP page
+* Prerender should not supply query values to params or useRouter non-dynamic page SSR
+* Prerender should not supply query values to params in /_next/data request
+* Prerender should not supply query values to params or useRouter dynamic page SSR
+* Prerender should return data correctly
+* Prerender should return data correctly for dynamic page
+* Prerender should return data correctly for dynamic page (non-seeded)
+* Prerender should navigate to a normal page and back
+* Prerender should parse query values on mount correctly
+* Prerender should reload page on failed data request
+* Prerender should SSR dynamic page with brackets in param as object
+* Prerender should navigate to dynamic page with brackets in param as object
+* Prerender should SSR dynamic page with brackets in param as string
+* Prerender should navigate to dynamic page with brackets in param as string
+* Prerender should not return data for fallback: false and missing dynamic page
+* Prerender should server prerendered path correctly for SSG pages that starts with api-docs
+* Prerender should render correctly for SSG pages that starts with api-docs
+* Prerender should return data correctly for SSG pages that starts with api-docs
+* Prerender should SSR catch-all page with brackets in param as string
+* Prerender should navigate to catch-all page with brackets in param as string
+* Prerender should SSR catch-all page with brackets in param as object
+* Prerender should navigate to catch-all page with brackets in param as object
+* Prerender should support prerendered catchall route
+* Prerender should support lazy catchall route
+* Prerender should support nested lazy catchall route
+* Prerender should support prerendered catchall-explicit route (nested)
+* Prerender should support prerendered catchall-explicit route (single)
+* Prerender should handle fallback only page correctly HTML
+* Prerender should handle fallback only page correctly data
+* Prerender should 404 for a missing catchall explicit route
+* Prerender should 404 for an invalid data url
+* Prerender should allow rewriting to SSG page with fallback: false
+* Prerender should allow rewriting to SSG page with fallback: 'blocking'
+* Prerender should fetch /_next/data correctly with mismatched href and as
+* Prerender should show warning when large amount of page data is returned
+* Prerender should show warning every time page with large amount of page data is returned
+* Prerender should not show warning from url prop being returned
+* Prerender should always show fallback for page not in getStaticPaths
+* Prerender should not show fallback for page in getStaticPaths
+* Prerender should never show fallback for page not in getStaticPaths when blocking
+* Prerender should not show fallback for page in getStaticPaths when blocking
+* Prerender should log error in console and browser in dev mode
+* Prerender should always call getStaticProps without caching in dev
+* Prerender should error on bad object from getStaticProps
+* Prerender should error on dynamic page without getStaticPaths
+* Prerender should error on dynamic page without getStaticPaths returning fallback property
+* Prerender should not re-call getStaticProps when updating query
+* Prerender should show fallback before invalid JSON is returned from getStaticProps
+* Prerender should not fallback before invalid JSON is returned from getStaticProps when blocking fallback
+* Prerender should show error for invalid JSON returned from getStaticProps on SSR
+* Prerender should show error for invalid JSON returned from getStaticProps on CST
+* Prerender should not contain headers already sent error
+* Prerender should respond for catch-all deep folder
+* Prerender should not fail to update incremental cache
+* Prerender should not have experimental undici warning
+* Prerender should not have attempted sending invalid payload
+
+test/e2e/test-utils-tests/basic/basic.test.ts
+* createNextDescribe should work
+
+test/e2e/third-parties/index.test.ts
+* @next/third-parties basic usage renders YoutubeEmbed
+* @next/third-parties basic usage renders GoogleMapsEmbed
+
+test/e2e/trailingslash-with-rewrite/index.test.ts
+* trailingSlash:true with rewrites and getStaticProps should work
+
+test/e2e/transpile-packages/index.test.ts
+* transpile packages css should handle global css imports inside transpiled modules
+* transpile packages css should handle global scss imports inside transpiled modules
+* transpile packages css should handle css modules imports inside transpiled modules
+* transpile packages css should handle scss modules imports inside transpiled modules
+
+test/e2e/typescript-version-no-warning/typescript-version-no-warning.test.ts
+* typescript-version-no-warning should skip
+
+test/e2e/typescript-version-warning/typescript-version-warning.test.ts
+* typescript-version-warning should skip
+
+test/e2e/undici-fetch/index.test.ts
+* undici fetch undici global fetch should return true when undici is used
+* undici fetch undici global Headers should return true when undici is used
+* undici fetch undici global Request should return true when undici is used
+* undici fetch undici global Response should return true when undici is used
+
+test/e2e/type-module-interop/index.test.ts
+* Type module interop should render server-side
+* Type module interop should render client-side
+* Type module interop should render server-side with modules
+* Type module interop should render client-side with modules
 
 test/e2e/app-dir/rsc-basic/rsc-basic.test.ts
 * app dir - rsc basics should correctly render page returning null
@@ -2126,16 +3055,120 @@ test/e2e/app-dir/rsc-basic/rsc-basic.test.ts
 * app dir - rsc basics should not use bundled react for pages with app
 * app dir - rsc basics should use canary react for app
 
-test/e2e/app-dir/parallel-routes-and-interception/parallel-routes-and-interception.test.ts
-* parallel-routes-and-interception parallel routes should match parallel routes
-* parallel-routes-and-interception parallel routes should render nested parallel routes
-* parallel-routes-and-interception parallel routes should apply the catch-all route to the parallel route if no matching route is found
-* parallel-routes-and-interception route intercepting with dynamic routes should render intercepted route
-* parallel-routes-and-interception route intercepting with dynamic optional catch-all routes should render intercepted route
-* parallel-routes-and-interception route intercepting with dynamic catch-all routes should render intercepted route
-* parallel-routes-and-interception route intercepting should render intercepted route
-* parallel-routes-and-interception route intercepting should render intercepted route from a nested route
-* parallel-routes-and-interception route intercepting should re-render the layout on the server when it had a default child route
+test/integration/conflicting-public-file-page/test/index.test.js
+* Errors on conflict between public file and page file development mode Throws error during development
+
+test/integration/config/test/index.test.js
+* Configuration should disable X-Powered-By header support
+* Configuration renders server config on the server only
+* Configuration renders public config on the server only
+* Configuration correctly imports a package that defines \`module\` but no \`main\` in package.json
+* Configuration should have config available on the client
+
+test/integration/css-client-nav/test/index.test.js
+* CSS Module client-side navigation dev should be able to client-side navigate from red to blue
+* CSS Module client-side navigation dev should be able to client-side navigate from blue to red
+* CSS Module client-side navigation dev should be able to client-side navigate from none to red
+* CSS Module client-side navigation dev should be able to client-side navigate from none to blue
+
+test/integration/custom-routes-catchall/test/index.test.js
+* Custom routes dev mode should rewrite and render page correctly
+* Custom routes dev mode should rewrite to /_next/static correctly
+* Custom routes dev mode should rewrite to public/static correctly
+* Custom routes dev mode should rewrite to public file correctly
+
+test/integration/custom-error/test/index.test.js
+* Custom _error dev mode 2 should not warn with /_error and /404
+* Custom _error dev mode 2 should warn on custom /_error without custom /404
+
+test/integration/css-modules/test/index.test.js
+* Has CSS Module in computed styles in Development should have CSS for page
+* Can hot reload CSS Module without losing state should update CSS color without remounting <input>
+
+test/integration/css/test/css-and-styled-jsx.test.js
+* Ordering with styled-jsx (dev) should have the correct color (css ordering)
+
+test/integration/config-output-export/test/index.test.ts
+* config-output-export should work with static homepage
+* config-output-export should error with "i18n" config
+* config-output-export should error with "rewrites" config
+* config-output-export should error with "redirects" config
+* config-output-export should error with "headers" config
+* config-output-export should error with api routes function
+* config-output-export should error with middleware function
+* config-output-export should error with getStaticProps and revalidate 10 seconds (ISR)
+* config-output-export should work with getStaticProps and revalidate false
+* config-output-export should work with getStaticProps and without revalidate
+* config-output-export should error with getServerSideProps without fallback
+* config-output-export should error with getStaticPaths and fallback true
+* config-output-export should error with getStaticPaths and fallback blocking
+* config-output-export should work with getStaticPaths and fallback false
+
+test/integration/create-next-app/index.test.ts
+* create next app non-empty directory
+* create next app empty directory
+* create next app invalid example name
+* create next app valid example
+* create next app valid example without package.json
+* create next app should allow example with GitHub URL
+* create next app should allow example with GitHub URL with trailing slash
+* create next app should allow example with GitHub URL and example-path
+* create next app should use --example-path over the file path in the GitHub URL
+* create next app should fall back to default template
+* create next app should allow an example named default
+* create next app should exit if example flag is empty
+* create next app should exit if the folder is not writable
+* create next app should create a project in the current directory
+* create next app should ask the user for a name for the project if none supplied
+
+test/integration/css/test/css-modules.test.js
+* Basic CSS Modules Ordering Development Mode should have correct color on index page (on load)
+* Basic CSS Modules Ordering Development Mode should have correct color on index page (on hover)
+* Basic CSS Modules Ordering Development Mode should have correct color on index page (on nav)
+* Ordering with Global CSS and Modules (dev) should not execute scripts in any order
+* Ordering with Global CSS and Modules (dev) should have the correct color (css ordering)
+* Ordering with Global CSS and Modules (dev) should have the correct color (css ordering) during hot reloads
+* CSS Modules Composes Ordering Development Mode should have correct color on index page (on load)
+* CSS Modules Composes Ordering Development Mode should have correct color on index page (on nav from other)
+
+test/integration/create-next-app/package-manager.test.ts
+* should use npm as the package manager on supplying --use-npm
+* should use npm as the package manager on supplying --use-npm with example
+* should use Yarn as the package manager on supplying --use-yarn
+* should use Yarn as the package manager on supplying --use-yarn with example
+* should use pnpm as the package manager on supplying --use-pnpm
+* should use pnpm as the package manager on supplying --use-pnpm with example
+* should use Bun as the package manager on supplying --use-bun with example
+* should infer npm as the package manager
+* should infer npm as the package manager with example
+* should infer yarn as the package manager
+* should infer yarn as the package manager with example
+* should infer pnpm as the package manager
+* should infer pnpm as the package manager with example
+* should infer Bun as the package manager
+* should infer Bun as the package manager with example
+
+test/integration/css/test/dev-css-handling.test.js
+* Has CSS in computed styles in Development should have CSS for page
+* Body is not hidden when unused in Development should have body visible
+* Body is not hidden when broken in Development should have body visible
+* React Lifecyce Order (dev) should have the correct color on mount after navigation
+
+test/integration/create-next-app/templates-app.test.ts
+* create-next-app --app should create TS appDir projects with --ts
+* create-next-app --app should create JS appDir projects with --js
+* create-next-app --app should create JS appDir projects with --js --src-dir
+* create-next-app --app should create Tailwind CSS appDir projects with --tailwind
+
+test/integration/create-next-app/templates-pages.test.ts
+* create-next-app templates should prompt user to choose if --ts or --js is not provided
+* create-next-app templates should create TS projects with --ts, --typescript
+* create-next-app templates should create TS projects with --ts, --typescript --src-dir
+* create-next-app templates should create JS projects with --js, --javascript
+* create-next-app templates should create JS projects with --js, --javascript --src-dir
+* create-next-app templates should prompt user to choose if --import-alias is not provided
+* create-next-app templates should work with --tailwind and --src together
+* create-next-app templates should prompt user to choose if --tailwind or --no-tailwind is not provided
 
 test/integration/custom-routes-i18n-index-redirect/test/index.test.js
 * Custom routes i18n with index redirect dev mode should respond to default locale redirects correctly for index redirect
@@ -2148,6 +3181,11 @@ test/integration/disable-js/test/index.test.js
 * disabled runtime JS dev mode should not have __NEXT_DATA__ script
 * disabled runtime JS dev mode should have a script for each preload link
 
+test/integration/custom-routes-i18n/test/index.test.js
+* Custom routes i18n dev mode should respond to default locale redirects correctly
+* Custom routes i18n dev mode should rewrite index routes correctly
+* Custom routes i18n dev mode should rewrite correctly
+
 test/integration/dist-dir/test/index.test.js
 * distDir dev mode should render the page
 * distDir dev mode should build the app within the given \`dist\` directory
@@ -2156,11 +3194,6 @@ test/integration/dist-dir/test/index.test.js
 test/integration/development-runtime-config/test/index.test.js
 * should work with runtime-config in next.config.js empty runtime-config
 * should work with runtime-config in next.config.js with runtime-config
-
-test/integration/custom-routes-i18n/test/index.test.js
-* Custom routes i18n dev mode should respond to default locale redirects correctly
-* Custom routes i18n dev mode should rewrite index routes correctly
-* Custom routes i18n dev mode should rewrite correctly
 
 test/integration/data-fetching-errors/test/index.test.js
 * GS(S)P Page Errors dev mode should show error for getStaticProps as component member
@@ -2177,18 +3210,18 @@ test/integration/document-head-warnings/test/index.test.js
 test/integration/duplicate-pages/test/index.test.js
 * Handles Duplicate Pages dev mode Shows warning in development
 
-test/integration/dynamic-optional-routing-root-fallback/test/index.test.js
-* Dynamic Optional Routing Root Fallback dev mode should render optional catch-all top-level route with no segments
-* Dynamic Optional Routing Root Fallback dev mode should render optional catch-all top-level route with one segment
-* Dynamic Optional Routing Root Fallback dev mode should render optional catch-all top-level route with two segments
+test/integration/development-hmr-refresh/test/index.test.js
+* page should not reload when the file is not changed
 
 test/integration/dynamic-optional-routing-root-static-paths/test/index.test.js
 * Dynamic Optional Routing dev mode should render optional catch-all top-level route with no segments
 * Dynamic Optional Routing dev mode should render optional catch-all top-level route with one segment
 * Dynamic Optional Routing dev mode should render optional catch-all top-level route with two segments
 
-test/integration/development-hmr-refresh/test/index.test.js
-* page should not reload when the file is not changed
+test/integration/dynamic-optional-routing-root-fallback/test/index.test.js
+* Dynamic Optional Routing Root Fallback dev mode should render optional catch-all top-level route with no segments
+* Dynamic Optional Routing Root Fallback dev mode should render optional catch-all top-level route with one segment
+* Dynamic Optional Routing Root Fallback dev mode should render optional catch-all top-level route with two segments
 
 test/integration/draft-mode/test/index.test.ts
 * Test Draft Mode Development Mode should start development application
@@ -2518,1019 +3551,16 @@ test/integration/edge-runtime-module-errors/test/module-imports.test.js
 * Edge runtime code with imports Edge API importing unused node.js module does not throw in dev at runtime
 * Edge runtime code with imports Middleware importing unused node.js module does not throw in dev at runtime
 
-test/e2e/app-dir/set-cookies/set-cookies.test.ts
-* set-cookies for edge runtime for /app should set two set-cookie headers
-* set-cookies for experimental-edge runtime for /app should set two set-cookie headers
-* set-cookies for node runtime for /pages should set two set-cookie headers
-* set-cookies for node runtime for /app should set two set-cookie headers
-
-test/e2e/app-dir/similar-pages-paths/similar-pages-paths.test.ts
-* app-dir similar pages paths should not have conflicts for similar pattern page paths between app and pages
-
-test/e2e/app-dir/third-parties/basic.test.ts
-* @next/third-parties basic usage renders YoutubeEmbed
-* @next/third-parties basic usage renders GoogleMapsEmbed
-
-test/e2e/app-dir/searchparams-static-bailout/searchparams-static-bailout.test.ts
-* searchparams-static-bailout server component should bailout when using searchParams
-* searchparams-static-bailout server component should not bailout when not using searchParams
-* searchparams-static-bailout client component should bailout when using searchParams
-* searchparams-static-bailout client component should bailout when using searchParams is passed to client component
-* searchparams-static-bailout client component should not bailout when not using searchParams
-
-test/e2e/app-dir/test-template/{{ toFileName name }}/{{ toFileName name }}.test.ts
-* {{name}} should work using cheerio
-* {{name}} should work using browser
-* {{name}} should work with html
-* {{name}} should work with fetch
-
-test/e2e/app-dir/underscore-ignore-app-paths/underscore-ignore-app-paths.test.ts
-* underscore-ignore-app-paths should not serve app path with underscore
-* underscore-ignore-app-paths should serve pages path with underscore
-
-test/e2e/app-dir/trailingslash/trailingslash.test.ts
-* app-dir trailingSlash handling should redirect route when requesting it directly
-* app-dir trailingSlash handling should render link with trailing slash
-* app-dir trailingSlash handling should redirect route when requesting it directly by browser
-* app-dir trailingSlash handling should redirect route when clicking link
-
-test/e2e/app-dir/use-params/use-params.test.ts
-* use-params should work for single dynamic param
-* use-params should work for nested dynamic params
-* use-params should work for catch all params
-* use-params should work for single dynamic param client navigating
-* use-params should work for nested dynamic params client navigating
-
-test/e2e/app-dir/with-exported-function-config/with-exported-function-config.test.ts
-* with-exported-function-config should have correct values in function config manifest
-
-test/e2e/app-dir/use-selected-layout-segment-s/use-selected-layout-segment-s.test.ts
-* useSelectedLayoutSegment(s) should return correct values for root layout
-* useSelectedLayoutSegment(s) should return correct values in layout before static segment
-* useSelectedLayoutSegment(s) should return correct values in layout before param segment
-* useSelectedLayoutSegment(s) should return correct values in layout before catchall segment
-* useSelectedLayoutSegment(s) should return correct values in layout after last segment
-* useSelectedLayoutSegment(s) should correctly update when changing static segment
-* useSelectedLayoutSegment(s) should correctly update when changing param segment
-* useSelectedLayoutSegment(s) should correctly update when changing catchall segment
-
-test/e2e/basepath-trailing-slash.test.ts
-* basePath + trailingSlash should allow URL query strings without refresh
-* basePath + trailingSlash should allow URL query strings on index without refresh
-* basePath + trailingSlash should correctly replace state when same asPath but different url
-
-test/e2e/browserslist-extends/index.test.ts
-* browserslist-extends should work
-
-test/e2e/cancel-request/stream-cancel.test.ts
-* streaming responses cancel inner stream after disconnect middleware cancels stream making progress
-* streaming responses cancel inner stream after disconnect middleware cancels stalled stream
-* streaming responses cancel inner stream after disconnect middleware cancels stream that never sent data
-* streaming responses cancel inner stream after disconnect edge app route handler cancels stream making progress
-* streaming responses cancel inner stream after disconnect edge app route handler cancels stalled stream
-* streaming responses cancel inner stream after disconnect edge app route handler cancels stream that never sent data
-* streaming responses cancel inner stream after disconnect node app route handler cancels stream making progress
-* streaming responses cancel inner stream after disconnect node app route handler cancels stalled stream
-* streaming responses cancel inner stream after disconnect node app route handler cancels stream that never sent data
-* streaming responses cancel inner stream after disconnect edge pages api cancels stream making progress
-* streaming responses cancel inner stream after disconnect edge pages api cancels stalled stream
-* streaming responses cancel inner stream after disconnect edge pages api cancels stream that never sent data
-* streaming responses cancel inner stream after disconnect node pages api cancels stream making progress
-* streaming responses cancel inner stream after disconnect node pages api cancels stalled stream
-* streaming responses cancel inner stream after disconnect node pages api cancels stream that never sent data
-
-test/e2e/children-page/index.test.ts
-* children-page with app dir should show the content if you have a page named children
-* children-page with pages dir should show the content if you have a page named children
-
-test/e2e/config-promise-export/async-function.test.ts
-* async export should work
-
-test/e2e/config-promise-export/promise.test.ts
-* promise export should work
-
-test/e2e/disable-js-preload/test/index.test.js
-* disabled JS preloads should render the page
-* disabled JS preloads should not have JS preload links
-
-test/e2e/dynamic-route-interpolation/index.test.ts
-* Dynamic Route Interpolation should work
-* Dynamic Route Interpolation should work with parameter itself
-* Dynamic Route Interpolation should work with brackets
-* Dynamic Route Interpolation should work with parameter itself in API routes
-* Dynamic Route Interpolation should work with brackets in API routes
-* Dynamic Route Interpolation should bust data cache
-* Dynamic Route Interpolation should bust data cache with symbol
-
-test/e2e/edge-api-endpoints-can-receive-body/index.test.ts
-* Edge API endpoints can receive body reads the body as text
-* Edge API endpoints can receive body reads the body from index
-
-test/e2e/edge-async-local-storage/index.test.ts
-* edge api can use async local storage cans use a single instance per request
-* edge api can use async local storage cans use multiple instances per request
-
-test/e2e/edge-can-read-request-body/index.test.ts
-* Edge can read request body renders the static page
-* Edge can read request body middleware reads a JSON body
-* Edge can read request body middleware reads a text body
-* Edge can read request body middleware reads an URL encoded form data
-* Edge can read request body middleware reads a multipart form data
-
-test/e2e/edge-compiler-can-import-blob-assets/index.test.ts
-* Edge Compiler can import asset assets allows to fetch a remote URL
-* Edge Compiler can import asset assets allows to fetch a remote URL with a path and basename
-
-test/e2e/edge-compiler-module-exports-preference/index.test.ts
-* Edge compiler module exports preference favors the browser export
-
-test/e2e/basepath.test.ts
-* basePath should navigate to /404 correctly client-side
-* basePath should navigate to /_error correctly client-side
-* basePath should navigate to external site and back
-* basePath should handle query/hash correctly during query updating #hello? $search
-* basePath should handle query/hash correctly during query updating #? $search
-* basePath should handle query/hash correctly during query updating ## $search
-* basePath should handle query/hash correctly during query updating ##? $search
-* basePath should handle query/hash correctly during query updating ##hello? $search
-* basePath should handle query/hash correctly during query updating ##hello $search
-* basePath should handle query/hash correctly during query updating #hello?world $search
-* basePath should handle query/hash correctly during query updating #a ?hello=world
-* basePath should handle query/hash correctly during query updating #a ?hello
-* basePath should handle query/hash correctly during query updating #a ?hello=
-* basePath should navigate back correctly to a dynamic route
-* basePath should respect basePath in amphtml link rel
-* basePath should 404 for public file without basePath
-* basePath should serve public file with basePath correctly
-* basePath should rewrite with basePath by default
-* basePath should not rewrite without basePath without disabling
-* basePath should not rewrite with basePath when set to false
-* basePath should rewrite without basePath when set to false
-* basePath should redirect with basePath by default
-* basePath should not redirect without basePath without disabling
-* basePath should not redirect with basePath when set to false
-* basePath should redirect without basePath when set to false
-* basePath should add header with basePath by default
-* basePath should not add header without basePath without disabling
-* basePath should not add header with basePath when set to false
-* basePath should add header without basePath when set to false
-* basePath should not update URL for a 404
-* basePath should handle 404 urls that start with basePath
-* basePath should update dynamic params after mount correctly
-* basePath should navigate to index page with getStaticProps
-* basePath should work with nested folder with same name as basePath
-* basePath should work with normal dynamic page
-* basePath should work with hash links
-* basePath should work with catch-all page
-* basePath should redirect trailing slash correctly
-* basePath should redirect trailing slash on root correctly
-* basePath should navigate an absolute url
-* basePath should navigate an absolute local url with basePath
-* basePath should navigate an absolute local url without basePath
-* basePath should 404 when manually adding basePath with <Link>
-* basePath should 404 when manually adding basePath with router.push
-* basePath should 404 when manually adding basePath with router.replace
-* basePath should show the hello page under the /docs prefix
-* basePath should have correct router paths on first load of /
-* basePath should have correct router paths on first load of /hello
-* basePath should fetch data for getStaticProps without reloading
-* basePath should fetch data for getServerSideProps without reloading
-* basePath should show 404 for page not under the /docs prefix
-* basePath should show the other-page page under the /docs prefix
-* basePath should have basePath field on Router
-* basePath should navigate to the page without refresh
-* basePath should use urls with basepath in router events
-* basePath should use urls with basepath in router events for hash changes
-* basePath should use urls with basepath in router events for cancelled routes
-* basePath should use urls with basepath in router events for failed route change
-* basePath should allow URL query strings without refresh
-* basePath should allow URL query strings on index without refresh
-* basePath should correctly replace state when same asPath but different url
-
-test/e2e/edge-pages-support/index.test.ts
-* edge-render-getserversideprops should have correct query for pages/api
-* edge-render-getserversideprops should have correct query for pages/api dynamic
-
-test/e2e/favicon-short-circuit/favicon-short-circuit.test.ts
-* favicon-short-circuit should short circuit the favicon in development
-
-test/e2e/edge-configurable-runtime/index.test.ts
-* Configurable runtime for src/pages and API routes In dev mode runs with no warning API route on the edge runtime
-* Configurable runtime for pages and API routes In dev mode runs with no warning API route on the edge runtime
-
-test/e2e/conflicting-app-page-error/index.test.ts
-* Conflict between app file and pages file should not show error overlay for non conflict pages under app or pages dir
-
-test/e2e/hello-world/hello-world.test.ts
-* hello-world should work using cheerio
-* hello-world should work using browser
-* hello-world should work with html
-* hello-world should work with fetch
-
-test/e2e/handle-non-hoisted-swc-helpers/index.test.ts
-* handle-non-hoisted-swc-helpers should work
-
-test/e2e/i18n-api-support/index.test.ts
-* i18n API support should respond to normal API request
-* i18n API support should respond to normal dynamic API request
-* i18n API support should fallback rewrite non-matching API request
-
-test/e2e/i18n-data-route/i18n-data-route.test.ts
-* i18n-data-route with locale prefix /en-CA should render /about via /en-CA/about
-* i18n-data-route with locale prefix /en-CA should render /[slug]/about via /en-CA/blog/about
-* i18n-data-route with locale prefix /en-CA should serve data for /about
-* i18n-data-route with locale prefix /en-CA should serve data for /[slug]/about
-* i18n-data-route with locale prefix /fr-CA should render /about via /fr-CA/about
-* i18n-data-route with locale prefix /fr-CA should render /[slug]/about via /fr-CA/blog/about
-* i18n-data-route with locale prefix /fr-CA should serve data for /about
-* i18n-data-route with locale prefix /fr-CA should serve data for /[slug]/about
-* i18n-data-route without locale prefix should render /about via /about
-* i18n-data-route without locale prefix should render /[slug]/about via /blog/about
-* i18n-data-route without locale prefix should serve data for /about
-* i18n-data-route without locale prefix should serve data for /[slug]/about
-
-test/e2e/getserversideprops/test/index.test.ts
-* getServerSideProps should navigate between pages successfully
-* getServerSideProps should work with early request ending
-* getServerSideProps should allow POST request for getServerSideProps page
-* getServerSideProps should render correctly when notFound is false (non-dynamic)
-* getServerSideProps should render 404 correctly when notFound is returned (non-dynamic)
-* getServerSideProps should render 404 correctly when notFound is returned client-transition (non-dynamic)
-* getServerSideProps should render correctly when notFound is false (dynamic)
-* getServerSideProps should render 404 correctly when notFound is returned (dynamic)
-* getServerSideProps should render 404 correctly when notFound is returned client-transition (dynamic)
-* getServerSideProps should SSR normal page correctly
-* getServerSideProps should SSR getServerSideProps page correctly
-* getServerSideProps should handle throw ENOENT correctly
-* getServerSideProps should have gssp in __NEXT_DATA__
-* getServerSideProps should not have gssp in __NEXT_DATA__ for non-GSSP page
-* getServerSideProps should supply query values SSR
-* getServerSideProps should supply params values for catchall correctly
-* getServerSideProps should have original req.url for /_next/data request dynamic page
-* getServerSideProps should have original req.url for /_next/data request dynamic page with query
-* getServerSideProps should have original req.url for /_next/data request
-* getServerSideProps should have original req.url for /_next/data request with query
-* getServerSideProps should have correct req.url and query for direct visit dynamic page
-* getServerSideProps should have correct req.url and query for direct visit dynamic page rewrite direct
-* getServerSideProps should have correct req.url and query for direct visit dynamic page rewrite direct with internal query
-* getServerSideProps should have correct req.url and query for direct visit dynamic page rewrite param
-* getServerSideProps should have correct req.url and query for direct visit dynamic page with query
-* getServerSideProps should have correct req.url and query for direct visit
-* getServerSideProps should return data correctly
-* getServerSideProps should pass query for data request
-* getServerSideProps should return data correctly for dynamic page
-* getServerSideProps should return data correctly when props is a promise
-* getServerSideProps should navigate to a normal page and back
-* getServerSideProps should load a fast refresh page
-* getServerSideProps should provide correct query value for dynamic page
-* getServerSideProps should parse query values on mount correctly
-* getServerSideProps should pass query for data request on navigation
-* getServerSideProps should reload page on failed data request
-* getServerSideProps should always call getServerSideProps without caching
-* getServerSideProps should not re-call getServerSideProps when updating query
-* getServerSideProps should dedupe server data requests
-* getServerSideProps should not show warning from url prop being returned
-* getServerSideProps should show error for extra keys returned from getServerSideProps
-* getServerSideProps should show error for invalid JSON returned from getServerSideProps
-* getServerSideProps should show error for invalid JSON returned from getStaticProps on CST
-* getServerSideProps should show error for accessing res after gssp returns
-* getServerSideProps should show error for accessing res through props promise after gssp returns
-* getServerSideProps should only warn for accessing res if not streaming
-
-test/e2e/i18n-default-locale-redirect/i18n-default-locale-redirect.test.ts
-* i18-default-locale-redirect should not request a path prefixed with default locale
-* i18-default-locale-redirect should request a path prefixed with non-default locale
-
-test/e2e/i18n-disallow-multiple-locales/i18n-disallow-multiple-locales.test.ts
-* i18n-disallow-multiple-locales should verify the default locale works
-* i18n-disallow-multiple-locales /en-US should 200
-* i18n-disallow-multiple-locales /en should 200
-* i18n-disallow-multiple-locales /nl-NL should 200
-* i18n-disallow-multiple-locales /nl-BE should 200
-* i18n-disallow-multiple-locales /nl should 200
-* i18n-disallow-multiple-locales /fr-BE should 200
-* i18n-disallow-multiple-locales /fr should 200
-* i18n-disallow-multiple-locales /en-US/en-US should 404
-* i18n-disallow-multiple-locales /en-US/en should 404
-* i18n-disallow-multiple-locales /en-US/nl-NL should 404
-* i18n-disallow-multiple-locales /en-US/nl-BE should 404
-* i18n-disallow-multiple-locales /en-US/nl should 404
-* i18n-disallow-multiple-locales /en-US/fr-BE should 404
-* i18n-disallow-multiple-locales /en-US/fr should 404
-* i18n-disallow-multiple-locales /en/en-US should 404
-* i18n-disallow-multiple-locales /en/en should 404
-* i18n-disallow-multiple-locales /en/nl-NL should 404
-* i18n-disallow-multiple-locales /en/nl-BE should 404
-* i18n-disallow-multiple-locales /en/nl should 404
-* i18n-disallow-multiple-locales /en/fr-BE should 404
-* i18n-disallow-multiple-locales /en/fr should 404
-* i18n-disallow-multiple-locales /nl-NL/en-US should 404
-* i18n-disallow-multiple-locales /nl-NL/en should 404
-* i18n-disallow-multiple-locales /nl-NL/nl-NL should 404
-* i18n-disallow-multiple-locales /nl-NL/nl-BE should 404
-* i18n-disallow-multiple-locales /nl-NL/nl should 404
-* i18n-disallow-multiple-locales /nl-NL/fr-BE should 404
-* i18n-disallow-multiple-locales /nl-NL/fr should 404
-* i18n-disallow-multiple-locales /nl-BE/en-US should 404
-* i18n-disallow-multiple-locales /nl-BE/en should 404
-* i18n-disallow-multiple-locales /nl-BE/nl-NL should 404
-* i18n-disallow-multiple-locales /nl-BE/nl-BE should 404
-* i18n-disallow-multiple-locales /nl-BE/nl should 404
-* i18n-disallow-multiple-locales /nl-BE/fr-BE should 404
-* i18n-disallow-multiple-locales /nl-BE/fr should 404
-* i18n-disallow-multiple-locales /nl/en-US should 404
-* i18n-disallow-multiple-locales /nl/en should 404
-* i18n-disallow-multiple-locales /nl/nl-NL should 404
-* i18n-disallow-multiple-locales /nl/nl-BE should 404
-* i18n-disallow-multiple-locales /nl/nl should 404
-* i18n-disallow-multiple-locales /nl/fr-BE should 404
-* i18n-disallow-multiple-locales /nl/fr should 404
-* i18n-disallow-multiple-locales /fr-BE/en-US should 404
-* i18n-disallow-multiple-locales /fr-BE/en should 404
-* i18n-disallow-multiple-locales /fr-BE/nl-NL should 404
-* i18n-disallow-multiple-locales /fr-BE/nl-BE should 404
-* i18n-disallow-multiple-locales /fr-BE/nl should 404
-* i18n-disallow-multiple-locales /fr-BE/fr-BE should 404
-* i18n-disallow-multiple-locales /fr-BE/fr should 404
-* i18n-disallow-multiple-locales /fr/en-US should 404
-* i18n-disallow-multiple-locales /fr/en should 404
-* i18n-disallow-multiple-locales /fr/nl-NL should 404
-* i18n-disallow-multiple-locales /fr/nl-BE should 404
-* i18n-disallow-multiple-locales /fr/nl should 404
-* i18n-disallow-multiple-locales /fr/fr-BE should 404
-* i18n-disallow-multiple-locales /fr/fr should 404
-
-test/e2e/i18n-ignore-rewrite-source-locale/rewrites-with-basepath.test.ts
-* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: 
-* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: /en
-* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: /sv
-* i18n-ignore-rewrite-source-locale with basepath get public file by skipping locale in rewrite, locale: /nl
-* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: 
-* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: /en
-* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: /sv
-* i18n-ignore-rewrite-source-locale with basepath call api by skipping locale in rewrite, locale: /nl
-
-test/e2e/i18n-ignore-redirect-source-locale/redirects-with-basepath.test.ts
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from:  to: sv
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /en to: sv
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /sv to: sv
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /nl to: sv
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from:  to: en
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /en to: en
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /sv to: en
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /nl to: en
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from:  to: /
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /en to: /
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /sv to: /
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from: /nl to: /
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: 
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: /en
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: /sv
-* i18n-ignore-redirect-source-locale with basepath get redirected to the new page, from and to: /nl
-
-test/e2e/i18n-ignore-redirect-source-locale/redirects.test.ts
-* i18n-ignore-redirect-source-locale get redirected to the new page, from:  to: sv
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /en to: sv
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /sv to: sv
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /nl to: sv
-* i18n-ignore-redirect-source-locale get redirected to the new page, from:  to: en
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /en to: en
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /sv to: en
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /nl to: en
-* i18n-ignore-redirect-source-locale get redirected to the new page, from:  to: /
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /en to: /
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /sv to: /
-* i18n-ignore-redirect-source-locale get redirected to the new page, from: /nl to: /
-* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: 
-* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: /en
-* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: /sv
-* i18n-ignore-redirect-source-locale get redirected to the new page, from and to: /nl
-
-test/e2e/i18n-data-fetching-redirect/index.test.ts
-* i18n-data-fetching-redirect Redirect to another locale gssp-redirect en -> sv
-* i18n-data-fetching-redirect Redirect to another locale gssp-redirect sv -> en
-* i18n-data-fetching-redirect Redirect to another locale gsp-blocking-redirect en -> sv
-* i18n-data-fetching-redirect Redirect to another locale gsp-blocking-redirect sv -> en
-* i18n-data-fetching-redirect Redirect to another locale gsp-fallback-redirect en -> sv
-* i18n-data-fetching-redirect Redirect to another locale gsp-fallback-redirect sv -> en
-* i18n-data-fetching-redirect Redirect to another locale next/link gssp-redirect en -> sv
-* i18n-data-fetching-redirect Redirect to another locale next/link gssp-redirect sv -> en
-* i18n-data-fetching-redirect Redirect to another locale next/link gsp-blocking-redirect en -> sv
-* i18n-data-fetching-redirect Redirect to another locale next/link gsp-blocking-redirect sv -> en
-* i18n-data-fetching-redirect Redirect to another locale next/link gsp-fallback-redirect en -> sv
-* i18n-data-fetching-redirect Redirect to another locale next/link gsp-fallback-redirect sv -> en
-* i18n-data-fetching-redirect Redirect to locale from context gssp-redirect en
-* i18n-data-fetching-redirect Redirect to locale from context gssp-redirect sv
-* i18n-data-fetching-redirect Redirect to locale from context gsp-blocking-redirect en
-* i18n-data-fetching-redirect Redirect to locale from context gsp-blocking-redirect sv
-* i18n-data-fetching-redirect Redirect to locale from context gsp-fallback-redirect en
-* i18n-data-fetching-redirect Redirect to locale from context gsp-fallback-redirect sv
-* i18n-data-fetching-redirect Redirect to locale from context next/link gssp-redirect en
-* i18n-data-fetching-redirect Redirect to locale from context next/link gssp-redirect sv
-* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-blocking-redirect en
-* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-blocking-redirect sv
-* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-fallback-redirect en
-* i18n-data-fetching-redirect Redirect to locale from context next/link gsp-fallback-redirect sv
-
-test/e2e/i18n-ignore-rewrite-source-locale/rewrites.test.ts
-* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: 
-* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: /en
-* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: /sv
-* i18n-ignore-rewrite-source-locale get public file by skipping locale in rewrite, locale: /nl
-* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: 
-* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: /en
-* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: /sv
-* i18n-ignore-rewrite-source-locale call api by skipping locale in rewrite, locale: /nl
-
-test/e2e/link-with-api-rewrite/index.test.ts
-* link-with-api-rewrite should perform hard navigation for rewritten urls
-* link-with-api-rewrite should perform hard navigation for direct urls
-
-test/e2e/ignore-invalid-popstateevent/without-i18n.test.ts
-* Event with stale state - static route previously was dynamic Ignore event without query param
-* Event with stale state - static route previously was dynamic Ignore event with query param
-
-test/e2e/ignore-invalid-popstateevent/with-i18n.test.ts
-* i18n: Event with stale state - static route previously was dynamic Ignore event without query param
-* i18n: Event with stale state - static route previously was dynamic Ignore event with query param
-* i18n: Event with stale state - static route previously was dynamic Don't ignore event with different locale
-
-test/e2e/middleware-base-path/test/index.test.ts
-* Middleware base tests should execute from absolute paths
-* Middleware base tests router.query must exist when Link clicked page routing
-
-test/e2e/middleware-custom-matchers-basepath/test/index.test.ts
-* Middleware custom matchers basePath should match
-* Middleware custom matchers basePath should not match
-* Middleware custom matchers basePath should not match
-* Middleware custom matchers basePath should match has query on client routing
-
-test/e2e/middleware-custom-matchers-i18n/test/index.test.ts
-* Middleware custom matchers i18n should match
-* Middleware custom matchers i18n should match
-* Middleware custom matchers i18n should match
-* Middleware custom matchers i18n should match
-* Middleware custom matchers i18n should not match
-* Middleware custom matchers i18n should not match
-* Middleware custom matchers i18n should not match
-* Middleware custom matchers i18n should not match
-* Middleware custom matchers i18n should match has query on client routing
-* Middleware custom matchers i18n should match has query on client routing
-* Middleware custom matchers i18n should match has query on client routing
-* Middleware custom matchers i18n should match has query on client routing
-* Middleware custom matchers with root should not match
-
-test/e2e/middleware-dynamic-basepath-matcher/test/index.test.ts
-* Middleware custom matchers basePath should match
-* Middleware custom matchers basePath should not match
-* Middleware custom matchers basePath should not match
-* Middleware custom matchers basePath should match query path
-
-test/e2e/middleware-custom-matchers/test/index.test.ts
-* Middleware custom matchers should match missing header correctly
-* Middleware custom matchers should match missing query correctly
-* Middleware custom matchers should match source path
-* Middleware custom matchers should match has header
-* Middleware custom matchers should match has query
-* Middleware custom matchers should match has cookie
-* Middleware custom matchers should match has host
-* Middleware custom matchers should match has header value
-* Middleware custom matchers should match has query on client routing
-* Middleware custom matchers should match has cookie on client routing
-
-test/e2e/middleware-fetches-with-any-http-method/index.test.ts
-* Middleware fetches with any HTTP method passes the method on a direct fetch request
-* Middleware fetches with any HTTP method passes the method when providing a Request object
-
-test/e2e/middleware-fetches-with-body/index.test.ts
-* Middleware fetches with body with default bodyParser sizeLimit (1mb) should return 413 for body greater than 1mb
-* Middleware fetches with body with default bodyParser sizeLimit (1mb) should be able to send and return body size equal to 1mb
-* Middleware fetches with body with default bodyParser sizeLimit (1mb) should be able to send and return body greater than default highWaterMark (16KiB)
-* Middleware fetches with body with custom bodyParser sizeLimit (5kb) should return 413 for body greater than 5kb
-* Middleware fetches with body with custom bodyParser sizeLimit (5kb) should be able to send and return body size equal to 5kb
-* Middleware fetches with body with custom bodyParser sizeLimit (5mb) should return 413 for body greater than 5mb
-* Middleware fetches with body with custom bodyParser sizeLimit (5mb) should be able to send and return body size equal to 5mb
-* Middleware fetches with body with bodyParser = false should be able to send and return with body size equal to 16KiB
-* Middleware fetches with body with bodyParser = false should be able to send and return with body greater than 16KiB
-* Middleware fetches with body should return 413 for body equal to 10mb
-
-test/e2e/manual-client-base-path/index.test.ts
-* manual-client-base-path should not warn for flag in output
-* manual-client-base-path should not update with basePath on mount /
-* manual-client-base-path should not update with basePath on mount /another
-* manual-client-base-path should not update with basePath on mount /dynamic/first
-* manual-client-base-path should not update with basePath on mount /dynamic/second
-* manual-client-base-path should navigate correctly from index
-* manual-client-base-path should navigate correctly from another
-
-test/e2e/middleware-request-header-overrides/test/index.test.ts
-* Middleware Request Headers Overrides Serverless Functions Backend Adds new headers
-* Middleware Request Headers Overrides Serverless Functions Backend Deletes headers
-* Middleware Request Headers Overrides Serverless Functions Backend Updates headers
-* Middleware Request Headers Overrides Edge Functions Backend Adds new headers
-* Middleware Request Headers Overrides Edge Functions Backend Deletes headers
-* Middleware Request Headers Overrides Edge Functions Backend Updates headers
-* Middleware Request Headers Overrides getServerSideProps Backend Adds new headers
-* Middleware Request Headers Overrides getServerSideProps Backend Deletes headers
-* Middleware Request Headers Overrides getServerSideProps Backend Updates headers
-
-test/e2e/middleware-redirects/test/index.test.ts
-* Middleware Redirect should redirect correctly with redirect in next.config.js
-* Middleware Redirect does not include the locale in redirects by default
-* Middleware Redirect should redirect to data urls with data requests and internal redirects
-* Middleware Redirect should redirect to external urls with data requests and external redirects
-* Middleware Redirect should redirect
-* Middleware Redirect should implement internal redirects
-* Middleware Redirect should redirect cleanly with the original url param
-* Middleware Redirect should redirect multiple times
-* Middleware Redirect should redirect (infinite-loop)
-* Middleware Redirect should redirect to api route with locale
-* Middleware Redirect should redirect with a fragment
-* Middleware Redirect /fr should redirect
-* Middleware Redirect /fr should implement internal redirects
-* Middleware Redirect /fr should redirect cleanly with the original url param
-* Middleware Redirect /fr should redirect multiple times
-* Middleware Redirect /fr should redirect (infinite-loop)
-* Middleware Redirect /fr should redirect to api route with locale
-* Middleware Redirect /fr should redirect with a fragment
-
-test/e2e/middleware-responses/test/index.test.ts
-* Middleware Responses responds with multiple cookies
-* Middleware Responses should not fail when returning a stream
-* Middleware Responses should not fail when returning a text body
-* Middleware Responses should respond with a 401 status code
-* Middleware Responses should respond with one header
-* Middleware Responses should respond with two headers
-* Middleware Responses should respond appending headers headers
-* Middleware Responses /fr responds with multiple cookies
-* Middleware Responses /fr should not fail when returning a stream
-* Middleware Responses /fr should not fail when returning a text body
-* Middleware Responses /fr should respond with a 401 status code
-* Middleware Responses /fr should respond with one header
-* Middleware Responses /fr should respond with two headers
-* Middleware Responses /fr should respond appending headers headers
-
-test/e2e/middleware-shallow-link/index.test.ts
-* browser-shallow-navigation should render the correct page
-
-test/e2e/middleware-matcher/index.test.ts
-* Middleware can set the matcher in its config does add the header for root request
-* Middleware can set the matcher in its config adds the header for a matched path
-* Middleware can set the matcher in its config adds the header for a matched data path (with header)
-* Middleware can set the matcher in its config adds the header for a matched data path (without header)
-* Middleware can set the matcher in its config adds the header for another matched path
-* Middleware can set the matcher in its config adds the header for another matched data path
-* Middleware can set the matcher in its config does add the header for root data request
-* Middleware can set the matcher in its config should load matches in client matchers correctly
-* Middleware can set the matcher in its config should navigate correctly with matchers
-* using a single matcher does not add the header for root request
-* using a single matcher does not add the header for root data request
-* using a single matcher adds the header for a matched path
-* using a single matcher adds the headers for a matched data path (with header)
-* using a single matcher adds the header for a matched data path (without header)
-* using a single matcher does not add the header for an unmatched path
-* using root matcher adds the header to the /
-* using root matcher adds the header to the /index
-* using root matcher adds the header for a matched data path (with header)
-* using root matcher adds the header for a matched data path (without header)
-* using a single matcher with i18n adds the header for a matched path
-* using a single matcher with i18n adds the header for a mathed root path with /index
-* using a single matcher with i18n adds the headers for a matched data path
-* using a single matcher with i18n does not add the header for an unmatched path
-* using a single matcher with i18n and trailingSlash adds the header for a matched path
-* using a single matcher with i18n and trailingSlash adds the header for a mathed root path with /index
-* using a single matcher with i18n and trailingSlash adds the headers for a matched data path
-* using a single matcher with i18n and trailingSlash does not add the header for an unmatched path
-* using a single matcher with i18n and basePath adds the header for a matched path
-* using a single matcher with i18n and basePath adds the header for a mathed root path with /index
-* using a single matcher with i18n and basePath adds the headers for a matched data path
-* using a single matcher with i18n and basePath does not add the header for an unmatched path
-* using a single matcher with i18n and basePath and trailingSlash adds the header for a matched path
-* using a single matcher with i18n and basePath and trailingSlash adds the header for a mathed root path with /index
-* using a single matcher with i18n and basePath and trailingSlash adds the headers for a matched data path
-* using a single matcher with i18n and basePath and trailingSlash does not add the header for an unmatched path
-
-test/e2e/multi-zone/multi-zone.test.ts
-* multi-zone should correctly respond for /first
-* multi-zone should correctly respond for /second
-* multi-zone should correctly respond for /first/blog/post-1
-* multi-zone should correctly respond for /second/blog/post-1
-* multi-zone should correctly respond for /second/another/post-1
-
-test/e2e/new-link-behavior/child-a-tag-error.test.ts
-* New Link Behavior with <a> child should throw error with <a> child
-
-test/e2e/new-link-behavior/index.test.ts
-* New Link Behavior should render link with <a>
-* New Link Behavior should navigate to /about
-* New Link Behavior should handle onclick
-* New Link Behavior should handle preventdefault
-* New Link Behavior should render link with id
-* New Link Behavior should render link with classname
-* New Link Behavior should render link with multiple children
-
-test/e2e/new-link-behavior/material-ui.test.ts
-* New Link Behavior with material-ui should render MuiLink with <a>
-
-test/e2e/new-link-behavior/stitches.test.ts
-* New Link Behavior with stitches should render <a>
-
-test/e2e/new-link-behavior/typescript.test.ts
-* New Link Behavior should render link with <a>
-* New Link Behavior should apply ref on link
-
-test/e2e/next-font/index.test.ts
-* next/font app import values page with font
-* next/font app import values page with local fonts
-* next/font app import values Variable font without weight range
-* next/font app computed styles page with fonts
-* next/font app computed styles page using variables
-* next/font app computed styles page using fallback fonts
-* next/font app Fallback fontfaces local Indie flower
-* next/font app Fallback fontfaces local Fraunces
-* next/font app Fallback fontfaces local Roboto multiple weights and styles
-* next/font app Fallback fontfaces local Roboto multiple weights and styles - variable 1
-* next/font app Fallback fontfaces local Roboto multiple weights and styles - variable 2
-* next/font app Fallback fontfaces google Fraunces
-* next/font app-old import values page with font
-* next/font app-old import values page with local fonts
-* next/font app-old import values Variable font without weight range
-* next/font app-old computed styles page with fonts
-* next/font app-old computed styles page using variables
-* next/font app-old computed styles page using fallback fonts
-* next/font app-old Fallback fontfaces local Indie flower
-* next/font app-old Fallback fontfaces local Fraunces
-* next/font app-old Fallback fontfaces local Roboto multiple weights and styles
-* next/font app-old Fallback fontfaces local Roboto multiple weights and styles - variable 1
-* next/font app-old Fallback fontfaces local Roboto multiple weights and styles - variable 2
-* next/font app-old Fallback fontfaces google Fraunces
-
-test/e2e/next-font/without-preloaded-fonts.test.ts
-* next/font/google without-preloaded-fonts without _app without fonts
-
-test/e2e/next-head/index.test.ts
-* next/head should place charset element at the top of <head>
-* next/head should have correct head tags in initial document
-* next/head should have correct head tags from a fragment
-* next/head should have correct head tags after hydration
-* next/head should have current head tags from a _document getInitialProps
-
-test/e2e/next-image-forward-ref/index.test.ts
-* next-image-forward-ref allows framer-motion to animate opacity
-
-test/e2e/next-script/index.test.ts
-* beforeInteractive in document Head Script is injected server-side
-* beforeInteractive in document body Script is injected server-side
-
-test/e2e/middleware-rewrites/test/index.test.ts
-* Middleware Rewrite should handle next.config.js rewrite with body correctly
-* Middleware Rewrite should handle middleware rewrite with body correctly
-* Middleware Rewrite should handle static dynamic rewrite from middleware correctly
-* Middleware Rewrite should not have un-necessary data request on rewrite
-* Middleware Rewrite should not mix component cache when navigating between dynamic routes
-* Middleware Rewrite should hard navigate on 404 for data request
-* Middleware Rewrite should rewrite correctly when navigating via history
-* Middleware Rewrite should rewrite correctly when navigating via history after query update
-* Middleware Rewrite should return HTML/data correctly for pre-rendered page
-* Middleware Rewrite should override with rewrite internally correctly
-* Middleware Rewrite should rewrite to data urls for incoming data request internally rewritten
-* Middleware Rewrite should override with rewrite externally correctly
-* Middleware Rewrite should rewrite to the external url for incoming data request externally rewritten
-* Middleware Rewrite should rewrite to fallback: true page successfully
-* Middleware Rewrite should allow to opt-out prefetch caching
-* Middleware Rewrite should allow to rewrite keeping the locale in pathname
-* Middleware Rewrite should allow to rewrite to a different locale
-* Middleware Rewrite should behave consistently on recursive rewrites
-* Middleware Rewrite should allow to switch locales
-* Middleware Rewrite should have correct query info for dynamic route after query hydration
-* Middleware Rewrite should handle shallow navigation correctly (non-dynamic page)
-* Middleware Rewrite should handle shallow navigation correctly (dynamic page)
-* Middleware Rewrite should resolve dynamic route after rewrite correctly
-* Middleware Rewrite should add a cookie and rewrite to a/b test
-* Middleware Rewrite should clear query parameters
-* Middleware Rewrite should rewrite to about page
-* Middleware Rewrite support colons in path
-* Middleware Rewrite can rewrite to path with colon
-* Middleware Rewrite can rewrite from path with colon
-* Middleware Rewrite can rewrite from path with colon and retain query parameter
-* Middleware Rewrite can rewrite to path with colon and retain query parameter
-* Middleware Rewrite should rewrite when not using localhost
-* Middleware Rewrite should rewrite to Vercel
-* Middleware Rewrite should rewrite without hard navigation
-* Middleware Rewrite should not call middleware with shallow push
-* Middleware Rewrite should correctly rewriting to a different dynamic path
-* Middleware Rewrite should not have unexpected errors
-* Middleware Rewrite /fr should add a cookie and rewrite to a/b test
-* Middleware Rewrite /fr should clear query parameters
-* Middleware Rewrite /fr should rewrite to about page
-* Middleware Rewrite /fr support colons in path
-* Middleware Rewrite /fr can rewrite to path with colon
-* Middleware Rewrite /fr can rewrite from path with colon
-* Middleware Rewrite /fr can rewrite from path with colon and retain query parameter
-* Middleware Rewrite /fr can rewrite to path with colon and retain query parameter
-* Middleware Rewrite /fr should rewrite when not using localhost
-* Middleware Rewrite /fr should rewrite to Vercel
-* Middleware Rewrite /fr should rewrite without hard navigation
-* Middleware Rewrite /fr should not call middleware with shallow push
-* Middleware Rewrite /fr should correctly rewriting to a different dynamic path
-* Middleware Rewrite should not have unexpected errors
-
-test/e2e/no-eslint-warn-with-no-eslint-config/index.test.ts
-* no-eslint-warn-with-no-eslint-config should render
-* no-eslint-warn-with-no-eslint-config should not have eslint warnings when no eslint config
-
-test/e2e/og-api/index.test.ts
-* og-api should respond from index
-* og-api should work in app route in node runtime
-* og-api should throw error when returning a response object in pages/api in node runtime
-
-test/e2e/middleware-trailing-slash/test/index.test.ts
-* Middleware Runtime trailing slash with .html extension should work when requesting the page directly
-* Middleware Runtime trailing slash with .html extension should work using browser
-* Middleware Runtime trailing slash with .html extension should work when navigating
-* Middleware Runtime trailing slash without .html extension should work when requesting the page directly
-* Middleware Runtime trailing slash without .html extension should work using browser
-* Middleware Runtime trailing slash without .html extension should work when navigating
-* Middleware Runtime trailing slash should have init header for NextResponse.redirect
-* Middleware Runtime trailing slash should have correct dynamic route params on client-transition to dynamic route
-* Middleware Runtime trailing slash should have correct dynamic route params for middleware rewrite to dynamic route
-* Middleware Runtime trailing slash should redirect the same for direct visit and client-transition
-* Middleware Runtime trailing slash should rewrite the same for direct visit and client-transition
-* Middleware Runtime trailing slash should rewrite correctly for non-SSG/SSP page
-* Middleware Runtime trailing slash should respond with 400 on decode failure
-* Middleware Runtime trailing slash should validate & parse request url from any route
-* Middleware Runtime trailing slash should trigger middleware for data requests
-* Middleware Runtime trailing slash should normalize data requests into page requests
-* Middleware Runtime trailing slash should keep non data requests in their original shape
-* Middleware Runtime trailing slash should add a rewrite header on data requests for rewrites
-
-test/e2e/optimized-loading/test/index.test.ts
-* Optimized loading page / should render the page /
-* Optimized loading page / should not have JS preload links
-* Optimized loading page / should load scripts with defer in head
-* Optimized loading page /page1 should render the page /page1
-* Optimized loading page /page1 should not have JS preload links
-* Optimized loading page /page1 should load scripts with defer in head
-
-test/e2e/pages-performance-mark/index.test.ts
-* pages performance mark should render the page correctly without crashing with performance mark
-
-test/e2e/postcss-config-cjs/index.test.ts
-* postcss-config-cjs works with postcss.config.cjs files
-
-test/e2e/prerender-crawler.test.ts
-* Prerender crawler handling should return prerendered page for correctly
-* Prerender crawler handling should return fallback for non-crawler correctly
-* Prerender crawler handling should block for crawler correctly
-
-test/e2e/prerender-native-module.test.ts
-* prerender native module should render index correctly
-* prerender native module should render /blog/first correctly
-* prerender native module should render /blog/second correctly
-
-test/e2e/proxy-request-with-middleware/test/index.test.ts
-* Requests not effected when middleware used should proxy GET request 
-* Requests not effected when middleware used should proxy POST request with body
-
-test/e2e/middleware-general/test/index.test.ts
-* Middleware Runtime with i18n should work with notFound: true correctly
-* Middleware Runtime with i18n should be able to rewrite on _next/static/chunks/pages/ 404
-* Middleware Runtime with i18n should have init header for NextResponse.redirect
-* Middleware Runtime with i18n should have correct query values for rewrite to ssg page
-* Middleware Runtime with i18n should have correct dynamic route params on client-transition to dynamic route
-* Middleware Runtime with i18n should have correct dynamic route params for middleware rewrite to dynamic route
-* Middleware Runtime with i18n should redirect the same for direct visit and client-transition
-* Middleware Runtime with i18n should rewrite the same for direct visit and client-transition
-* Middleware Runtime with i18n should rewrite correctly for non-SSG/SSP page
-* Middleware Runtime with i18n should respond with 400 on decode failure
-* Middleware Runtime with i18n should set fetch user agent correctly
-* Middleware Runtime with i18n allows to access env variables
-* Middleware Runtime with i18n should contain \`globalThis\`
-* Middleware Runtime with i18n should contain crypto APIs
-* Middleware Runtime with i18n should accept a URL instance for fetch
-* Middleware Runtime with i18n should allow to abort a fetch request
-* Middleware Runtime with i18n should validate & parse request url from any route
-* Middleware Runtime with i18n should validate & parse request url from a dynamic route with params
-* Middleware Runtime with i18n should validate & parse request url from a dynamic route with params and no query
-* Middleware Runtime with i18n should validate & parse request url from a dynamic route with params and query
-* Middleware Runtime with i18n should throw when using URL with a relative URL
-* Middleware Runtime with i18n should throw when using NextRequest with a relative URL
-* Middleware Runtime with i18n should throw when using Request with a relative URL
-* Middleware Runtime with i18n should warn when using Response.redirect with a relative URL
-* Middleware Runtime with i18n should warn when using NextResponse.redirect with a relative URL
-* Middleware Runtime with i18n should throw when using NextResponse.rewrite with a relative URL
-* Middleware Runtime with i18n should trigger middleware for data requests
-* Middleware Runtime with i18n should normalize data requests into page requests
-* Middleware Runtime with i18n should keep non data requests in their original shape
-* Middleware Runtime with i18n should add a rewrite header on data requests for rewrites
-* Middleware Runtime with i18n hard-navigates when the data request failed
-* Middleware Runtime without i18n should work with notFound: true correctly
-* Middleware Runtime without i18n should be able to rewrite on _next/static/chunks/pages/ 404
-* Middleware Runtime without i18n should only contain middleware route in dev middleware manifest
-* Middleware Runtime without i18n should have correct query values for rewrite to ssg page
-* Middleware Runtime without i18n should have correct dynamic route params on client-transition to dynamic route
-* Middleware Runtime without i18n should have correct dynamic route params for middleware rewrite to dynamic route
-* Middleware Runtime without i18n should redirect the same for direct visit and client-transition
-* Middleware Runtime without i18n should rewrite the same for direct visit and client-transition
-* Middleware Runtime without i18n should rewrite correctly for non-SSG/SSP page
-* Middleware Runtime without i18n should respond with 400 on decode failure
-* Middleware Runtime without i18n should set fetch user agent correctly
-* Middleware Runtime without i18n allows to access env variables
-* Middleware Runtime without i18n should contain \`globalThis\`
-* Middleware Runtime without i18n should contain crypto APIs
-* Middleware Runtime without i18n should accept a URL instance for fetch
-* Middleware Runtime without i18n should allow to abort a fetch request
-* Middleware Runtime without i18n should validate & parse request url from any route
-* Middleware Runtime without i18n should validate & parse request url from a dynamic route with params and query
-* Middleware Runtime without i18n should throw when using URL with a relative URL
-* Middleware Runtime without i18n should throw when using NextRequest with a relative URL
-* Middleware Runtime without i18n should throw when using Request with a relative URL
-* Middleware Runtime without i18n should warn when using Response.redirect with a relative URL
-* Middleware Runtime without i18n should warn when using NextResponse.redirect with a relative URL
-* Middleware Runtime without i18n should throw when using NextResponse.rewrite with a relative URL
-* Middleware Runtime without i18n should trigger middleware for data requests
-* Middleware Runtime without i18n should normalize data requests into page requests
-* Middleware Runtime without i18n should keep non data requests in their original shape
-* Middleware Runtime without i18n should add a rewrite header on data requests for rewrites
-* Middleware Runtime without i18n hard-navigates when the data request failed
-
-test/e2e/repeated-forward-slashes-error/repeated-forward-slashes-error.test.ts
-* repeated-forward-slashes-error should log error when href has repeated forward-slashes
-
-test/e2e/reload-scroll-backforward-restoration/index.test.ts
-* reload-scroll-back-restoration should restore the scroll position on navigating back
-* reload-scroll-back-restoration should restore the scroll position on navigating forward
-
-test/e2e/ssr-react-context/index.test.ts
-* React Context should render a page with context
-* React Context should render correctly with context consumer
-* React Context should render with context after change
-
-test/e2e/config-schema-check/index.test.ts
-* next.config.js schema validating - defaultConfig should validate against defaultConfig
-
-test/e2e/skip-trailing-slash-redirect/index.test.ts
-* skip-trailing-slash-redirect should parse locale info for data request correctly
-* skip-trailing-slash-redirect should be able to redirect locale casing $1
-* skip-trailing-slash-redirect should be able to redirect locale casing $1
-* skip-trailing-slash-redirect should handle external rewrite correctly /chained-rewrite-ssg
-* skip-trailing-slash-redirect should handle external rewrite correctly /chained-rewrite-static
-* skip-trailing-slash-redirect should handle external rewrite correctly /chained-rewrite-ssr
-* skip-trailing-slash-redirect should handle external rewrite correctly /docs/first
-* skip-trailing-slash-redirect should handle external rewrite correctly /docs-auto-static/first
-* skip-trailing-slash-redirect should handle external rewrite correctly /docs-ssr/first
-* skip-trailing-slash-redirect should allow rewriting invalid buildId correctly
-* skip-trailing-slash-redirect should provide original _next/data URL with skipMiddlewareUrlNormalize
-* skip-trailing-slash-redirect should allow response body from middleware with flag
-* skip-trailing-slash-redirect should merge cookies from middleware and API routes correctly
-* skip-trailing-slash-redirect should merge cookies from middleware and edge API routes correctly
-* skip-trailing-slash-redirect should correct skip URL normalizing in middleware
-* skip-trailing-slash-redirect should apply config redirect correctly
-* skip-trailing-slash-redirect should apply config rewrites correctly
-* skip-trailing-slash-redirect should not apply trailing slash on load on client
-* skip-trailing-slash-redirect pages dir should not apply trailing slash redirect (with slash)
-* skip-trailing-slash-redirect pages dir should not apply trailing slash redirect (without slash)
-* skip-trailing-slash-redirect pages dir should respond to index correctly
-* skip-trailing-slash-redirect pages dir should respond to dynamic route correctly
-* skip-trailing-slash-redirect pages dir should navigate client side correctly
-* skip-trailing-slash-redirect app dir should not apply trailing slash redirect (with slash)
-* skip-trailing-slash-redirect app dir should not apply trailing slash redirect (without slash)
-* skip-trailing-slash-redirect app dir should preserve original trailing slashes to links on client
-* skip-trailing-slash-redirect app dir should respond to index correctly
-* skip-trailing-slash-redirect app dir should respond to dynamic route correctly
-* skip-trailing-slash-redirect app dir should navigate client side correctly
-
-test/e2e/streaming-ssr/index.test.ts
-* streaming SSR with custom next configs should match more specific route along with dynamic routes
-* streaming SSR with custom next configs should work with custom document
-
-test/e2e/styled-jsx/index.test.ts
-* styled-jsx should contain styled-jsx styles during SSR
-* styled-jsx should render styles during CSR
-* styled-jsx should render styles during CSR (AMP)
-* styled-jsx should render styles during SSR (AMP)
-
-test/e2e/test-template/{{ toFileName name }}/{{ toFileName name }}.test.ts
-* {{name}} should work using cheerio
-* {{name}} should work using browser
-* {{name}} should work with html
-* {{name}} should work with fetch
-
-test/e2e/test-utils-tests/basic/basic.test.ts
-* createNextDescribe should work
-
-test/e2e/third-parties/index.test.ts
-* @next/third-parties basic usage renders YoutubeEmbed
-* @next/third-parties basic usage renders GoogleMapsEmbed
-
-test/e2e/trailingslash-with-rewrite/index.test.ts
-* trailingSlash:true with rewrites and getStaticProps should work
-
-test/e2e/switchable-runtime/index.test.ts
-* Switchable runtime Switchable runtime (dev) should not include edge api routes and edge ssr routes into dev middleware manifest
-* Switchable runtime Switchable runtime (dev) should not consume server.js file extension
-* Switchable runtime Switchable runtime (dev) should be possible to switch between runtimes in API routes
-
-test/e2e/transpile-packages/index.test.ts
-* transpile packages css should handle global css imports inside transpiled modules
-* transpile packages css should handle global scss imports inside transpiled modules
-* transpile packages css should handle css modules imports inside transpiled modules
-* transpile packages css should handle scss modules imports inside transpiled modules
-
-test/e2e/typescript-version-no-warning/typescript-version-no-warning.test.ts
-* typescript-version-no-warning should skip
-
-test/e2e/typescript-version-warning/typescript-version-warning.test.ts
-* typescript-version-warning should skip
-
-test/e2e/undici-fetch/index.test.ts
-* undici fetch undici global fetch should return true when undici is used
-* undici fetch undici global Headers should return true when undici is used
-* undici fetch undici global Request should return true when undici is used
-* undici fetch undici global Response should return true when undici is used
-
-test/e2e/prerender.test.ts
-* Prerender should navigate between pages successfully
-* Prerender should respond with 405 for POST to static page
-* Prerender should SSR normal page correctly
-* Prerender should SSR incremental page correctly
-* Prerender should SSR blocking path correctly (blocking)
-* Prerender should SSR blocking path correctly (pre-rendered)
-* Prerender should have gsp in __NEXT_DATA__
-* Prerender should not have gsp in __NEXT_DATA__ for non-GSP page
-* Prerender should not supply query values to params or useRouter non-dynamic page SSR
-* Prerender should not supply query values to params in /_next/data request
-* Prerender should not supply query values to params or useRouter dynamic page SSR
-* Prerender should return data correctly
-* Prerender should return data correctly for dynamic page
-* Prerender should return data correctly for dynamic page (non-seeded)
-* Prerender should navigate to a normal page and back
-* Prerender should parse query values on mount correctly
-* Prerender should reload page on failed data request
-* Prerender should SSR dynamic page with brackets in param as object
-* Prerender should navigate to dynamic page with brackets in param as object
-* Prerender should SSR dynamic page with brackets in param as string
-* Prerender should navigate to dynamic page with brackets in param as string
-* Prerender should not return data for fallback: false and missing dynamic page
-* Prerender should server prerendered path correctly for SSG pages that starts with api-docs
-* Prerender should render correctly for SSG pages that starts with api-docs
-* Prerender should return data correctly for SSG pages that starts with api-docs
-* Prerender should SSR catch-all page with brackets in param as string
-* Prerender should navigate to catch-all page with brackets in param as string
-* Prerender should SSR catch-all page with brackets in param as object
-* Prerender should navigate to catch-all page with brackets in param as object
-* Prerender should support prerendered catchall route
-* Prerender should support lazy catchall route
-* Prerender should support nested lazy catchall route
-* Prerender should support prerendered catchall-explicit route (nested)
-* Prerender should support prerendered catchall-explicit route (single)
-* Prerender should handle fallback only page correctly HTML
-* Prerender should handle fallback only page correctly data
-* Prerender should 404 for a missing catchall explicit route
-* Prerender should 404 for an invalid data url
-* Prerender should allow rewriting to SSG page with fallback: false
-* Prerender should allow rewriting to SSG page with fallback: 'blocking'
-* Prerender should fetch /_next/data correctly with mismatched href and as
-* Prerender should show warning when large amount of page data is returned
-* Prerender should show warning every time page with large amount of page data is returned
-* Prerender should not show warning from url prop being returned
-* Prerender should always show fallback for page not in getStaticPaths
-* Prerender should not show fallback for page in getStaticPaths
-* Prerender should never show fallback for page not in getStaticPaths when blocking
-* Prerender should not show fallback for page in getStaticPaths when blocking
-* Prerender should log error in console and browser in dev mode
-* Prerender should always call getStaticProps without caching in dev
-* Prerender should error on bad object from getStaticProps
-* Prerender should error on dynamic page without getStaticPaths
-* Prerender should error on dynamic page without getStaticPaths returning fallback property
-* Prerender should not re-call getStaticProps when updating query
-* Prerender should show fallback before invalid JSON is returned from getStaticProps
-* Prerender should not fallback before invalid JSON is returned from getStaticProps when blocking fallback
-* Prerender should show error for invalid JSON returned from getStaticProps on SSR
-* Prerender should show error for invalid JSON returned from getStaticProps on CST
-* Prerender should not contain headers already sent error
-* Prerender should respond for catch-all deep folder
-* Prerender should not fail to update incremental cache
-* Prerender should not have experimental undici warning
-* Prerender should not have attempted sending invalid payload
-
-test/e2e/type-module-interop/index.test.ts
-* Type module interop should render server-side
-* Type module interop should render client-side
-* Type module interop should render server-side with modules
-* Type module interop should render client-side with modules
-
 test/integration/export-no-build/test/index.test.js
 * next export without build should show error when there is no production build
+
+test/integration/externals-pages-bundle/test/externals.test.js
+* default should use externals for unvendored node_modules reachable from the project
 
 test/integration/fetch-polyfill-ky-universal/test/index.test.js
 * Fetch polyfill with ky-universal development mode includes polyfilled fetch when using getStaticProps
 * Fetch polyfill with ky-universal development mode includes polyfilled fetch when using getServerSideProps
 * Fetch polyfill with ky-universal development mode includes polyfilled fetch when using getInitialProps
-
-test/integration/fallback-route-params/test/index.test.js
-* Fallback Dynamic Route Params dev mode should have correct fallback query (skeleton)
-* Fallback Dynamic Route Params dev mode should have correct fallback query (hydration)
 
 test/integration/fetch-polyfill/test/index.test.js
 * Fetch polyfill development mode includes polyfilled fetch when using getStaticProps
@@ -3538,6 +3568,10 @@ test/integration/fetch-polyfill/test/index.test.js
 * Fetch polyfill development mode includes polyfilled fetch when using getInitialProps
 * Fetch polyfill development mode includes polyfilled fetch when using API routes
 * Fetch polyfill development mode includes polyfilled fetch when using getStaticPaths
+
+test/integration/fallback-route-params/test/index.test.js
+* Fallback Dynamic Route Params dev mode should have correct fallback query (skeleton)
+* Fallback Dynamic Route Params dev mode should have correct fallback query (hydration)
 
 test/integration/fallback-false-rewrite/test/index.test.js
 * fallback: false rewrite dev mode should rewrite correctly for path at same level as fallback: false SSR
@@ -3547,6 +3581,14 @@ test/integration/fallback-false-rewrite/test/index.test.js
 * fallback: false rewrite dev mode should not rewrite for path from fallback: false SSR
 * fallback: false rewrite dev mode should not rewrite for path from fallback: false client
 * fallback: false rewrite dev mode should behave properly when accessing the dynamic param directly
+
+test/integration/eslint/test/lint-cache.test.js
+* eslint caching is enabled by default
+* eslint caching is disabled with the --no-cache flag
+* the default eslint cache lives in the user defined build directory
+* the --cache-location flag allows the user to define a separate cache location
+* the default eslint caching strategy is metadata
+* cache with content strategy is different from the one with default strategy
 
 test/integration/env-config/test/index.test.js
 * Env Config dev mode should have process environment override .env
@@ -3566,13 +3608,68 @@ test/integration/env-config/test/index.test.js
 * Env Config test environment should provide global env to next.config.js
 * Env Config test environment should provide env correctly for API routes
 
-test/integration/eslint/test/lint-cache.test.js
-* eslint caching is enabled by default
-* eslint caching is disabled with the --no-cache flag
-* the default eslint cache lives in the user defined build directory
-* the --cache-location flag allows the user to define a separate cache location
-* the default eslint caching strategy is metadata
-* cache with content strategy is different from the one with default strategy
+test/integration/eslint/test/next-lint.test.js
+* Next Lint First Time Setup  show a prompt to set up ESLint if no configuration detected
+* Next Lint First Time Setup  installs eslint and eslint-config-next as devDependencies if missing with yarn
+* Next Lint First Time Setup  installs eslint and eslint-config-next as devDependencies if missing with pnpm
+* Next Lint First Time Setup  installs eslint and eslint-config-next as devDependencies if missing with npm
+* Next Lint First Time Setup  creates .eslintrc.json file with a default configuration
+* Next Lint First Time Setup  shows a successful message when completed
+* Next Lint should generate next-env.d.ts before lint command
+* Next Lint should not generate next-env.d.ts without typescript
+* Next Lint should not generate next-env.d.ts without typescript
+* Next Lint should not generate next-env.d.ts without typescript
+* Next Lint should not generate next-env.d.ts without typescript
+* Next Lint should add relative path for dist types in tsconfig.json when app dir exist
+* Next Lint shows warnings and errors
+* Next Lint base directories are linted by default
+* Next Lint shows warnings and errors with next/core-web-vitals config
+* Next Lint shows warnings and errors when extending plugin recommended config
+* Next Lint shows warnings and errors when extending plugin core-web-vitals config
+* Next Lint success message when no warnings or errors
+* Next Lint don't create .eslintrc file if package.json has eslintConfig field
+* Next Lint quiet flag suppresses warnings and only reports errors
+* Next Lint custom directories
+* Next Lint max warnings flag errors when warnings exceed threshold
+* Next Lint max warnings flag does not error when warnings do not exceed threshold
+* Next Lint format flag supports additional user-defined formats
+* Next Lint file flag can selectively lint only a single file
+* Next Lint file flag can selectively lints multiple files
+* Next Lint output flag create a file respecting the chosen format
+* Next Lint output flag create a file respecting the chosen format
+* Next Lint show error message when the file path is a directory
+* Next Lint lint files with cjs and mjs file extension
+
+test/integration/filesystempublicroutes/test/index.test.js
+* FileSystemPublicRoutes should route to public folder files
+
+test/integration/getinitialprops/test/index.test.js
+* getInitialProps dev mode should have gip in __NEXT_DATA__
+* getInitialProps dev mode should not have gip in __NEXT_DATA__ for non-GIP page
+* getInitialProps dev mode should have correct router.asPath for direct visit dynamic page
+* getInitialProps dev mode should have correct router.asPath for direct visit dynamic page rewrite direct
+
+test/integration/gssp-pageProps-merge/test/index.test.js
+* pageProps GSSP conflict dev mode should merge _app pageProps and getServerSideProps props
+* pageProps GSSP conflict dev mode should merge _app pageProps and getStaticProps props
+
+test/integration/getserversideprops-preview/test/index.test.js
+* ServerSide Props Preview Mode Development Mode should start development application
+* ServerSide Props Preview Mode Development Mode should enable preview mode
+* ServerSide Props Preview Mode Development Mode should return cookies to be expired after dev server reboot
+* ServerSide Props Preview Mode Development Mode should start the client-side browser
+* ServerSide Props Preview Mode Development Mode should fetch preview data on SSR
+* ServerSide Props Preview Mode Development Mode should fetch preview data on CST
+* ServerSide Props Preview Mode Development Mode should fetch prerendered data
+
+test/integration/gip-identifier/test/index.test.js
+* gip identifiers dev mode should not have gip or appGip in NEXT_DATA for page without getInitialProps
+* gip identifiers dev mode should have gip in NEXT_DATA for page with getInitialProps
+* gip identifiers dev mode should have gip and appGip in NEXT_DATA for page with getInitialProps and _app with getInitialProps
+* gip identifiers dev mode should only have appGip in NEXT_DATA for page without getInitialProps and _app with getInitialProps
+
+test/integration/gssp-redirect-with-rewrites/test/index.test.js
+* getServerSideProps redirects should fallback to browser navigation for an unknown URL
 
 test/integration/file-serving/test/index.test.js
 * File Serving dev mode should serve file with space correctly from public/
@@ -4467,73 +4564,10 @@ test/integration/file-serving/test/index.test.js
 * File Serving dev mode should prevent traversing with /\..%2f\..%2f\..%2f\..%2f\..%2f\..%2f\..%2f
 * File Serving dev mode should prevent traversing with /\..%2f\..%2f\..%2f\..%2f\..%2f\..%2f\..%2f\..%2ftest-file.txt
 
-test/integration/eslint/test/next-lint.test.js
-* Next Lint First Time Setup  show a prompt to set up ESLint if no configuration detected
-* Next Lint First Time Setup  installs eslint and eslint-config-next as devDependencies if missing with yarn
-* Next Lint First Time Setup  installs eslint and eslint-config-next as devDependencies if missing with pnpm
-* Next Lint First Time Setup  installs eslint and eslint-config-next as devDependencies if missing with npm
-* Next Lint First Time Setup  creates .eslintrc.json file with a default configuration
-* Next Lint First Time Setup  shows a successful message when completed
-* Next Lint should generate next-env.d.ts before lint command
-* Next Lint should not generate next-env.d.ts without typescript
-* Next Lint should not generate next-env.d.ts without typescript
-* Next Lint should not generate next-env.d.ts without typescript
-* Next Lint should not generate next-env.d.ts without typescript
-* Next Lint should add relative path for dist types in tsconfig.json when app dir exist
-* Next Lint shows warnings and errors
-* Next Lint base directories are linted by default
-* Next Lint shows warnings and errors with next/core-web-vitals config
-* Next Lint shows warnings and errors when extending plugin recommended config
-* Next Lint shows warnings and errors when extending plugin core-web-vitals config
-* Next Lint success message when no warnings or errors
-* Next Lint don't create .eslintrc file if package.json has eslintConfig field
-* Next Lint quiet flag suppresses warnings and only reports errors
-* Next Lint custom directories
-* Next Lint max warnings flag errors when warnings exceed threshold
-* Next Lint max warnings flag does not error when warnings do not exceed threshold
-* Next Lint format flag supports additional user-defined formats
-* Next Lint file flag can selectively lint only a single file
-* Next Lint file flag can selectively lints multiple files
-* Next Lint output flag create a file respecting the chosen format
-* Next Lint output flag create a file respecting the chosen format
-* Next Lint show error message when the file path is a directory
-* Next Lint lint files with cjs and mjs file extension
-
-test/integration/filesystempublicroutes/test/index.test.js
-* FileSystemPublicRoutes should route to public folder files
-
-test/integration/getinitialprops/test/index.test.js
-* getInitialProps dev mode should have gip in __NEXT_DATA__
-* getInitialProps dev mode should not have gip in __NEXT_DATA__ for non-GIP page
-* getInitialProps dev mode should have correct router.asPath for direct visit dynamic page
-* getInitialProps dev mode should have correct router.asPath for direct visit dynamic page rewrite direct
-
-test/integration/gssp-pageProps-merge/test/index.test.js
-* pageProps GSSP conflict dev mode should merge _app pageProps and getServerSideProps props
-* pageProps GSSP conflict dev mode should merge _app pageProps and getStaticProps props
-
-test/integration/gip-identifier/test/index.test.js
-* gip identifiers dev mode should not have gip or appGip in NEXT_DATA for page without getInitialProps
-* gip identifiers dev mode should have gip in NEXT_DATA for page with getInitialProps
-* gip identifiers dev mode should have gip and appGip in NEXT_DATA for page with getInitialProps and _app with getInitialProps
-* gip identifiers dev mode should only have appGip in NEXT_DATA for page without getInitialProps and _app with getInitialProps
-
 test/integration/hashbang/test/index.test.js
 * Hashbang dev mode first-line hashbang (#!) parse should work for .js files
 * Hashbang dev mode first-line hashbang (#!) parse should work for .mjs files
 * Hashbang dev mode first-line hashbang (#!) parse should work for .cjs files
-
-test/integration/gssp-redirect-with-rewrites/test/index.test.js
-* getServerSideProps redirects should fallback to browser navigation for an unknown URL
-
-test/integration/getserversideprops-preview/test/index.test.js
-* ServerSide Props Preview Mode Development Mode should start development application
-* ServerSide Props Preview Mode Development Mode should enable preview mode
-* ServerSide Props Preview Mode Development Mode should return cookies to be expired after dev server reboot
-* ServerSide Props Preview Mode Development Mode should start the client-side browser
-* ServerSide Props Preview Mode Development Mode should fetch preview data on SSR
-* ServerSide Props Preview Mode Development Mode should fetch preview data on CST
-* ServerSide Props Preview Mode Development Mode should fetch prerendered data
 
 test/integration/hydration/test/index.test.js
 * Hydration dev mode hydrates correctly for normal page
@@ -4561,12 +4595,6 @@ test/integration/gssp-redirect-base-path/test/index.test.js
 * GS(S)P Redirect Support dev mode should not replace history of the origin page when GSP page is navigated to client-side (internal)
 * GS(S)P Redirect Support dev mode should not replace history of the origin page when GSP page is navigated to client-side (external)
 
-test/integration/i18n-support-catchall/test/index.test.js
-* i18n Support Root Catch-all dev mode should load the index route correctly SSR
-* i18n Support Root Catch-all dev mode should load the index route correctly CSR
-* i18n Support Root Catch-all dev mode should navigate to other locale index and back
-* i18n Support Root Catch-all dev mode should navigate to other locale page and back
-
 test/integration/gssp-redirect/test/index.test.js
 * GS(S)P Redirect Support dev mode should apply temporary redirect when visited directly for GSSP page
 * GS(S)P Redirect Support dev mode should apply permanent redirect when visited directly for GSSP page
@@ -4590,6 +4618,12 @@ test/integration/gssp-redirect/test/index.test.js
 * GS(S)P Redirect Support dev mode should not replace history of the origin page when GSP page is navigated to client-side (internal)
 * GS(S)P Redirect Support dev mode should not replace history of the origin page when GSP page is navigated to client-side (external)
 
+test/integration/i18n-support-catchall/test/index.test.js
+* i18n Support Root Catch-all dev mode should load the index route correctly SSR
+* i18n Support Root Catch-all dev mode should load the index route correctly CSR
+* i18n Support Root Catch-all dev mode should navigate to other locale index and back
+* i18n Support Root Catch-all dev mode should navigate to other locale page and back
+
 test/integration/i18n-support-custom-error/test/index.test.js
 * Custom routes i18n custom error dev mode should localized [slug] routes render correctly
 * Custom routes i18n custom error dev mode handle custom http status maintaining locale props in custom _error page
@@ -4605,6 +4639,10 @@ test/integration/i18n-support-same-page-hash-change/test/index.test.js
 * Hash changes i18n dev mode should trigger hash change events
 
 test/integration/i18n-support-fallback-rewrite-legacy/test/index.test.js
+* i18n Support dev mode should not rewrite for index page
+* i18n Support dev mode should not rewrite for dynamic page
+
+test/integration/i18n-support-fallback-rewrite/test/index.test.js
 * i18n Support dev mode should not rewrite for index page
 * i18n Support dev mode should not rewrite for dynamic page
 
@@ -4666,10 +4704,6 @@ test/integration/image-optimizer/test/content-disposition-type.test.ts
 * with contentDispositionType attachment dev support with next.config.js should handle concurrent requests
 * with contentDispositionType attachment dev support with next.config.js should not have sharp missing warning
 * with contentDispositionType attachment dev support with next.config.js should not have sharp outdated warning
-
-test/integration/i18n-support-fallback-rewrite/test/index.test.js
-* i18n Support dev mode should not rewrite for index page
-* i18n Support dev mode should not rewrite for dynamic page
 
 test/integration/image-optimizer/test/index.test.ts
 * Image Optimizer config checks should error when domains length exceeds 50
@@ -4927,12 +4961,12 @@ test/integration/i18n-support/test/index.test.js
 * i18n Support with trailingSlash: true dev mode should navigate between pages correctly
 * i18n Support with trailingSlash: false dev mode should redirect correctly
 
-test/integration/initial-ref/test/index.test.js
-* Initial Refs dev mode Has correct initial ref values
-
 test/integration/invalid-middleware-matchers/test/index.test.js
 * Errors on invalid custom middleware matchers dev mode should error when source length is exceeded
 * Errors on invalid custom middleware matchers dev mode should error during next build for invalid matchers
+
+test/integration/invalid-multi-match/test/index.test.js
+* Custom routes invalid multi-match dev mode should show error for invalid mulit-match
 
 test/integration/invalid-custom-routes/test/index.test.js
 * Errors on invalid custom routes dev mode should error when empty headers array is present on header item
@@ -4946,8 +4980,8 @@ test/integration/invalid-custom-routes/test/index.test.js
 * Errors on invalid custom routes dev mode should show valid error when non-array is returned from headers
 * Errors on invalid custom routes dev mode should show valid error when segments not in source are used in destination
 
-test/integration/invalid-multi-match/test/index.test.js
-* Custom routes invalid multi-match dev mode should show error for invalid mulit-match
+test/integration/initial-ref/test/index.test.js
+* Initial Refs dev mode Has correct initial ref values
 
 test/integration/invalid-server-options/test/index.test.js
 * Invalid server options next() called with no parameters should throw error
@@ -4958,6 +4992,73 @@ test/integration/invalid-server-options/test/index.test.js
 * Invalid server options next() called with dev as array should send warning
 * Invalid server options next() called with dev as object should send warning
 * Invalid server options next() called with dev as function should send warning
+
+test/integration/invalid-href/test/index.test.js
+* Invalid hrefs dev mode does not show error when mailto: is used as href on Link
+* Invalid hrefs dev mode does not show error when https://google.com is used as href on Link
+* Invalid hrefs dev mode shows error when dynamic route mismatch is used on Link
+* Invalid hrefs dev mode shows error when internal href is used with external as
+* Invalid hrefs dev mode does not throw error when dynamic route mismatch is used on Link and params are manually provided
+* Invalid hrefs dev mode doesn't fail on invalid url
+* Invalid hrefs dev mode shows warning when dynamic route mismatch is used on Link
+
+test/integration/link-with-multiple-child/test/index.test.js
+* single child
+* multiple child with default legacyBehavior
+* multiple child with forced legacyBehavior=false
+
+test/integration/invalid-revalidate-values/test/index.test.js
+* Invalid revalidate values should not show error initially
+* Invalid revalidate values should not show error for false revalidate value
+* Invalid revalidate values should not show error for true revalidate value
+* Invalid revalidate values should show error for string revalidate value
+* Invalid revalidate values should show error for null revalidate value
+* Invalid revalidate values should show error for float revalidate value
+
+test/integration/link-without-router/test/index.test.js
+* Link without a router dev mode should not throw when rendered
+
+test/integration/index-index/test/index.test.js
+* nested index.js dev mode should ssr page /
+* nested index.js dev mode should client render page /
+* nested index.js dev mode should follow link to /
+* nested index.js dev mode should ssr page /index
+* nested index.js dev mode should client render page /index
+* nested index.js dev mode should follow link to /index
+* nested index.js dev mode should ssr page /index/user
+* nested index.js dev mode should client render page /index/user
+* nested index.js dev mode should follow link to /index/user
+* nested index.js dev mode should ssr page /index/project
+* nested index.js dev mode should client render page /index/project
+* nested index.js dev mode should follow link to /index/project
+* nested index.js dev mode should ssr page /index/index
+* nested index.js dev mode should client render page /index/index
+* nested index.js dev mode should follow link to /index/index
+* nested index.js dev mode should 404 on /index/index/index
+* nested index.js dev mode should not find a link to /index/index/index
+
+test/integration/middleware-basic/test/index.test.js
+* dev mode loads a middleware
+
+test/integration/link-ref/test/index.test.js
+* Invalid hrefs dev mode should not have a race condition with a click handler
+* Invalid hrefs dev mode should not show error for function component with forwardRef
+* Invalid hrefs dev mode should not show error for class component as child of next/link
+* Invalid hrefs dev mode should handle child ref with React.createRef
+* Invalid hrefs dev mode should handle child ref that is a function
+
+test/integration/middleware-overrides-node.js-api/test/index.test.ts
+* Middleware overriding a Node.js API dev mode does not show a warning and allows overriding
+
+test/integration/middleware-src/test/index.test.js
+* Middleware in src/ and / folders dev mode loads and runs only root middleware
+
+test/integration/missing-document-component-error/test/index.test.js
+* Missing _document components error should detect missing Html component
+* Missing _document components error should detect missing Head component
+* Missing _document components error should detect missing Main component
+* Missing _document components error should detect missing NextScript component
+* Missing _document components error should detect multiple missing document components
 
 test/integration/image-optimizer/test/sharp.test.ts
 * with latest sharp dev support w/o next.config.js should handle non-ascii characters in image url
@@ -5052,81 +5153,32 @@ test/integration/image-optimizer/test/sharp.test.ts
 * with latest sharp dev support with next.config.js should not have sharp missing warning
 * with latest sharp dev support with next.config.js should not have sharp outdated warning
 
-test/integration/invalid-href/test/index.test.js
-* Invalid hrefs dev mode does not show error when mailto: is used as href on Link
-* Invalid hrefs dev mode does not show error when https://google.com is used as href on Link
-* Invalid hrefs dev mode shows error when dynamic route mismatch is used on Link
-* Invalid hrefs dev mode shows error when internal href is used with external as
-* Invalid hrefs dev mode does not throw error when dynamic route mismatch is used on Link and params are manually provided
-* Invalid hrefs dev mode doesn't fail on invalid url
-* Invalid hrefs dev mode shows warning when dynamic route mismatch is used on Link
-
-test/integration/link-with-multiple-child/test/index.test.js
-* single child
-* multiple child with default legacyBehavior
-* multiple child with forced legacyBehavior=false
-
-test/integration/index-index/test/index.test.js
-* nested index.js dev mode should ssr page /
-* nested index.js dev mode should client render page /
-* nested index.js dev mode should follow link to /
-* nested index.js dev mode should ssr page /index
-* nested index.js dev mode should client render page /index
-* nested index.js dev mode should follow link to /index
-* nested index.js dev mode should ssr page /index/user
-* nested index.js dev mode should client render page /index/user
-* nested index.js dev mode should follow link to /index/user
-* nested index.js dev mode should ssr page /index/project
-* nested index.js dev mode should client render page /index/project
-* nested index.js dev mode should follow link to /index/project
-* nested index.js dev mode should ssr page /index/index
-* nested index.js dev mode should client render page /index/index
-* nested index.js dev mode should follow link to /index/index
-* nested index.js dev mode should 404 on /index/index/index
-* nested index.js dev mode should not find a link to /index/index/index
-
-test/integration/link-without-router/test/index.test.js
-* Link without a router dev mode should not throw when rendered
-
-test/integration/invalid-revalidate-values/test/index.test.js
-* Invalid revalidate values should not show error initially
-* Invalid revalidate values should not show error for false revalidate value
-* Invalid revalidate values should not show error for true revalidate value
-* Invalid revalidate values should show error for string revalidate value
-* Invalid revalidate values should show error for null revalidate value
-* Invalid revalidate values should show error for float revalidate value
-
-test/integration/middleware-basic/test/index.test.js
-* dev mode loads a middleware
-
-test/integration/middleware-overrides-node.js-api/test/index.test.ts
-* Middleware overriding a Node.js API dev mode does not show a warning and allows overriding
-
-test/integration/link-ref/test/index.test.js
-* Invalid hrefs dev mode should not have a race condition with a click handler
-* Invalid hrefs dev mode should not show error for function component with forwardRef
-* Invalid hrefs dev mode should not show error for class component as child of next/link
-* Invalid hrefs dev mode should handle child ref with React.createRef
-* Invalid hrefs dev mode should handle child ref that is a function
-
-test/integration/middleware-src/test/index.test.js
-* Middleware in src/ and / folders dev mode loads and runs only root middleware
-
-test/integration/next-dynamic-css/test/index.test.js
-* next/dynamic dev mode should load page correctly
-
-test/integration/missing-document-component-error/test/index.test.js
-* Missing _document components error should detect missing Html component
-* Missing _document components error should detect missing Head component
-* Missing _document components error should detect missing Main component
-* Missing _document components error should detect missing NextScript component
-* Missing _document components error should detect multiple missing document components
-
 test/integration/middleware-dev-update/test/index.test.js
 * Middleware development errors when middleware is removed sends response correctly
 * Middleware development errors when middleware is removed and re-added sends response correctly
 * Middleware development errors when middleware is added sends response correctly
 * Middleware development errors when matcher is added sends response correctly
+
+test/integration/jsconfig-baseurl/test/index.test.js
+* TypeScript Features default behavior should render the page
+
+test/integration/link-with-encoding/test/index.test.js
+* Link Component with Encoding spaces should have correct query on SSR
+* Link Component with Encoding spaces should have correct query on Router#push
+* Link Component with Encoding spaces should have correct query on simple client-side <Link>
+* Link Component with Encoding percent should have correct query on SSR
+* Link Component with Encoding percent should have correct query on Router#push
+* Link Component with Encoding percent should have correct query on simple client-side <Link>
+* Link Component with Encoding forward slash should have correct query on SSR
+* Link Component with Encoding forward slash should have correct query on Router#push
+* Link Component with Encoding forward slash should have correct query on simple client-side <Link>
+* Link Component with Encoding double quote should have correct query on SSR
+* Link Component with Encoding double quote should have correct query on Router#push
+* Link Component with Encoding double quote should have correct query on simple client-side <Link>
+* Link Component with Encoding colon should have correct query on SSR
+* Link Component with Encoding colon should have correct query on Router#push
+* Link Component with Encoding colon should have correct query on simple client-side <Link>
+* Link Component with Encoding colon should have correct parsing of url query params
 
 test/integration/image-optimizer/test/squoosh.test.ts
 * with squoosh dev support w/o next.config.js should handle non-ascii characters in image url
@@ -5234,29 +5286,11 @@ test/integration/image-optimizer/test/squoosh.test.ts
 * with squoosh dev support with next.config.js should not have sharp missing warning
 * with squoosh dev support with next.config.js should not have sharp outdated warning
 
-test/integration/jsconfig-baseurl/test/index.test.js
-* TypeScript Features default behavior should render the page
-
-test/integration/link-with-encoding/test/index.test.js
-* Link Component with Encoding spaces should have correct query on SSR
-* Link Component with Encoding spaces should have correct query on Router#push
-* Link Component with Encoding spaces should have correct query on simple client-side <Link>
-* Link Component with Encoding percent should have correct query on SSR
-* Link Component with Encoding percent should have correct query on Router#push
-* Link Component with Encoding percent should have correct query on simple client-side <Link>
-* Link Component with Encoding forward slash should have correct query on SSR
-* Link Component with Encoding forward slash should have correct query on Router#push
-* Link Component with Encoding forward slash should have correct query on simple client-side <Link>
-* Link Component with Encoding double quote should have correct query on SSR
-* Link Component with Encoding double quote should have correct query on Router#push
-* Link Component with Encoding double quote should have correct query on simple client-side <Link>
-* Link Component with Encoding colon should have correct query on SSR
-* Link Component with Encoding colon should have correct query on Router#push
-* Link Component with Encoding colon should have correct query on simple client-side <Link>
-* Link Component with Encoding colon should have correct parsing of url query params
-
 test/integration/next-dynamic/test/index.test.js
 * next/dynamic dev mode should render server value
+
+test/integration/next-dynamic-css/test/index.test.js
+* next/dynamic dev mode should load page correctly
 
 test/integration/next-image-legacy/trailing-slash/test/index.test.ts
 * Image Component Trailing Slash Tests dev mode should include trailing slash when trailingSlash is set on config file during next dev
@@ -5361,63 +5395,6 @@ test/integration/next-image-new/base-path/test/static.test.js
 * Static Image Component Tests for basePath dev mode should use width prop to adjust both width and height
 * Static Image Component Tests for basePath dev mode should add a data URL placeholder to an image
 
-test/integration/next-image-new/app-dir/test/index.test.ts
-* Image Component Default Tests dev mode should load the images
-* Image Component Default Tests dev mode should preload priority images
-* Image Component Default Tests dev mode should not pass through user-provided srcset (causing a flash)
-* Image Component Default Tests dev mode should update the image on src change
-* Image Component Default Tests dev mode should callback onLoadingComplete when image is fully loaded
-* Image Component Default Tests dev mode should callback native onLoad with sythetic event
-* Image Component Default Tests dev mode should callback native onError when error occured while loading image
-* Image Component Default Tests dev mode should callback native onError even when error before hydration
-* Image Component Default Tests dev mode should work with image with blob src
-* Image Component Default Tests dev mode should work when using flexbox
-* Image Component Default Tests dev mode should work with sizes and automatically use responsive srcset
-* Image Component Default Tests dev mode should render no wrappers or sizers
-* Image Component Default Tests dev mode should handle the styles prop appropriately
-* Image Component Default Tests dev mode should warn when legacy prop layout=fill
-* Image Component Default Tests dev mode should warn when legacy prop layout=responsive
-* Image Component Default Tests dev mode should render picture via getImgProps
-* Image Component Default Tests dev mode should show missing src error
-* Image Component Default Tests dev mode should show empty string src error
-* Image Component Default Tests dev mode should show invalid src error
-* Image Component Default Tests dev mode should show invalid src error when protocol-relative
-* Image Component Default Tests dev mode should show error when string src and placeholder=blur and blurDataURL is missing
-* Image Component Default Tests dev mode should show error when invalid width prop
-* Image Component Default Tests dev mode should show error when invalid Infinity width prop
-* Image Component Default Tests dev mode should show error when invalid height prop
-* Image Component Default Tests dev mode should show missing alt error
-* Image Component Default Tests dev mode should show error when missing width prop
-* Image Component Default Tests dev mode should show error when missing height prop
-* Image Component Default Tests dev mode should show error when width prop on fill image
-* Image Component Default Tests dev mode should show error when CSS position changed on fill image
-* Image Component Default Tests dev mode should show error when static import and placeholder=blur and blurDataUrl is missing
-* Image Component Default Tests dev mode should warn when using a very small image with placeholder=blur
-* Image Component Default Tests dev mode should not warn when Image is child of p
-* Image Component Default Tests dev mode should warn when priority prop is missing on LCP image
-* Image Component Default Tests dev mode should warn when loader is missing width
-* Image Component Default Tests dev mode should not warn when data url image with fill and sizes props
-* Image Component Default Tests dev mode should not warn when svg, even if with loader prop or without
-* Image Component Default Tests dev mode should warn at most once even after state change
-* Image Component Default Tests dev mode should correctly ignore prose styles
-* Image Component Default Tests dev mode should apply style inheritance for img elements but not wrapper elements
-* Image Component Default Tests dev mode should apply filter style after image loads
-* Image Component Default Tests dev mode should emit image for next/dynamic with non ssr case
-* Image Component Default Tests dev mode Fill-mode tests should include a data-attribute on fill images
-* Image Component Default Tests dev mode Fill-mode tests should add position:absolute to fill images
-* Image Component Default Tests dev mode Fill-mode tests should add 100% width and height to fill images
-* Image Component Default Tests dev mode Fill-mode tests should add position styles to fill images
-* Image Component Default Tests dev mode Fill-mode tests should not log incorrect warnings
-* Image Component Default Tests dev mode Fill-mode tests should log warnings when using fill mode incorrectly
-* Image Component Default Tests dev mode Fill-mode tests should not log warnings when image unmounts
-* Image Component Default Tests dev mode should have data url placeholder when enabled
-* Image Component Default Tests dev mode should remove data url placeholder after image loads
-* Image Component Default Tests dev mode should render correct objectFit when data url placeholder and fill
-* Image Component Default Tests dev mode should have blurry placeholder when enabled
-* Image Component Default Tests dev mode should remove blurry placeholder after image loads
-* Image Component Default Tests dev mode should render correct objectFit when blurDataURL and fill
-* Image Component Default Tests dev mode should be valid HTML
-
 test/integration/next-image-new/default/test/index.test.ts
 * Image Component Default Tests dev mode should load the images
 * Image Component Default Tests dev mode should preload priority images
@@ -5475,16 +5452,62 @@ test/integration/next-image-new/default/test/index.test.ts
 * Image Component Default Tests dev mode should render correct objectFit when blurDataURL and fill
 * Image Component Default Tests dev mode should be valid HTML
 
-test/integration/next-image-new/app-dir/test/static.test.ts
-* Static Image Component Tests dev mode Should allow an image with a static src to omit height and width
-* Static Image Component Tests dev mode Should automatically provide an image height and width
-* Static Image Component Tests dev mode should use width and height prop to override import
-* Static Image Component Tests dev mode should use height prop to adjust both width and height
-* Static Image Component Tests dev mode should use width prop to adjust both width and height
-* Static Image Component Tests dev mode should add a data URL placeholder to an image
-* Static Image Component Tests dev mode should add placeholder with blurDataURL and fill
-* Static Image Component Tests dev mode should add placeholder even when blurDataURL aspect ratio does not match width/height ratio
-* Static Image Component Tests dev mode should load direct imported image
+test/integration/next-image-new/app-dir/test/index.test.ts
+* Image Component Default Tests dev mode should load the images
+* Image Component Default Tests dev mode should preload priority images
+* Image Component Default Tests dev mode should not pass through user-provided srcset (causing a flash)
+* Image Component Default Tests dev mode should update the image on src change
+* Image Component Default Tests dev mode should callback onLoadingComplete when image is fully loaded
+* Image Component Default Tests dev mode should callback native onLoad with sythetic event
+* Image Component Default Tests dev mode should callback native onError when error occured while loading image
+* Image Component Default Tests dev mode should callback native onError even when error before hydration
+* Image Component Default Tests dev mode should work with image with blob src
+* Image Component Default Tests dev mode should work when using flexbox
+* Image Component Default Tests dev mode should work with sizes and automatically use responsive srcset
+* Image Component Default Tests dev mode should render no wrappers or sizers
+* Image Component Default Tests dev mode should handle the styles prop appropriately
+* Image Component Default Tests dev mode should warn when legacy prop layout=fill
+* Image Component Default Tests dev mode should warn when legacy prop layout=responsive
+* Image Component Default Tests dev mode should render picture via getImgProps
+* Image Component Default Tests dev mode should show missing src error
+* Image Component Default Tests dev mode should show empty string src error
+* Image Component Default Tests dev mode should show invalid src error
+* Image Component Default Tests dev mode should show invalid src error when protocol-relative
+* Image Component Default Tests dev mode should show error when string src and placeholder=blur and blurDataURL is missing
+* Image Component Default Tests dev mode should show error when invalid width prop
+* Image Component Default Tests dev mode should show error when invalid Infinity width prop
+* Image Component Default Tests dev mode should show error when invalid height prop
+* Image Component Default Tests dev mode should show missing alt error
+* Image Component Default Tests dev mode should show error when missing width prop
+* Image Component Default Tests dev mode should show error when missing height prop
+* Image Component Default Tests dev mode should show error when width prop on fill image
+* Image Component Default Tests dev mode should show error when CSS position changed on fill image
+* Image Component Default Tests dev mode should show error when static import and placeholder=blur and blurDataUrl is missing
+* Image Component Default Tests dev mode should warn when using a very small image with placeholder=blur
+* Image Component Default Tests dev mode should not warn when Image is child of p
+* Image Component Default Tests dev mode should warn when priority prop is missing on LCP image
+* Image Component Default Tests dev mode should warn when loader is missing width
+* Image Component Default Tests dev mode should not warn when data url image with fill and sizes props
+* Image Component Default Tests dev mode should not warn when svg, even if with loader prop or without
+* Image Component Default Tests dev mode should warn at most once even after state change
+* Image Component Default Tests dev mode should correctly ignore prose styles
+* Image Component Default Tests dev mode should apply style inheritance for img elements but not wrapper elements
+* Image Component Default Tests dev mode should apply filter style after image loads
+* Image Component Default Tests dev mode should emit image for next/dynamic with non ssr case
+* Image Component Default Tests dev mode Fill-mode tests should include a data-attribute on fill images
+* Image Component Default Tests dev mode Fill-mode tests should add position:absolute to fill images
+* Image Component Default Tests dev mode Fill-mode tests should add 100% width and height to fill images
+* Image Component Default Tests dev mode Fill-mode tests should add position styles to fill images
+* Image Component Default Tests dev mode Fill-mode tests should not log incorrect warnings
+* Image Component Default Tests dev mode Fill-mode tests should log warnings when using fill mode incorrectly
+* Image Component Default Tests dev mode Fill-mode tests should not log warnings when image unmounts
+* Image Component Default Tests dev mode should have data url placeholder when enabled
+* Image Component Default Tests dev mode should remove data url placeholder after image loads
+* Image Component Default Tests dev mode should render correct objectFit when data url placeholder and fill
+* Image Component Default Tests dev mode should have blurry placeholder when enabled
+* Image Component Default Tests dev mode should remove blurry placeholder after image loads
+* Image Component Default Tests dev mode should render correct objectFit when blurDataURL and fill
+* Image Component Default Tests dev mode should be valid HTML
 
 test/integration/next-image-new/default/test/static.test.ts
 * Static Image Component Tests dev mode Should allow an image with a static src to omit height and width
@@ -5498,17 +5521,28 @@ test/integration/next-image-new/default/test/static.test.ts
 * Static Image Component Tests dev mode should load direct imported image
 * Static Image Component Tests dev mode should load staticprops imported image
 
+test/integration/next-image-new/app-dir/test/static.test.ts
+* Static Image Component Tests dev mode Should allow an image with a static src to omit height and width
+* Static Image Component Tests dev mode Should automatically provide an image height and width
+* Static Image Component Tests dev mode should use width and height prop to override import
+* Static Image Component Tests dev mode should use height prop to adjust both width and height
+* Static Image Component Tests dev mode should use width prop to adjust both width and height
+* Static Image Component Tests dev mode should add a data URL placeholder to an image
+* Static Image Component Tests dev mode should add placeholder with blurDataURL and fill
+* Static Image Component Tests dev mode should add placeholder even when blurDataURL aspect ratio does not match width/height ratio
+* Static Image Component Tests dev mode should load direct imported image
+
 test/integration/next-image-new/typescript/test/index.test.ts
 * TypeScript Image Component development mode should have image types when enabled
 * TypeScript Image Component development mode should render the valid Image usage and not print error
 * TypeScript Image Component development mode should print error when invalid Image usage
 * TypeScript Image Component should remove global image types when disabled (dev)
 
-test/integration/next-image-new/trailing-slash/test/index.test.ts
-* Image Component Trailing Slash Tests dev mode should include trailing slash when trailingSlash is set on config file during next dev
-
 test/integration/next-image-new/middleware/test/index.test.ts
 * Image with middleware in edge func dev mode should not error
+
+test/integration/next-image-new/trailing-slash/test/index.test.ts
+* Image Component Trailing Slash Tests dev mode should include trailing slash when trailingSlash is set on config file during next dev
 
 test/integration/no-override-next-props/test/index.test.js
 * Dynamic require should show error when a Next prop is returned in _app.getInitialProps
@@ -5538,14 +5572,6 @@ test/integration/optional-chaining-nullish-coalescing/test/index.test.js
 * Optional chaining and nullish coalescing support dev mode should support optional chaining
 * Optional chaining and nullish coalescing support dev mode should support nullish coalescing
 
-test/integration/plugin-mdx-rs/test/index.test.js
-* MDX-rs Configuration MDX-rs Plugin support should render an MDX page correctly
-* MDX-rs Configuration MDX-rs Plugin support should render an MDX page with component correctly
-* MDX-rs Configuration MDX-rs Plugin support should render an MDX page with globally provided components (from \`mdx-components.js\`) correctly
-
-test/integration/port-env-var/test/index.test.js
-* PORT environment variable dev mode should serve on the configured port
-
 test/integration/non-standard-node-env-warning/test/index.test.js
 * Non-Standard NODE_ENV should not show the warning with no NODE_ENV set
 * Non-Standard NODE_ENV should not show the warning with NODE_ENV set to valid value
@@ -5553,6 +5579,14 @@ test/integration/non-standard-node-env-warning/test/index.test.js
 * Non-Standard NODE_ENV should show the warning with NODE_ENV set to invalid value
 * Non-Standard NODE_ENV should show the warning with NODE_ENV set to invalid value (custom server)
 * Non-Standard NODE_ENV should show the warning with NODE_ENV set to production with next dev
+
+test/integration/plugin-mdx-rs/test/index.test.js
+* MDX-rs Configuration MDX-rs Plugin support should render an MDX page correctly
+* MDX-rs Configuration MDX-rs Plugin support should render an MDX page with component correctly
+* MDX-rs Configuration MDX-rs Plugin support should render an MDX page with globally provided components (from \`mdx-components.js\`) correctly
+
+test/integration/port-env-var/test/index.test.js
+* PORT environment variable dev mode should serve on the configured port
 
 test/integration/page-extensions/test/index.test.js
 * Page Extensions should throw if pageExtensions is an empty array
@@ -5572,9 +5606,6 @@ test/integration/prerender/test/index.test.js
 * SSG Prerender dev mode getStaticPaths should work with firebase import and getStaticPaths
 * SSG Prerender dev mode getStaticPaths should not cache getStaticPaths errors
 
-test/integration/react-streaming/test/index.test.js
-* streaming dev dev should render 500 error correctly
-
 test/integration/preview-fallback/test/index.test.js
 * Preview mode with fallback pages dev Mode should get preview cookie correctly
 * Preview mode with fallback pages dev Mode should not write preview index SSG page to cache
@@ -5582,6 +5613,9 @@ test/integration/preview-fallback/test/index.test.js
 * Preview mode with fallback pages dev Mode should not write preview dynamic SSG page to cache no fallback
 * Preview mode with fallback pages dev Mode should not write preview dynamic prerendered SSG page to cache with fallback
 * Preview mode with fallback pages dev Mode should not write preview dynamic non-prerendered SSG page to cache with fallback
+
+test/integration/react-streaming/test/index.test.js
+* streaming dev dev should render 500 error correctly
 
 test/integration/prerender-preview/test/index.test.js
 * Prerender Preview Mode Development Mode should start development application
@@ -5593,13 +5627,16 @@ test/integration/prerender-preview/test/index.test.js
 * Prerender Preview Mode Development Mode should fetch prerendered data
 * Prerender Preview Mode Development Mode should fetch live static props with preview active
 
+test/integration/relay-graphql-swc-single-project/test/index.test.js
+* Relay Compiler Transform - Single Project Config dev mode should resolve index page correctly
+
 test/integration/read-only-source-hmr/test/index.test.js
 * Read-only source HMR should detect changes to a page
 * Read-only source HMR should handle page deletion and subsequent recreation
 * Read-only source HMR should detect a new page
 
-test/integration/relay-graphql-swc-single-project/test/index.test.js
-* Relay Compiler Transform - Single Project Config dev mode should resolve index page correctly
+test/integration/rewrites-destination-query-array/test/index.test.js
+* rewrites destination query dev mode should contain all values passed in param as array
 
 test/integration/react-18/test/index.test.js
 * Basics default setting with react 18 dev should only render once in SSR
@@ -5612,9 +5649,6 @@ test/integration/react-18/test/index.test.js
 * Concurrent mode in the nodejs runtime dev flushes styled-jsx styles as the page renders
 * Concurrent mode in the nodejs runtime dev <RouteAnnouncer /> should not have the initial route announced
 * Concurrent mode in the nodejs runtime dev should not have invalid config warning
-
-test/integration/rewrites-destination-query-array/test/index.test.js
-* rewrites destination query dev mode should contain all values passed in param as array
 
 test/integration/rewrites-client-resolving/test/index.test.js
 * Client-side rewrites resolving dev mode should break rewrites chain when dynamic route matches
@@ -5665,21 +5699,18 @@ test/integration/route-indexes/test/index.test.js
 test/integration/router-hash-navigation/test/index.test.js
 * router.isReady dev mode scrolls to top when href="/" and url already contains a hash
 
+test/integration/router-prefetch/test/index.test.js
+* Router prefetch dev mode should not prefetch
+* Router prefetch dev mode should resolve prefetch promise
+
 test/integration/router-is-ready-app-gip/test/index.test.js
 * router.isReady with appGip dev mode isReady should be true immediately for pages without getStaticProps
 * router.isReady with appGip dev mode isReady should be true immediately for pages without getStaticProps, with query
 * router.isReady with appGip dev mode isReady should be true immediately for getStaticProps page without query
 * router.isReady with appGip dev mode isReady should be true after query update for getStaticProps page with query
 
-test/integration/router-prefetch/test/index.test.js
-* Router prefetch dev mode should not prefetch
-* Router prefetch dev mode should resolve prefetch promise
-
 test/integration/router-rerender/test/index.test.js
 * router rerender dev mode with middleware should not trigger unncessary rerenders when middleware is used
-
-test/integration/route-load-cancel/test/index.test.js
-* next/dynamic dev mode should cancel slow page loads on re-navigation
 
 test/integration/router-is-ready/test/index.test.js
 * router.isReady dev mode isReady should be true immediately for getInitialProps page
@@ -5692,6 +5723,9 @@ test/integration/router-is-ready/test/index.test.js
 * router.isReady dev mode isReady should be true after query update for dynamic auto-export page with query
 * router.isReady dev mode isReady should be true after query update for getStaticProps page with query
 * router.isReady dev mode isReady should be true immediately for getStaticProps page without query
+
+test/integration/route-load-cancel/test/index.test.js
+* next/dynamic dev mode should cancel slow page loads on re-navigation
 
 test/integration/scroll-back-restoration/test/index.test.js
 * Scroll Restoration Support dev mode should restore the scroll position on navigating back
@@ -5714,6 +5748,12 @@ test/integration/src-dir-support/test/index.test.js
 * Dynamic Routing dev mode should navigate to a nested dynamic page successfully
 * Dynamic Routing dev mode should pass params in getInitialProps during SSR
 
+test/integration/ssg-dynamic-routes-404-page/test/index.test.js
+* Custom 404 Page for static site generation with dynamic routes dev mode should respond to a not existing page with 404
+
+test/integration/ssg-data-404/test/index.test.js
+* SSG data 404 dev mode should hard navigate when a new deployment occurs
+
 test/integration/script-loader/test/index.test.js
 * Next.js Script - Primary Strategies - Strict Mode priority afterInteractive
 * Next.js Script - Primary Strategies - Strict Mode priority lazyOnload
@@ -5724,12 +5764,6 @@ test/integration/script-loader/test/index.test.js
 * Next.js Script - Primary Strategies - Strict Mode Does not duplicate inline scripts
 * Next.js Script - Primary Strategies - Strict Mode onReady fires after load event and then on every subsequent re-mount
 * Next.js Script - Primary Strategies - Strict Mode onReady should only fires once after loaded (issue #39993)
-
-test/integration/ssg-dynamic-routes-404-page/test/index.test.js
-* Custom 404 Page for static site generation with dynamic routes dev mode should respond to a not existing page with 404
-
-test/integration/ssg-data-404/test/index.test.js
-* SSG data 404 dev mode should hard navigate when a new deployment occurs
 
 test/integration/static-page-name/test/index.test.js
 * Static Page Name dev mode should render the page via SSR correctly
@@ -5783,10 +5817,6 @@ test/integration/typescript-workspaces-paths/packages/www/test/index.test.js
 * TypeScript Features default behavior should resolve the second item in as a fallback
 * TypeScript Features default behavior should resolve a single matching alias
 
-test/integration/typescript-hmr/test/index.test.js
-* TypeScript HMR delete a page and add it back should detect the changes to typescript pages and display it
-* TypeScript HMR should ignore type errors in development
-
 test/integration/typescript-paths/test/index.test.js
 * typescript paths default behavior should alias components
 * typescript paths default behavior should resolve the first item in the array first
@@ -5797,6 +5827,9 @@ test/integration/typescript-paths/test/index.test.js
 * typescript paths without baseurl default behavior should resolve the second item in as a fallback
 * typescript paths without baseurl default behavior should resolve a single matching alias
 
+test/integration/with-electron/test/index.test.js
+* Should skip testing electron without process.env.TEST_ELECTRON set
+
 test/integration/typescript/test/index.test.js
 * TypeScript Features default behavior should render the page
 * TypeScript Features default behavior should render the cookies page
@@ -5806,11 +5839,12 @@ test/integration/typescript/test/index.test.js
 * TypeScript Features default behavior should respond to async API route correctly
 * TypeScript Features default behavior should not fail to render when an inactive page has an error
 
-test/integration/with-electron/test/index.test.js
-* Should skip testing electron without process.env.TEST_ELECTRON set
-
 test/integration/with-router/test/index.test.js
 * withRouter SSR should show an error when trying to use router methods during SSR
+
+test/integration/typescript-hmr/test/index.test.js
+* TypeScript HMR delete a page and add it back should detect the changes to typescript pages and display it
+* TypeScript HMR should ignore type errors in development
 
 test/integration/telemetry/test/index.test.js
 * Telemetry CLI can print telemetry status

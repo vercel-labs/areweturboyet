@@ -1,77 +1,5 @@
 export default `
 
-test/integration/app-document-import-order/test/index.test.js
-* development mode _app chunks should be attached to de dom before page chunks
-
-test/integration/amphtml/test/index.test.js
-* AMP Usage AMP dev mode should add data-ampdevmode to development script tags
-
-test/integration/app-dir-export/test/dynamic-missing-gsp-dev.test.ts
-* should error when dynamic route is missing generateStaticParams
-* should error when client component has generateStaticParams
-
-test/integration/app-dir-export/test/dynamic-missing-gsp-prod.test.ts
-* should error when dynamic route is missing generateStaticParams
-* should error when client component has generateStaticParams
-
-test/integration/app-dir-export/test/dynamicapiroute-dev.test.ts
-* should work in dev with dynamicApiRoute undefined
-* should work in dev with dynamicApiRoute 'error'
-* should work in dev with dynamicApiRoute 'force-static'
-* should work in dev with dynamicApiRoute 'force-dynamic'
-
-test/integration/app-dir-export/test/dynamicapiroute-prod.test.ts
-* should work in prod with dynamicApiRoute undefined
-* should work in prod with dynamicApiRoute 'error'
-* should work in prod with dynamicApiRoute 'force-static'
-* should work in prod with dynamicApiRoute 'force-dynamic'
-
-test/integration/app-dir-export/test/dynamicpage-dev.test.ts
-* should work in dev with dynamicPage undefined
-* should work in dev with dynamicPage 'error'
-* should work in dev with dynamicPage 'force-static'
-
-test/integration/app-dir-export/test/dynamicpage-prod.test.ts
-* should work in prod with dynamicPage undefined
-* should work in prod with dynamicPage $dynamicPage
-* should work in prod with dynamicPage 'force-static'
-* should work in prod with dynamicPage 'force-dynamic'
-
-test/integration/app-dir-export/test/trailing-slash-dev.test.ts
-* should work in dev with trailingSlash 'false'
-* should work in dev with trailingSlash 'true'
-
-test/integration/app-dir-export/test/trailing-slash-start.test.ts
-* should work in prod with trailingSlash 'false'
-* should work in prod with trailingSlash 'true'
-
-test/integration/async-modules/test/index.test.js
-* Async modules dev mode ssr async page modules
-* Async modules dev mode csr async page modules
-* Async modules dev mode works on async api routes
-* Async modules dev mode works with getServerSideProps
-* Async modules dev mode works with getStaticProps
-* Async modules dev mode can render async 404 pages
-
-test/integration/broken-webpack-plugin/test/index.test.js
-* Handles a broken webpack plugin (precompile) should render error correctly
-
-test/integration/build-indicator/test/index.test.js
-* Build Activity Indicator Enabled Shows the build indicator when a page is built during navigation
-
-test/integration/config-experimental-warning/test/index.test.js
-* Config Experimental Warning should show warning for dropped experimental.appDir option
-
-test/integration/app-document/test/index.test.js
-* Document and App Client side should detect the changes to pages/_document.js and display it
-
-test/integration/cli/test/index.test.js
-* CLI Usage dev -p conflict
-* CLI Usage dev -p reserved
-
-test/integration/config-devtool-dev/test/index.test.js
-* devtool set in development mode in next config should warn and revert when a devtool is set in development mode
-
 test/development/acceptance-app/component-stack.test.ts
 * Component Stack in error overlay should show a component stack on hydration error
 
@@ -114,16 +42,6 @@ test/development/acceptance/ReactRefreshLogBox-app-doc.test.ts
 * ReactRefreshLogBox turbo _app syntax error shows logbox
 * ReactRefreshLogBox turbo _document syntax error shows logbox
 
-test/development/acceptance/ReactRefreshLogBox-builtins.test.ts
-* ReactRefreshLogBox turbo Module not found (missing global CSS)
-
-test/development/acceptance/error-recovery.test.ts
-* ReactRefreshLogBox turbo logbox: can recover from a event handler error
-* ReactRefreshLogBox turbo logbox: can recover from a component error
-* ReactRefreshLogBox turbo render error not shown right after syntax error
-* ReactRefreshLogBox turbo stuck error
-* ReactRefreshLogBox turbo syntax > runtime error
-
 test/development/acceptance-app/error-recovery.test.ts
 * Error recovery app turbo can recover from a syntax error without losing state
 * Error recovery app turbo client component can recover from syntax error
@@ -136,31 +54,40 @@ test/development/acceptance-app/error-recovery.test.ts
 * Error recovery app turbo render error not shown right after syntax error
 * Error recovery app turbo displays build error on initial page load
 
+test/development/acceptance/ReactRefreshLogBox-builtins.test.ts
+* ReactRefreshLogBox turbo Module not found (missing global CSS)
+
+test/development/acceptance/error-recovery.test.ts
+* ReactRefreshLogBox turbo logbox: can recover from a event handler error
+* ReactRefreshLogBox turbo logbox: can recover from a component error
+* ReactRefreshLogBox turbo render error not shown right after syntax error
+* ReactRefreshLogBox turbo stuck error
+* ReactRefreshLogBox turbo syntax > runtime error
+
 test/development/acceptance/ReactRefreshModule.test.ts
 * ReactRefreshModule should allow any variable names
 
 test/development/acceptance/ReactRefreshRegression.test.ts
-* ReactRefreshRegression can fast refresh a page with config
 * ReactRefreshRegression shows an overlay for a server-side error
 * ReactRefreshRegression custom loader (mdx) should have Fast Refresh enabled
 
 test/development/acceptance/ReactRefreshRequire.test.ts
-* ReactRefreshRequire re-runs accepted modules
 * ReactRefreshRequire propagates hot update to all inverse dependencies
 * ReactRefreshRequire propagates a module that stops accepting in next version
-
-test/development/acceptance/server-component-compiler-errors-in-pages.test.ts
-* Error Overlay for server components compiler errors in pages importing 'next/headers' in pages
-* Error Overlay for server components compiler errors in pages importing 'server-only' in pages
 
 test/development/app-render-error-log/app-render-error-log.test.ts
 * app-render-error-log should log the correct values on app-render error
 * app-render-error-log should log the correct values on app-render error with edge runtime
 
+test/development/acceptance/server-component-compiler-errors-in-pages.test.ts
+* Error Overlay for server components compiler errors in pages importing 'next/headers' in pages
+* Error Overlay for server components compiler errors in pages importing 'server-only' in pages
+
 test/development/basic/barrel-optimization.test.ts
 * optimizePackageImports app - should render the icons correctly without creating all the modules
 * optimizePackageImports pages - should render the icons correctly without creating all the modules
-* optimizePackageImports should reuse the transformed barrel meta file from SWC
+* optimizePackageImports app - should optimize recursive wildcard export mapping
+* optimizePackageImports pages - should optimize recursive wildcard export mapping
 * optimizePackageImports should support visx
 
 test/development/acceptance-app/ReactRefreshLogBox.test.ts
@@ -177,9 +104,6 @@ test/development/acceptance/ReactRefreshLogBox.test.ts
 * ReactRefreshLogBox turbo css syntax errors
 * ReactRefreshLogBox turbo logbox: anchors links in error messages
 * ReactRefreshLogBox turbo non-Error errors are handled properly
-
-test/development/basic/styled-components.test.ts
-* styled-components SWC transform should enable the display name transform by default
 
 test/development/basic/next-dynamic.test.ts
 * basic next/dynamic usage, basePath: "" with "swc" compiler swc Dynamic import default behavior should render dynamic import components
@@ -225,14 +149,12 @@ test/development/acceptance-app/rsc-build-errors.test.ts
 * Error overlay - RSC build errors should throw an error when error file is a server component
 * Error overlay - RSC build errors should throw an error when error file is a server component with empty error file
 * Error overlay - RSC build errors should freeze parent resolved metadata to avoid mutating in generateMetadata
-* Error overlay - RSC build errors should show which import caused an error in node_modules
 
 test/development/basic/hmr.test.ts
 * basic HMR, basePath: "" Hot Module Reloading delete a page and add it back should load the page properly
 * basic HMR, basePath: "" Error Recovery should recover from 404 after a page has been added
 * basic HMR, basePath: "" Error Recovery should recover from 404 after a page has been added with dynamic segments
 * basic HMR, basePath: "" Error Recovery should detect syntax errors and recover
-* basic HMR, basePath: "" Error Recovery should show the error on all pages
 * basic HMR, basePath: "" Error Recovery should detect runtime errors on the module scope
 * basic HMR, basePath: "" Error Recovery should recover from errors in the render function
 * basic HMR, basePath: "" Error Recovery should recover after exporting an invalid page
@@ -250,7 +172,6 @@ test/development/basic/hmr.test.ts
 * basic HMR, basePath: "/docs" Error Recovery should recover from 404 after a page has been added
 * basic HMR, basePath: "/docs" Error Recovery should recover from 404 after a page has been added with dynamic segments
 * basic HMR, basePath: "/docs" Error Recovery should detect syntax errors and recover
-* basic HMR, basePath: "/docs" Error Recovery should show the error on all pages
 * basic HMR, basePath: "/docs" Error Recovery should detect runtime errors on the module scope
 * basic HMR, basePath: "/docs" Error Recovery should recover from errors in the render function
 * basic HMR, basePath: "/docs" Error Recovery should recover after exporting an invalid page
@@ -265,35 +186,60 @@ test/development/basic/hmr.test.ts
 * basic HMR, basePath: "/docs" should have client HMR events in trace file
 * basic HMR, basePath: "/docs" should have correct compile timing after fixing error
 
-test/integration/config-resolve-alias/test/index.test.js
-* Invalid resolve alias should show relevant error when webpack resolve alias is wrong
+test/integration/app-document-import-order/test/index.test.js
+* development mode _app chunks should be attached to de dom before page chunks
 
-test/integration/custom-page-extension/test/index.test.js
-* Custom page extension dev mode should work with normal page
-* Custom page extension dev mode should work dynamic page
+test/integration/amphtml/test/index.test.js
+* AMP Usage AMP dev mode should add data-ampdevmode to development script tags
 
-test/integration/custom-error/test/index.test.js
-* Custom _error dev mode 1 should not warn with /_error and /404 when rendering error first
+test/integration/app-dir-export/test/dynamic-missing-gsp-dev.test.ts
+* should error when dynamic route is missing generateStaticParams
+* should error when client component has generateStaticParams
 
-test/integration/css/test/css-modules.test.js
-* CSS Modules Composes Ordering Development Mode should have correct color on index page (on hover)
-* CSS Modules Composes Ordering Development Mode should have correct color on index page (on nav from index)
+test/integration/app-dir-export/test/dynamic-missing-gsp-prod.test.ts
+* should error when dynamic route is missing generateStaticParams
+* should error when client component has generateStaticParams
 
-test/integration/create-next-app/package-manager.test.ts
-* should use Bun as the package manager on supplying --use-bun
+test/integration/app-dir-export/test/dynamicapiroute-dev.test.ts
+* should work in dev with dynamicApiRoute undefined
+* should work in dev with dynamicApiRoute 'error'
+* should work in dev with dynamicApiRoute 'force-static'
+* should work in dev with dynamicApiRoute 'force-dynamic'
 
-test/integration/css/test/dev-css-handling.test.js
-* Can hot reload CSS without losing state should update CSS color without remounting <input>
+test/integration/app-dir-export/test/dynamicapiroute-prod.test.ts
+* should work in prod with dynamicApiRoute undefined
+* should work in prod with dynamicApiRoute 'error'
+* should work in prod with dynamicApiRoute 'force-static'
+* should work in prod with dynamicApiRoute 'force-dynamic'
 
-test/development/next-font/font-loader-in-document-error.test.ts
-* font-loader-in-document-error next/font inside _document
+test/integration/app-dir-export/test/dynamicpage-dev.test.ts
+* should work in dev with dynamicPage undefined
+* should work in dev with dynamicPage 'error'
+* should work in dev with dynamicPage 'force-static'
+
+test/integration/app-dir-export/test/dynamicpage-prod.test.ts
+* should work in prod with dynamicPage undefined
+* should work in prod with dynamicPage $dynamicPage
+* should work in prod with dynamicPage 'force-static'
+* should work in prod with dynamicPage 'force-dynamic'
+
+test/integration/app-dir-export/test/trailing-slash-dev.test.ts
+* should work in dev with trailingSlash 'false'
+* should work in dev with trailingSlash 'true'
+
+test/integration/app-dir-export/test/trailing-slash-start.test.ts
+* should work in prod with trailingSlash 'false'
+* should work in prod with trailingSlash 'true'
+
+test/development/basic/styled-components.test.ts
+* styled-components SWC transform should enable the display name transform by default
 
 test/development/next-font/build-errors.test.ts
 * build-errors should show a next/font error when input is wrong
 * build-errors should show a module not found error if local font file can' be resolved
 
-test/development/jsconfig-path-reloading/index.test.ts
-* jsconfig-path-reloading jsconfig added after starting dev should automatically fast refresh content when path is added without error
+test/development/next-font/font-loader-in-document-error.test.ts
+* font-loader-in-document-error next/font inside _document
 
 test/development/pages-dir/custom-app-hmr/index.test.ts
 * custom-app-hmr should not do full reload when simply editing _app.js
@@ -314,6 +260,9 @@ test/e2e/app-dir/actions-navigation/index.test.ts
 * app-dir action handling should handle actions correctly after navigation / redirection events
 * app-dir action handling should handle actions correctly after following a relative link
 
+test/e2e/app-dir/app-basepath/index.test.ts
+* app dir - basepath should prefix metadata og image with basePath
+
 test/development/middleware-errors/index.test.ts
 * middleware - development errors when middleware throws synchronously logs the error correctly
 * middleware - development errors when running invalid dynamic code with eval logs the error correctly
@@ -324,28 +273,8 @@ test/development/middleware-errors/index.test.ts
 * middleware - development errors when there is a compilation error from boot renders the error correctly and recovers
 * middleware - development errors when there is a compilation error after boot logs the error correctly
 
-test/e2e/app-dir/actions/app-action-form-state.test.ts
-* app-dir action useFormState should support submitting form state with JS
-* app-dir action useFormState should support submitting form state without JS
-* app-dir action useFormState should support hydrating the app from progressively enhanced form request
-* app-dir action useFormState should send the action to the provided permalink with form state when JS disabled
-
-test/e2e/app-dir/app-basepath/index.test.ts
-* app dir - basepath should prefix metadata og image with basePath
-
-test/e2e/app-dir/actions/app-action-invalid.test.ts
-* app-dir action invalid config skip test for dev mode
-
 test/e2e/app-dir/app-config-crossorigin/index.test.ts
 * app dir - crossOrigin config should render correctly with assetPrefix: "/"
-
-test/e2e/app-dir/actions/app-action-progressive-enhancement.test.ts
-* app-dir action progressive enhancement should support formData and redirect without JS
-* app-dir action progressive enhancement should support actions from client without JS
-
-test/e2e/app-dir/app-external/app-external.test.ts
-* app dir - external dependency should be able to opt-out 3rd party packages being bundled in server components
-* app dir - external dependency should have proper tree-shaking for known modules in CJS
 
 test/e2e/app-dir/app-edge/app-edge.test.ts
 * app-dir edge SSR should handle edge only routes
@@ -354,8 +283,9 @@ test/e2e/app-dir/app-edge/app-edge.test.ts
 * app-dir edge SSR should warn about the re-export of a pages runtime/preferredRegion config
 * app-dir edge SSR should handle edge rsc hmr
 
-test/e2e/app-dir/actions/app-action-size-limit-invalid.test.ts
-* app-dir action size limit invalid config skip test for dev mode
+test/e2e/app-dir/app-external/app-external.test.ts
+* app dir - external dependency should be able to opt-out 3rd party packages being bundled in server components
+* app dir - external dependency should have proper tree-shaking for known modules in CJS
 
 test/e2e/app-dir/app-middleware/app-middleware.test.ts
 * app-dir with middleware should filter correctly after middleware rewrite
@@ -371,63 +301,29 @@ test/e2e/app-dir/app-middleware/app-middleware.test.ts
 * app-dir with middleware Mutate request headers for next/headers Deletes headers
 * app-dir with middleware Mutate request headers for next/headers Updates headers
 * app-dir with middleware Mutate request headers for next/headers Supports draft mode
-* app dir middleware with middleware in src dir works without crashing when using requestAsyncStorage
-
-test/e2e/app-dir/actions/app-action.test.ts
-* app-dir action handling should handle basic actions correctly
-* app-dir action handling should support headers and cookies
-* app-dir action handling should push new route when redirecting
-* app-dir action handling should support headers in client imported actions
-* app-dir action handling should support setting cookies in route handlers with the correct overrides
-* app-dir action handling should support formData and redirect
-* app-dir action handling should support .bind
-* app-dir action handling should support chained .bind
-* app-dir action handling should support notFound (javascript disabled)
-* app-dir action handling should support notFound
-* app-dir action handling should support uploading files
-* app-dir action handling should support hoc auth wrappers
-* app-dir action handling should support importing actions in client components
-* app-dir action handling should support importing the same action module instance in both server and action layers
-* app-dir action handling should not block navigation events while a server action is in flight
-* app-dir action handling should support next/dynamic with ssr: false
-* app-dir action handling should only submit action once when resubmitting an action after navigation
-* app-dir action handling HMR should support updating the action
-* app-dir action handling should bundle external libraries if they are on the action layer
-* app-dir action handling Edge SSR should handle basic actions correctly
-* app-dir action handling Edge SSR should return error response for hoc auth wrappers in edge runtime
-* app-dir action handling Edge SSR should handle redirect to a relative URL in a single pass
-* app-dir action handling Edge SSR should handle regular redirects
-* app-dir action handling Edge SSR should allow cookie and header async storages
-* app-dir action handling Edge SSR should handle unicode search params
-* app-dir action handling fetch actions should handle a fetch action initiated from a static page
-* app-dir action handling fetch actions should handle redirect to a relative URL in a single pass
-* app-dir action handling fetch actions should handle regular redirects
-* app-dir action handling fetch actions should handle revalidatePath
-* app-dir action handling fetch actions should handle revalidateTag
-* app-dir action handling fetch actions should store revalidation data in the prefetch cache
-* app-dir action handling fetch actions should revalidate when cookies.set is called
-* app-dir action handling fetch actions should invalidate client cache on other routes when cookies.set is called
-* app-dir action handling fetch actions should revalidate when cookies.set is called in a client action
-* app-dir action handling fetch actions should invalidate client cache when tag is revalidated
-* app-dir action handling fetch actions should invalidate client cache when path is revalidated
+* app dir - middleware with middleware in src dir works without crashing when using requestAsyncStorage
 
 test/e2e/app-dir/app-css/index.test.ts
-* app dir css css support server layouts should support external css imports
-* app dir css css support special entries should include css imported in loading.js
-* app dir css css support chunks should bundle css resources into chunks
-* app dir css css support should not preload styles twice during HMR
-* app dir css css support should reload @import styles during HMR
-* app dir css css support multiple entries should deduplicate styles on the module level
-* app dir css css support multiple entries should only include the same style once in the flight data
-* app dir css HMR should support HMR for CSS imports in server components
-* app dir css HMR should not create duplicate link tags during HMR
-* app dir css HMR should support HMR with sass/scss
+* app dir - css css support server layouts should support external css imports
+* app dir - css css support special entries should include css imported in loading.js
+* app dir - css css support chunks should bundle css resources into chunks
+* app dir - css css support should not preload styles twice during HMR
+* app dir - css css support should reload @import styles during HMR
+* app dir - css css support multiple entries should deduplicate styles on the module level
+* app dir - css css support multiple entries should only include the same style once in the flight data
+* app dir - css HMR should support HMR for CSS imports in server components
+* app dir - css HMR should not create duplicate link tags during HMR
+* app dir - css HMR should support HMR with sass/scss
 
-test/e2e/app-dir/draft-mode/draft-mode.test.ts
-* app dir - draft mode in edge runtime should use initial rand when draft mode is disabled on /with-edge/index
-* app dir - draft mode in edge runtime should use initial rand when draft mode is disabled on /with-edge/with-cookies
-* app dir - draft mode in edge runtime should genenerate rand when draft mode enabled
-* app dir - draft mode in edge runtime should read other cookies when draft mode enabled
+test/e2e/app-dir/actions/app-action-progressive-enhancement.test.ts
+* app-dir action progressive enhancement should support formData and redirect without JS
+* app-dir action progressive enhancement should support actions from client without JS
+
+test/e2e/app-dir/actions/app-action-form-state.test.ts
+* app-dir action useFormState should support submitting form state with JS
+* app-dir action useFormState should support submitting form state without JS
+* app-dir action useFormState should support hydrating the app from progressively enhanced form request
+* app-dir action useFormState should send the action to the provided permalink with form state when JS disabled
 
 test/e2e/app-dir/app-static/app-static-custom-handler.test.ts
 * app-dir static/dynamic handling unstable-cache should work in pages/unstable-cache-edge
@@ -439,10 +335,6 @@ test/e2e/app-dir/app-static/app-static-custom-handler.test.ts
 * app-dir static/dynamic handling should cache correctly handle JSON body
 * app-dir static/dynamic handling should render not found pages correctly and fallback to the default one
 
-test/e2e/app-dir/edge-runtime-node-compatibility/edge-runtime-node-compatibility.test.ts
-* edge runtime node compatibility [app] supports node:buffer
-* edge runtime node compatibility [pages/api] supports node:buffer
-
 test/e2e/app-dir/app-static/app-static.test.ts
 * app-dir static/dynamic handling unstable-cache should work in pages/unstable-cache-edge
 * app-dir static/dynamic handling should correctly handle statusCode with notFound + ISR
@@ -452,6 +344,16 @@ test/e2e/app-dir/app-static/app-static.test.ts
 * app-dir static/dynamic handling should cache correctly with utf8 encoding edge
 * app-dir static/dynamic handling should cache correctly handle JSON body
 * app-dir static/dynamic handling should render not found pages correctly and fallback to the default one
+
+test/e2e/app-dir/draft-mode/draft-mode.test.ts
+* app dir - draft mode in edge runtime should use initial rand when draft mode is disabled on /with-edge/index
+* app dir - draft mode in edge runtime should use initial rand when draft mode is disabled on /with-edge/with-cookies
+* app dir - draft mode in edge runtime should genenerate rand when draft mode enabled
+* app dir - draft mode in edge runtime should read other cookies when draft mode enabled
+
+test/e2e/app-dir/edge-runtime-node-compatibility/edge-runtime-node-compatibility.test.ts
+* edge runtime node compatibility [app] supports node:buffer
+* edge runtime node compatibility [pages/api] supports node:buffer
 
 test/e2e/app-dir/emotion-js/index.test.ts
 * app dir - emotion-js should render emotion-js css with compiler.emotion option correctly
@@ -465,6 +367,9 @@ test/e2e/app-dir/create-root-layout/create-root-layout.test.ts
 * app-dir create root layout page.js root layout in route group create root layout
 * app-dir create root layout page.js find available dir create root layout
 * app-dir create root layout page.tsx create root layout
+
+test/e2e/app-dir/interception-middleware-rewrite/interception-middleware-rewrite.test.ts
+* interception-middleware-rewrite should support intercepting routes with a middleware rewrite
 
 test/e2e/app-dir/metadata-edge/index.test.ts
 * app dir - Metadata API on the Edge runtime should render OpenGraph image meta tag correctly
@@ -481,9 +386,6 @@ test/e2e/app-dir/mdx/mdx.test.ts
 * mdx without-mdx-rs pages directory should work using browser with mdx import
 * mdx without-mdx-rs pages directory should allow overriding components
 
-test/e2e/app-dir/interception-middleware-rewrite/interception-middleware-rewrite.test.ts
-* interception-middleware-rewrite should support intercepting routes with a middleware rewrite
-
 test/e2e/app-dir/metadata-dynamic-routes/index.test.ts
 * app dir - metadata dynamic routes text routes should handle sitemap.[ext] dynamic routes
 * app dir - metadata dynamic routes text routes should not throw if client components are imported but not used
@@ -495,18 +397,18 @@ test/e2e/app-dir/metadata-dynamic-routes/index.test.ts
 * app dir - metadata dynamic routes should error when id is missing in generateSitemaps
 
 test/e2e/app-dir/next-font/next-font.test.ts
-* app app dir next-font import values should have correct values at /
-* app app dir next-font import values should have correct values at /client
-* app app dir next-font computed styles should have correct styles at /
-* app app dir next-font computed styles should have correct styles at /client
-* app app dir next-font navigation should not have duplicate preload tags on navigation
-* app app dir next-font Dev errors should recover on font loader error
-* app-old app dir next-font import values should have correct values at /
-* app-old app dir next-font import values should have correct values at /client
-* app-old app dir next-font computed styles should have correct styles at /
-* app-old app dir next-font computed styles should have correct styles at /client
-* app-old app dir next-font navigation should not have duplicate preload tags on navigation
-* app-old app dir next-font Dev errors should recover on font loader error
+* app app dir - next-font import values should have correct values at /
+* app app dir - next-font import values should have correct values at /client
+* app app dir - next-font computed styles should have correct styles at /
+* app app dir - next-font computed styles should have correct styles at /client
+* app app dir - next-font navigation should not have duplicate preload tags on navigation
+* app app dir - next-font Dev errors should recover on font loader error
+* app-old app dir - next-font import values should have correct values at /
+* app-old app dir - next-font import values should have correct values at /client
+* app-old app dir - next-font computed styles should have correct styles at /
+* app-old app dir - next-font computed styles should have correct styles at /client
+* app-old app dir - next-font navigation should not have duplicate preload tags on navigation
+* app-old app dir - next-font Dev errors should recover on font loader error
 
 test/e2e/app-dir/metadata/metadata.test.ts
 * app dir - metadata basic should support other basic tags (edge)
@@ -520,32 +422,32 @@ test/e2e/app-dir/metadata/metadata.test.ts
 test/e2e/app-dir/next-image/next-image-proxy.test.ts
 * next-image-proxy loads images without any errors
 
+test/e2e/app-dir/next-image/next-image.test.ts
+* app dir - next-image ssr content should render images on / route
+* app dir - next-image ssr content should render images on /client route
+* app dir - next-image ssr content should render images nested under page dir on /nested route
+* app dir - next-image browser content should render images on / route
+* app dir - next-image browser content should render images on /client route
+* app dir - next-image browser content should render images nested under page dir on /nested route
+* app dir - next-image image content should render images on / route
+* app dir - next-image image content should render legacy images in edge runtime on /legacy-edge-runtime route
+
 test/e2e/app-dir/not-found/conflict-route/index.test.ts
 * app dir - not-found - conflict route with default runtime should allow to have a valid /not-found route
 * app dir - not-found - conflict route with runtime = edge should use the not-found page for non-matching routes
 * app dir - not-found - conflict route with runtime = edge should allow to have a valid /not-found route
 
-test/e2e/app-dir/next-image/next-image.test.ts
-* app dir next-image ssr content should render images on / route
-* app dir next-image ssr content should render images on /client route
-* app dir next-image ssr content should render images nested under page dir on /nested route
-* app dir next-image browser content should render images on / route
-* app dir next-image browser content should render images on /client route
-* app dir next-image browser content should render images nested under page dir on /nested route
-* app dir next-image image content should render images on / route
-* app dir next-image image content should render legacy images in edge runtime on /legacy-edge-runtime route
-
 test/e2e/app-dir/not-found/group-route/index.test.ts
 * app dir - not-found - group route with runtime = edge should use the not-found page under group routes
-
-test/e2e/app-dir/parallel-routes-not-found/parallel-routes-not-found.test.ts
-* parallel-routes-and-interception should not render the @children slot when the @slot is not found
 
 test/e2e/app-dir/not-found-default/index.test.ts
 * app dir - not found with default 404 page should render default 404 with root layout for non-existent page
 * app dir - not found with default 404 page should be able to navigate to page calling not-found
 * app dir - not found with default 404 page should be able to navigate to page with calling not-found in metadata
 * app dir - not found with default 404 page should render default not found for group routes if not found is not defined
+
+test/e2e/app-dir/parallel-routes-not-found/parallel-routes-not-found.test.ts
+* parallel-routes-and-interception should not render the @children slot when the @slot is not found
 
 test/e2e/app-dir/not-found/basic/index.test.ts
 * app dir - not-found - basic with default runtime should render the 404 page when the file is removed, and restore the page when re-added
@@ -556,30 +458,31 @@ test/e2e/app-dir/not-found/basic/index.test.ts
 * app dir - not-found - basic with runtime = edge should render the 404 page when the file is removed, and restore the page when re-added
 
 test/e2e/app-dir/app/index.test.ts
-* app dir should work for catch-all edge page
-* app dir should encode chunk path correctly
-* app dir should not share edge workers
-* app dir should use text/x-component for flight with edge runtime
-* app dir should return the \`vary\` header from edge runtime
-* app dir should pass props from getServerSideProps in root layout
-* app dir should serve from app
-* app dir should serve polyfills for browsers that do not support modules
-* app dir should serve nested parent
-* app dir should serve dynamic parameter
-* app dir should include document html and body
-* app dir rewrites should support rewrites on initial load
-* app dir rewrites should support rewrites on client-side navigation from pages to app with existing pages path
-* app dir rewrites should support rewrites on client-side navigation
-* app dir <Link /> should hard push
-* app dir <Link /> should hard replace
-* app dir <Link /> should soft push
-* app dir <Link /> should be soft for back navigation
-* app dir <Link /> should be soft for forward navigation
-* app dir server components Loading should render loading.js in initial html for slow page
-* app dir server components Loading should render loading.js in browser for slow page
-* app dir HMR should HMR correctly for server component
-* app dir HMR should HMR correctly for client component
-* app dir bootstrap scripts should fail to bootstrap when using CSP in Dev due to eval
+* app dir - basic should work for catch-all edge page
+* app dir - basic should encode chunk path correctly
+* app dir - basic should not share edge workers
+* app dir - basic should use text/x-component for flight with edge runtime
+* app dir - basic should return the \`vary\` header from edge runtime
+* app dir - basic should pass props from getServerSideProps in root layout
+* app dir - basic should serve from app
+* app dir - basic should serve polyfills for browsers that do not support modules
+* app dir - basic should serve nested parent
+* app dir - basic should serve dynamic parameter
+* app dir - basic should include document html and body
+* app dir - basic rewrites should support rewrites on initial load
+* app dir - basic rewrites should support rewrites on client-side navigation from pages to app with existing pages path
+* app dir - basic rewrites should support rewrites on client-side navigation
+* app dir - basic <Link /> should hard push
+* app dir - basic <Link /> should hard replace
+* app dir - basic <Link /> should soft push
+* app dir - basic <Link /> should be soft for back navigation
+* app dir - basic <Link /> should be soft for forward navigation
+* app dir - basic <Link /> should navigate to pages dynamic route from pages page if it overlaps with an app page
+* app dir - basic server components Loading should render loading.js in initial html for slow page
+* app dir - basic server components Loading should render loading.js in browser for slow page
+* app dir - basic HMR should HMR correctly for server component
+* app dir - basic HMR should HMR correctly for client component
+* app dir - basic bootstrap scripts should fail to bootstrap when using CSP in Dev due to eval
 
 test/e2e/app-dir/root-layout/root-layout.test.ts
 * app-dir root layout Should do a mpa navigation when switching root layout should work with route groups
@@ -600,12 +503,31 @@ test/e2e/404-page-router/index.test.ts
 * 404-page-router 404-page-router with basePath of false and i18n of false and middleware false for /not/a/real/page should have the correct router parameters after it is ready
 * 404-page-router 404-page-router with basePath of false and i18n of false and middleware false should not throw any errors when re-fetching the route info
 
-test/e2e/app-dir/rsc-basic/rsc-basic.test.ts
-* app dir - rsc basics should create client reference successfully for all file conventions
-* app dir - rsc basics should support next/link in server components
-* app dir - rsc basics should support webpack loader rules
-* app dir - rsc basics react@experimental should opt into the react@experimental when enabling ppr
-* app dir - rsc basics react@experimental should opt into the react@experimental when enabling serverActions
+test/e2e/app-dir/actions/app-action.test.ts
+* app-dir action handling should handle basic actions correctly
+* app-dir action handling should support headers in client imported actions
+* app-dir action handling should support formData and redirect
+* app-dir action handling should support .bind
+* app-dir action handling should support chained .bind
+* app-dir action handling should support notFound (javascript disabled)
+* app-dir action handling should support notFound
+* app-dir action handling should support uploading files
+* app-dir action handling should support importing actions in client components
+* app-dir action handling should support importing the same action module instance in both server and action layers
+* app-dir action handling should not block navigation events while a server action is in flight
+* app-dir action handling should support next/dynamic with ssr: false
+* app-dir action handling should only submit action once when resubmitting an action after navigation
+* app-dir action handling HMR should support updating the action
+* app-dir action handling should bundle external libraries if they are on the action layer
+* app-dir action handling Edge SSR should handle basic actions correctly
+* app-dir action handling Edge SSR should return error response for hoc auth wrappers in edge runtime
+* app-dir action handling Edge SSR should handle redirect to a relative URL in a single pass
+* app-dir action handling Edge SSR should handle regular redirects
+* app-dir action handling Edge SSR should allow cookie and header async storages
+* app-dir action handling Edge SSR should handle unicode search params
+* app-dir action handling fetch actions should handle redirect to a relative URL in a single pass
+* app-dir action handling fetch actions should handle regular redirects
+* app-dir action handling fetch actions should store revalidation data in the prefetch cache
 
 test/e2e/app-dir/parallel-routes-and-interception/parallel-routes-and-interception.test.ts
 * parallel-routes-and-interception parallel routes should support parallel route tab bars
@@ -622,6 +544,258 @@ test/e2e/app-dir/parallel-routes-and-interception/parallel-routes-and-intercepti
 * parallel-routes-and-interception route intercepting should render an intercepted route at the top level from a nested path
 * parallel-routes-and-interception route intercepting should render modal when paired with parallel routes
 * parallel-routes-and-interception route intercepting should support intercepting with beforeFiles rewrites
+
+test/integration/async-modules/test/index.test.js
+* Async modules dev mode ssr async page modules
+* Async modules dev mode csr async page modules
+* Async modules dev mode works on async api routes
+* Async modules dev mode works with getServerSideProps
+* Async modules dev mode works with getStaticProps
+* Async modules dev mode can render async 404 pages
+
+test/integration/broken-webpack-plugin/test/index.test.js
+* Handles a broken webpack plugin (precompile) should render error correctly
+
+test/integration/build-indicator/test/index.test.js
+* Build Activity Indicator Enabled Shows the build indicator when a page is built during navigation
+
+test/integration/cli/test/index.test.js
+* CLI Usage dev -p conflict
+* CLI Usage dev -p reserved
+
+test/integration/config-devtool-dev/test/index.test.js
+* devtool set in development mode in next config should warn and revert when a devtool is set in development mode
+
+test/e2e/app-dir/set-cookies/set-cookies.test.ts
+* set-cookies for edge runtime for /pages should set two set-cookie headers
+* set-cookies for experimental-edge runtime for /pages should set two set-cookie headers
+
+test/e2e/app-dir/underscore-ignore-app-paths/underscore-ignore-app-paths.test.ts
+* underscore-ignore-app-paths should serve app path with %5F
+
+test/e2e/browserslist/browserslist.test.ts
+* Browserslist should apply browserslist target
+
+test/e2e/basepath.test.ts
+* basePath should have correct href for a link
+* basePath should have correct href for a link to /
+
+test/e2e/app-dir/server-actions-relative-redirect/server-actions-relative-redirect.test.ts
+* server-actions-relative-redirect should work with relative redirect
+* server-actions-relative-redirect should work with absolute redirect
+
+test/e2e/custom-app-render/custom-app-render.test.ts
+* custom-app-render should render /
+* custom-app-render should render /render
+
+test/e2e/edge-compiler-can-import-blob-assets/index.test.ts
+* Edge Compiler can import asset assets allows to fetch text assets
+* Edge Compiler can import asset assets allows to fetch image assets
+* Edge Compiler can import asset assets allows to assets from node_modules
+* Edge Compiler can import asset assets extracts all the assets from the bundle
+
+test/e2e/edge-can-use-wasm-files/index.test.ts
+* edge api endpoints can use wasm files uses the wasm file
+* middleware can use wasm files uses the wasm file
+* middleware can use wasm files can be called twice
+* middleware can use wasm files lists the necessary wasm bindings in the manifest
+* middleware can use wasm files with the experimental modes on uses the wasm file
+
+test/e2e/conflicting-app-page-error/index.test.ts
+* Conflict between app file and pages file should show error overlay for /another
+* Conflict between app file and pages file should show error overlay for /
+* Conflict between app file and pages file should support hmr with conflicts
+* Conflict between app file and pages file should error again when there is new conflict
+
+test/e2e/edge-pages-support/edge-document.test.ts
+* edge render - custom _document with edge runtime should render page properly
+
+test/e2e/edge-pages-support/index.test.ts
+* edge-render-getserversideprops should have correct query/params on index
+* edge-render-getserversideprops should have correct query/params on /[id]
+* edge-render-getserversideprops should have correct query/params on rewrite
+* edge-render-getserversideprops should have correct query/params on dynamic rewrite
+* edge-render-getserversideprops should respond to _next/data for index correctly
+* edge-render-getserversideprops should respond to _next/data for [id] correctly
+
+test/e2e/edge-runtime-uses-edge-light-import-specifier-for-packages/edge-runtime-uses-edge-light-import-specifier-for-packages.test.ts
+* edge-runtime uses edge-light import specifier for packages pages/api endpoints import the correct module
+* edge-runtime uses edge-light import specifier for packages pages import the correct module
+* edge-runtime uses edge-light import specifier for packages app-dir imports the correct module
+
+test/e2e/edge-configurable-runtime/index.test.ts
+* Configurable runtime for src/pages and API routes In dev mode warns about API route using experimental-edge runtime
+* Configurable runtime for src/pages and API routes In dev mode warns about page using edge runtime
+* Configurable runtime for src/pages and API routes In dev mode errors about page using edge runtime
+* Configurable runtime for pages and API routes In dev mode warns about API route using experimental-edge runtime
+* Configurable runtime for pages and API routes In dev mode warns about page using edge runtime
+* Configurable runtime for pages and API routes In dev mode errors about page using edge runtime
+
+test/e2e/fetch-failures-have-good-stack-traces-in-edge-runtime/fetch-failures-have-good-stack-traces-in-edge-runtime.test.ts
+* fetch failures have good stack traces in edge runtime when awaiting \`fetch\` using an unknown domain, stack traces are preserved
+* fetch failures have good stack traces in edge runtime when returning \`fetch\` using an unknown domain, stack traces are preserved
+
+test/e2e/i18n-ignore-rewrite-source-locale/rewrites-with-basepath.test.ts
+* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: 
+* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: /en
+* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: /sv
+* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: /nl
+
+test/e2e/i18n-ignore-rewrite-source-locale/rewrites.test.ts
+* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: 
+* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: /en
+* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: /sv
+* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: /nl
+
+test/e2e/middleware-rewrites/test/index.test.ts
+* Middleware Rewrite should handle static rewrite from next.config.js correctly
+* Middleware Rewrite should have props for afterFiles rewrite to SSG page
+* Middleware Rewrite should allow to rewrite to a \`beforeFiles\` rewrite config
+* Middleware Rewrite should allow to rewrite to a \`afterFiles\` rewrite config
+
+test/e2e/module-layer/index.test.ts
+* module layer no server-only in server targets should render routes marked with restriction marks without errors
+* module layer with server-only in server targets should render routes marked with restriction marks without errors
+
+test/e2e/app-dir/with-babel/with-babel.test.ts
+* with babel should support babel in app dir
+
+test/e2e/next-font/basepath.test.ts
+* next/font/google basepath preload correct files
+
+test/e2e/next-font/google-fetch-error.test.ts
+* next/font/google fetch error should use a fallback font in dev
+
+test/e2e/middleware-trailing-slash/test/index.test.ts
+* Middleware Runtime trailing slash refreshes the page when middleware changes 
+* Middleware Runtime trailing slash should have init header for NextResponse.redirect
+* Middleware Runtime trailing slash should have correct query values for rewrite to ssg page
+* Middleware Runtime trailing slash should have correct route params for chained rewrite from middleware to config rewrite
+* Middleware Runtime trailing slash should have correct route params for rewrite from config dynamic route
+* Middleware Runtime trailing slash should have correct route params for rewrite from config non-dynamic route
+* Middleware Runtime trailing slash allows shallow linking with middleware
+
+test/e2e/next-font/with-font-declarations-file.test.ts
+* next/font/google with-font-declarations-file preload correct files at /inter
+* next/font/google with-font-declarations-file preload correct files at /roboto
+* next/font/google with-font-declarations-file preload correct files at /local-font
+
+test/e2e/config-schema-check/index.test.ts
+* next.config.js schema validating - invalid config should warn the invalid next config
+
+test/e2e/next-font/with-proxy.test.ts
+* next/font/google with proxy should use a proxy agent when proxy environment variable is set
+
+test/e2e/next-font/without-preloaded-fonts.test.ts
+* next/font/google without-preloaded-fonts without _app without preload
+* next/font/google no preloads with _app without preload
+* next/font/google no preloads with _app without fonts
+
+test/e2e/next-font/index.test.ts
+* next/font app preload page with fonts
+* next/font app preload page without fonts
+* next/font app preload page with local fonts
+* next/font app preload google fonts with multiple weights/styles
+* next/font app preload font without preloadable subsets
+* next/font app preload font without size adjust
+* next/font app Fallback fontfaces google Indie flower
+* next/font app-old preload page with fonts
+* next/font app-old preload page without fonts
+* next/font app-old preload page with local fonts
+* next/font app-old preload google fonts with multiple weights/styles
+* next/font app-old preload font without preloadable subsets
+* next/font app-old preload font without size adjust
+* next/font app-old Fallback fontfaces google Indie flower
+
+test/e2e/og-api/index.test.ts
+* og-api should work in pages/api
+* og-api should work in app route
+
+test/e2e/middleware-general/test/index.test.ts
+* Middleware Runtime with i18n refreshes the page when middleware changes 
+* Middleware Runtime with i18n should only contain middleware route in dev middleware manifest
+* Middleware Runtime with i18n passes search params with rewrites
+* Middleware Runtime with i18n should have init header for NextResponse.redirect
+* Middleware Runtime with i18n should have correct route params for chained rewrite from middleware to config rewrite
+* Middleware Runtime with i18n should have correct route params for rewrite from config dynamic route
+* Middleware Runtime with i18n should have correct route params for rewrite from config non-dynamic route
+* Middleware Runtime with i18n allows shallow linking with middleware
+* Middleware Runtime without i18n refreshes the page when middleware changes 
+* Middleware Runtime without i18n passes search params with rewrites
+* Middleware Runtime without i18n should have init header for NextResponse.redirect
+* Middleware Runtime without i18n should have correct route params for chained rewrite from middleware to config rewrite
+* Middleware Runtime without i18n should have correct route params for rewrite from config dynamic route
+* Middleware Runtime without i18n should have correct route params for rewrite from config non-dynamic route
+* Middleware Runtime without i18n allows shallow linking with middleware
+
+test/e2e/skip-trailing-slash-redirect/index.test.ts
+* skip-trailing-slash-redirect pages dir should preserve original trailing slashes to links on client
+
+test/e2e/streaming-ssr/index.test.ts
+* streaming SSR with custom next configs should render styled-jsx styles in streaming
+* streaming SSR with custom next configs should redirect paths without trailing-slash and render when slash is appended
+* streaming SSR with custom next configs should render next/router correctly in edge runtime
+* streaming SSR with custom next configs should render multi-byte characters correctly in streaming
+
+test/e2e/switchable-runtime/index.test.ts
+* Switchable runtime Switchable runtime (dev) should sort edge SSR routes correctly
+* Switchable runtime Switchable runtime (dev) should be able to navigate between edge SSR routes without any errors
+* Switchable runtime Switchable runtime (dev) should build /api/hello and /api/edge as an api route with edge runtime
+* Switchable runtime Switchable runtime (dev) should be possible to switch between runtimes in pages
+
+test/e2e/prerender.test.ts
+* Prerender should not error when rewriting to fallback dynamic SSG page
+
+test/e2e/yarn-pnp/test/with-eslint.test.ts
+* yarn PnP should compile and serve the index page correctly with-eslint
+
+test/e2e/yarn-pnp/test/with-mdx.test.ts
+* yarn PnP should compile and serve the index page correctly with-mdx
+
+test/e2e/yarn-pnp/test/with-next-sass.test.ts
+* yarn PnP should compile and serve the index page correctly with-next-sass
+
+test/e2e/app-dir/rsc-basic/rsc-basic.test.ts
+* app dir - rsc basics should create client reference successfully for all file conventions
+* app dir - rsc basics should support next/link in server components
+* app dir - rsc basics should support webpack loader rules
+* app dir - rsc basics react@experimental should opt into the react@experimental when enabling ppr
+* app dir - rsc basics react@experimental should opt into the react@experimental when enabling serverActions
+
+test/e2e/swc-warnings/index.test.ts
+* swc warnings by default should have warning
+* can force swc should not have warning
+
+test/e2e/nonce-head-manager/index.test.ts
+* nonce head manager should not re-execute the script when re-rendering
+* nonce head manager should not re-execute the script when re-rendering with CSP header
+
+test/e2e/opentelemetry/opentelemetry.test.ts
+* opentelemetry app router should handle RSC with fetch
+* opentelemetry app router should handle route handlers in app router
+* opentelemetry pages should handle getServerSideProps
+* opentelemetry pages should handle getStaticProps when fallback: 'blocking'
+* opentelemetry pages should handle api routes in pages
+
+test/integration/config-resolve-alias/test/index.test.js
+* Invalid resolve alias should show relevant error when webpack resolve alias is wrong
+
+test/integration/custom-page-extension/test/index.test.js
+* Custom page extension dev mode should work with normal page
+* Custom page extension dev mode should work dynamic page
+
+test/integration/custom-error/test/index.test.js
+* Custom _error dev mode 1 should not warn with /_error and /404 when rendering error first
+
+test/integration/css/test/css-modules.test.js
+* CSS Modules Composes Ordering Development Mode should have correct color on index page (on hover)
+* CSS Modules Composes Ordering Development Mode should have correct color on index page (on nav from index)
+
+test/integration/create-next-app/package-manager.test.ts
+* should use Bun as the package manager on supplying --use-bun
+
+test/integration/css/test/dev-css-handling.test.js
+* Can hot reload CSS without losing state should update CSS color without remounting <input>
 
 test/integration/custom-routes-i18n/test/index.test.js
 * Custom routes i18n dev mode should navigate on the client with rewrites correctly
@@ -719,208 +893,6 @@ test/integration/edge-runtime-module-errors/test/module-imports.test.js
 * Edge runtime code with imports Edge API importing unused 3rd party module throws not-found module error in dev at runtime and highlights the faulty line
 * Edge runtime code with imports Middleware importing unused 3rd party module throws not-found module error in dev at runtime and highlights the faulty line
 
-test/e2e/app-dir/set-cookies/set-cookies.test.ts
-* set-cookies for edge runtime for /pages should set two set-cookie headers
-* set-cookies for experimental-edge runtime for /pages should set two set-cookie headers
-
-test/e2e/app-dir/underscore-ignore-app-paths/underscore-ignore-app-paths.test.ts
-* underscore-ignore-app-paths should serve app path with %5F
-
-test/e2e/browserslist/browserslist.test.ts
-* Browserslist should apply browserslist target
-
-test/e2e/custom-app-render/custom-app-render.test.ts
-* custom-app-render should render /
-* custom-app-render should render /render
-
-test/e2e/edge-can-use-wasm-files/index.test.ts
-* edge api endpoints can use wasm files uses the wasm file
-* middleware can use wasm files uses the wasm file
-* middleware can use wasm files can be called twice
-* middleware can use wasm files lists the necessary wasm bindings in the manifest
-* middleware can use wasm files with the experimental modes on uses the wasm file
-
-test/e2e/edge-compiler-can-import-blob-assets/index.test.ts
-* Edge Compiler can import asset assets allows to fetch text assets
-* Edge Compiler can import asset assets allows to fetch image assets
-* Edge Compiler can import asset assets allows to assets from node_modules
-* Edge Compiler can import asset assets extracts all the assets from the bundle
-
-test/e2e/basepath.test.ts
-* basePath should have correct href for a link
-* basePath should have correct href for a link to /
-
-test/e2e/edge-pages-support/edge-document.test.ts
-* edge render - custom _document with edge runtime should render page properly
-
-test/e2e/app-dir/server-actions-relative-redirect/server-actions-relative-redirect.test.ts
-* server-actions-relative-redirect should work with relative redirect
-* server-actions-relative-redirect should work with absolute redirect
-
-test/e2e/edge-pages-support/index.test.ts
-* edge-render-getserversideprops should have correct query/params on index
-* edge-render-getserversideprops should have correct query/params on /[id]
-* edge-render-getserversideprops should have correct query/params on rewrite
-* edge-render-getserversideprops should have correct query/params on dynamic rewrite
-* edge-render-getserversideprops should respond to _next/data for index correctly
-* edge-render-getserversideprops should respond to _next/data for [id] correctly
-
-test/e2e/edge-runtime-uses-edge-light-import-specifier-for-packages/edge-runtime-uses-edge-light-import-specifier-for-packages.test.ts
-* edge-runtime uses edge-light import specifier for packages pages/api endpoints import the correct module
-* edge-runtime uses edge-light import specifier for packages pages import the correct module
-* edge-runtime uses edge-light import specifier for packages app-dir imports the correct module
-
-test/e2e/edge-configurable-runtime/index.test.ts
-* Configurable runtime for src/pages and API routes In dev mode warns about API route using experimental-edge runtime
-* Configurable runtime for src/pages and API routes In dev mode warns about page using edge runtime
-* Configurable runtime for src/pages and API routes In dev mode errors about page using edge runtime
-* Configurable runtime for pages and API routes In dev mode warns about API route using experimental-edge runtime
-* Configurable runtime for pages and API routes In dev mode warns about page using edge runtime
-* Configurable runtime for pages and API routes In dev mode errors about page using edge runtime
-
-test/e2e/conflicting-app-page-error/index.test.ts
-* Conflict between app file and pages file should show error overlay for /another
-* Conflict between app file and pages file should show error overlay for /
-* Conflict between app file and pages file should support hmr with conflicts
-* Conflict between app file and pages file should error again when there is new conflict
-
-test/e2e/fetch-failures-have-good-stack-traces-in-edge-runtime/fetch-failures-have-good-stack-traces-in-edge-runtime.test.ts
-* fetch failures have good stack traces in edge runtime when awaiting \`fetch\` using an unknown domain, stack traces are preserved
-* fetch failures have good stack traces in edge runtime when returning \`fetch\` using an unknown domain, stack traces are preserved
-
-test/e2e/i18n-ignore-rewrite-source-locale/rewrites-with-basepath.test.ts
-* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: 
-* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: /en
-* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: /sv
-* i18n-ignore-rewrite-source-locale with basepath get _next/static/ files by skipping locale in rewrite, locale: /nl
-
-test/e2e/i18n-ignore-rewrite-source-locale/rewrites.test.ts
-* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: 
-* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: /en
-* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: /sv
-* i18n-ignore-rewrite-source-locale get _next/static/ files by skipping locale in rewrite, locale: /nl
-
-test/e2e/module-layer/index.test.ts
-* module layer no server-only in server targets should render routes marked with restriction marks without errors
-* module layer with server-only in server targets should render routes marked with restriction marks without errors
-
-test/e2e/next-font/basepath.test.ts
-* next/font/google basepath preload correct files
-
-test/e2e/next-font/google-fetch-error.test.ts
-* next/font/google fetch error should use a fallback font in dev
-
-test/e2e/next-font/index.test.ts
-* next/font app preload page with fonts
-* next/font app preload page without fonts
-* next/font app preload page with local fonts
-* next/font app preload google fonts with multiple weights/styles
-* next/font app preload font without preloadable subsets
-* next/font app preload font without size adjust
-* next/font app Fallback fontfaces google Indie flower
-* next/font app-old preload page with fonts
-* next/font app-old preload page without fonts
-* next/font app-old preload page with local fonts
-* next/font app-old preload google fonts with multiple weights/styles
-* next/font app-old preload font without preloadable subsets
-* next/font app-old preload font without size adjust
-* next/font app-old Fallback fontfaces google Indie flower
-
-test/e2e/next-font/with-font-declarations-file.test.ts
-* next/font/google with-font-declarations-file preload correct files at /inter
-* next/font/google with-font-declarations-file preload correct files at /roboto
-* next/font/google with-font-declarations-file preload correct files at /local-font
-
-test/e2e/next-font/with-proxy.test.ts
-* next/font/google with proxy should use a proxy agent when proxy environment variable is set
-
-test/e2e/next-font/without-preloaded-fonts.test.ts
-* next/font/google without-preloaded-fonts without _app without preload
-* next/font/google no preloads with _app without preload
-* next/font/google no preloads with _app without fonts
-
-test/e2e/middleware-rewrites/test/index.test.ts
-* Middleware Rewrite should handle static rewrite from next.config.js correctly
-* Middleware Rewrite should have props for afterFiles rewrite to SSG page
-* Middleware Rewrite should allow to rewrite to a \`beforeFiles\` rewrite config
-* Middleware Rewrite should allow to rewrite to a \`afterFiles\` rewrite config
-
-test/e2e/og-api/index.test.ts
-* og-api should work in pages/api
-* og-api should work in app route
-
-test/e2e/middleware-trailing-slash/test/index.test.ts
-* Middleware Runtime trailing slash refreshes the page when middleware changes 
-* Middleware Runtime trailing slash should have correct query values for rewrite to ssg page
-* Middleware Runtime trailing slash should have correct route params for chained rewrite from middleware to config rewrite
-* Middleware Runtime trailing slash should have correct route params for rewrite from config dynamic route
-* Middleware Runtime trailing slash should have correct route params for rewrite from config non-dynamic route
-* Middleware Runtime trailing slash allows shallow linking with middleware
-
-test/e2e/app-dir/with-babel/with-babel.test.ts
-* with babel should support babel in app dir
-
-test/e2e/middleware-general/test/index.test.ts
-* Middleware Runtime with i18n refreshes the page when middleware changes 
-* Middleware Runtime with i18n should only contain middleware route in dev middleware manifest
-* Middleware Runtime with i18n passes search params with rewrites
-* Middleware Runtime with i18n should have correct route params for chained rewrite from middleware to config rewrite
-* Middleware Runtime with i18n should have correct route params for rewrite from config dynamic route
-* Middleware Runtime with i18n should have correct route params for rewrite from config non-dynamic route
-* Middleware Runtime with i18n allows shallow linking with middleware
-* Middleware Runtime without i18n refreshes the page when middleware changes 
-* Middleware Runtime without i18n passes search params with rewrites
-* Middleware Runtime without i18n should have init header for NextResponse.redirect
-* Middleware Runtime without i18n should have correct route params for chained rewrite from middleware to config rewrite
-* Middleware Runtime without i18n should have correct route params for rewrite from config dynamic route
-* Middleware Runtime without i18n should have correct route params for rewrite from config non-dynamic route
-* Middleware Runtime without i18n allows shallow linking with middleware
-
-test/e2e/config-schema-check/index.test.ts
-* next.config.js schema validating - invalid config should warn the invalid next config
-
-test/e2e/skip-trailing-slash-redirect/index.test.ts
-* skip-trailing-slash-redirect pages dir should preserve original trailing slashes to links on client
-
-test/e2e/streaming-ssr/index.test.ts
-* streaming SSR with custom next configs should render styled-jsx styles in streaming
-* streaming SSR with custom next configs should redirect paths without trailing-slash and render when slash is appended
-* streaming SSR with custom next configs should render next/router correctly in edge runtime
-* streaming SSR with custom next configs should render multi-byte characters correctly in streaming
-
-test/e2e/switchable-runtime/index.test.ts
-* Switchable runtime Switchable runtime (dev) should sort edge SSR routes correctly
-* Switchable runtime Switchable runtime (dev) should be able to navigate between edge SSR routes without any errors
-* Switchable runtime Switchable runtime (dev) should build /api/hello and /api/edge as an api route with edge runtime
-* Switchable runtime Switchable runtime (dev) should be possible to switch between runtimes in pages
-
-test/e2e/prerender.test.ts
-* Prerender should not error when rewriting to fallback dynamic SSG page
-
-test/e2e/yarn-pnp/test/with-eslint.test.ts
-* yarn PnP should compile and serve the index page correctly with-eslint
-
-test/e2e/yarn-pnp/test/with-mdx.test.ts
-* yarn PnP should compile and serve the index page correctly with-mdx
-
-test/e2e/yarn-pnp/test/with-next-sass.test.ts
-* yarn PnP should compile and serve the index page correctly with-next-sass
-
-test/e2e/swc-warnings/index.test.ts
-* swc warnings by default should have warning
-* can force swc should not have warning
-
-test/e2e/nonce-head-manager/index.test.ts
-* nonce head manager should not re-execute the script when re-rendering
-* nonce head manager should not re-execute the script when re-rendering with CSP header
-
-test/e2e/opentelemetry/opentelemetry.test.ts
-* opentelemetry app router should handle RSC with fetch
-* opentelemetry app router should handle route handlers in app router
-* opentelemetry pages should handle getServerSideProps
-* opentelemetry pages should handle getStaticProps when fallback: 'blocking'
-* opentelemetry pages should handle api routes in pages
-
 test/integration/env-config/test/index.test.js
 * Env Config dev mode should inline global values during build
 * Env Config dev mode with hot reload should inline global values during build
@@ -953,6 +925,9 @@ test/integration/image-optimizer/test/minimum-cache-ttl.test.ts
 test/integration/import-assertion/test/index.test.js
 * import-assertion dev should handle json assertions
 
+test/integration/middleware-src/test/index.test.js
+* Middleware in src/ folder dev mode loads an runs src middleware
+
 test/integration/image-optimizer/test/sharp.test.ts
 * with latest sharp dev support w/o next.config.js should return home page
 * with latest sharp dev support w/o next.config.js should not allow svg with application header
@@ -968,15 +943,12 @@ test/integration/image-optimizer/test/sharp.test.ts
 * with latest sharp dev support with next.config.js should error if the resource isn't a valid image
 * with latest sharp dev support with next.config.js should error if the image file does not exist
 
-test/integration/middleware-src/test/index.test.js
-* Middleware in src/ folder dev mode loads an runs src middleware
+test/integration/jsconfig-baseurl/test/index.test.js
+* TypeScript Features default behavior should have correct module not found error
 
 test/integration/image-optimizer/test/squoosh.test.ts
 * with squoosh dev support w/o next.config.js should return home page
 * with squoosh dev support with next.config.js should return home page
-
-test/integration/jsconfig-baseurl/test/index.test.js
-* TypeScript Features default behavior should have correct module not found error
 
 test/integration/next-dynamic-lazy-compilation/test/index.test.js
 * next/dynamic dev mode should render server value
@@ -1024,21 +996,15 @@ test/integration/next-image-new/base-path/test/static.test.js
 test/integration/next-image-new/invalid-image-import/test/index.test.ts
 * Missing Import Image Tests dev mode should show error
 
-test/integration/next-image-new/app-dir/test/index.test.ts
+test/integration/next-image-new/default/test/index.test.ts
 * Image Component Default Tests dev mode should lazy load with placeholder=blur
 
-test/integration/next-image-new/default/test/index.test.ts
+test/integration/next-image-new/app-dir/test/index.test.ts
 * Image Component Default Tests dev mode should lazy load with placeholder=blur
 
 test/integration/next-image-new/image-from-node-modules/test/index.test.ts
 * Image Component from node_modules prod mode should apply image config for node_modules
 * Image Component from node_modules dev mode should apply image config for node_modules
-
-test/integration/next-image-new/app-dir/test/static.test.ts
-* Static Image Component Tests dev mode should have <head> containing <meta name="viewport"> followed by <link rel="preload"> for priority image
-* Static Image Component Tests dev mode should add a blur placeholder a statically imported jpg
-* Static Image Component Tests dev mode should add a blur placeholder a statically imported png
-* Static Image Component Tests dev mode should add a blur placeholder a statically imported png with fill
 
 test/integration/next-image-new/default/test/static.test.ts
 * Static Image Component Tests dev mode should have <head> containing <meta name="viewport"> followed by <link rel="preload"> for priority image
@@ -1046,21 +1012,20 @@ test/integration/next-image-new/default/test/static.test.ts
 * Static Image Component Tests dev mode should add a blur placeholder a statically imported png
 * Static Image Component Tests dev mode should add a blur placeholder a statically imported png with fill
 
+test/integration/next-image-new/app-dir/test/static.test.ts
+* Static Image Component Tests dev mode should have <head> containing <meta name="viewport"> followed by <link rel="preload"> for priority image
+* Static Image Component Tests dev mode should add a blur placeholder a statically imported jpg
+* Static Image Component Tests dev mode should add a blur placeholder a statically imported png
+* Static Image Component Tests dev mode should add a blur placeholder a statically imported png with fill
+
+test/integration/next-image-new/svgo-webpack/test/index.test.ts
+* svgo-webpack with Image Component development mode should print error when invalid Image usage
+
 test/integration/next-image-new/loader-config-edge-runtime/test/index.test.ts
 * Image Loader Config with Edge Runtime dev mode should add "src" to img1 based on the loader config
 * Image Loader Config with Edge Runtime dev mode should add "srcset" to img1 based on the loader config
 * Image Loader Config with Edge Runtime dev mode should add "src" to img2 based on the loader prop
 * Image Loader Config with Edge Runtime dev mode should add "srcset" to img2 based on the loader prop
-
-test/integration/next-image-new/svgo-webpack/test/index.test.ts
-* svgo-webpack with Image Component development mode should print error when invalid Image usage
-
-test/integration/page-extensions/test/index.test.js
-* Page Extensions should use the default pageExtensions if set to undefined
-* Page Extensions should not throw if .d.ts file inside the pages folder
-
-test/integration/no-duplicate-compile-error/test/index.test.js
-* no duplicate compile error output should not show compile error on page refresh
 
 test/integration/next-image-new/unicode/test/index.test.ts
 * Image Component Unicode Image URL dev mode should load static unicode image
@@ -1068,6 +1033,13 @@ test/integration/next-image-new/unicode/test/index.test.ts
 * Image Component Unicode Image URL dev mode should load external unicode image
 * Image Component Unicode Image URL dev mode should load internal image with space
 * Image Component Unicode Image URL dev mode should load external image with space
+
+test/integration/no-duplicate-compile-error/test/index.test.js
+* no duplicate compile error output should not show compile error on page refresh
+
+test/integration/page-extensions/test/index.test.js
+* Page Extensions should use the default pageExtensions if set to undefined
+* Page Extensions should not throw if .d.ts file inside the pages folder
 
 test/integration/next-image-new/loader-config/test/index.test.ts
 * Image Loader Config new dev mode - component should work with loaderFile config
@@ -1148,24 +1120,24 @@ test/integration/typescript-only-remove-type-imports/test/index.test.js
 test/integration/typescript-workspaces-paths/packages/www/test/index.test.js
 * TypeScript Features default behavior should not resolve to .d.ts files
 
+test/integration/undefined-webpack-config/test/index.test.js
+* undefined webpack config error should show in dev mode
+
 test/integration/typescript-paths/test/index.test.js
 * typescript paths default behavior should not resolve to .d.ts files
 * typescript paths without baseurl default behavior should not resolve to .d.ts files
-
-test/integration/undefined-webpack-config/test/index.test.js
-* undefined webpack config error should show in dev mode
 
 test/integration/typescript/test/index.test.js
 * TypeScript Features default behavior should render the angle bracket type assertions page
 * TypeScript Features default behavior should resolve files in correct order
 
+test/integration/worker-webpack5/test/index.test.js
+* Web Workers with webpack 5 dev mode should pass on both client and worker
+
 test/integration/telemetry/test/index.test.js
 * Telemetry CLI detects isSrcDir dir correctly for \`next build\`
 * Telemetry CLI logs completed \`next build\` with warnings
 * Telemetry CLI detects tests correctly for \`next build\`
-
-test/integration/worker-webpack5/test/index.test.js
-* Web Workers with webpack 5 dev mode should pass on both client and worker
 
 test/integration/telemetry/test/page-features.test.js
 * page features telemetry detects --turbo correctly for \`next dev\`
