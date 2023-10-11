@@ -1,8 +1,5 @@
 import App from '../components/App'
-import rawGraphData from '../data/fiber-tests.js';
-import passing from '../data/tests-passing.js';
-import failingInDev from '../data/tests-passing-except-dev.js';
-import failing from '../data/tests-failing.js';
+import {kv} from "@vercel/kv"
 
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
@@ -18,9 +15,12 @@ function processGraphData(rawGraphData) {
   });
 }
 
-export default function Home() {
-  let testData = {passing, failingInDev, failing};
-  let graphData = processGraphData(rawGraphData);
+export default async function Home() {
+  let savedRuns = (await kv.lrange("test-runs", 0, -1)).join("\n");
+  let failing = await kv.get("failing-tests");
+  let passing = await kv.get("passing-tests");
+  let testData = {passing, failingInDev: "", failing};
+  let graphData = processGraphData(savedRuns);
 
   return (
     <App
