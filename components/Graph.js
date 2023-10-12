@@ -69,7 +69,7 @@ export default function Graph({ graphData }) {
             strokeWidth={3}
             onClick={(event, point) => {
               // let hash = point.datum.gitHash;
-              // let url = `https://github.com/facebook/react/commit/${hash}`;
+              // let url = `https://github.com/vercel/next.js/commit/${hash}`;
               // window.open(url);
             }}
           />
@@ -132,7 +132,7 @@ export default function Graph({ graphData }) {
   // },
   // onClick: (event, point) => {
   //   let hash = point.datum.gitHash;
-  //   let url = `https://github.com/facebook/react/commit/${hash}`;
+  //   let url = `https://github.com/vercel/next.js/commit/${hash}`;
   //   window.open(url);
   // },
   //             },
