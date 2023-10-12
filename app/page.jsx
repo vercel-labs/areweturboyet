@@ -3,7 +3,7 @@ import {kv} from "@vercel/kv"
 
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
-  return rawGraphData.trim().split('\n').map((string, index) => {
+  return rawGraphData.map((string, index) => {
     let [gitHash, dateStr, progress] = string.split(/[\t]/);
     let dateParts = dateStr.split(/[ :-]/).map(toInt);
     let [year, month, day, hours, minutes, seconds] = dateParts;
@@ -16,11 +16,16 @@ function processGraphData(rawGraphData) {
 }
 
 export default async function Home() {
-  let savedRuns = (await kv.lrange("test-runs", 0, -1)).join("\n");
-  let failing = await kv.get("failing-tests");
-  let passing = await kv.get("passing-tests");
+  let [
+    graphData,
+    failing,
+    passing,
+  ] = await Promise.all([
+    kv.lrange("test-runs", 0, -1).then(processGraphData),
+    kv.get("failing-tests"),
+    kv.get("passing-tests"),
+  ])
   let testData = {passing, failingInDev: "", failing};
-  let graphData = processGraphData(savedRuns);
 
   return (
     <App
