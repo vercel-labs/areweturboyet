@@ -37,7 +37,7 @@ class HeatMap extends React.Component {
               data-tooltip={getTooltipContent({ file, test })}
               data-status={status}
               className={`Test ${status}`}
-              href={`https://github.com/facebook/react/blob/master/${file}`}
+              href={`https://github.com/vercel/next.js/blob/canary/${file}`}
             >
               {status}: {test}
             </a>

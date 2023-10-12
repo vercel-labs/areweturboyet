@@ -18,7 +18,7 @@ class IsItReady extends React.Component {
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://github.com/facebook/react/issues/10294"
+        href="https://turbo.build/pack"
       >
         Try the Beta!
       </a>
