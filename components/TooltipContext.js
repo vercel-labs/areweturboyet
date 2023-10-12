@@ -1,11 +1,9 @@
 "use client";
 
 import React from "react";
-import ProgressBar from "./ProgressBar";
-import IsItReady from "./IsItReady";
-import Graph from "./Graph";
-import HeatMap from "./HeatMap";
-import Footer from "./Footer";
+import { useMemo } from "react";
+import { useCallback } from "react";
+import { useState } from "react";
 
 const tooltipIcons = {
   passing: "\u2705",
@@ -47,46 +45,37 @@ function Tooltip(props) {
   );
 }
 
-class App extends React.Component {
-  state = {
-    tooltipData: null,
-  };
+const TooltipContext = React.createContext(null);
 
-  handleMouseOver = (event, content, status) => {
+export function TooltipProvider(props) {
+  const [data, setData] = useState(null);
+
+  const onMouseOver = useCallback((event, content, status) => {
     let rect = event.target.getBoundingClientRect();
     let left = Math.round(rect.left + rect.width / 2 + window.scrollX);
     let top = Math.round(rect.top + window.scrollY);
     let flip = event.clientX > document.documentElement.clientWidth / 2;
-    this.setState({ tooltipData: { left, top, content, status, flip } });
-  };
+    setData({ left, top, content, status, flip });
+  }, []);
 
-  handleMouseOut = (event) => {
-    this.setState({ tooltipData: null });
-  };
+  const onMouseOut = useCallback(() => {
+    setData(null);
+  }, []);
 
-  render() {
-    let props = this.props;
-    let tooltipData = this.state.tooltipData;
-    let tooltip = tooltipData ? <Tooltip {...tooltipData} /> : null;
+  const value = useMemo(
+    () => ({ onMouseOver, onMouseOut }),
+    [onMouseOver, onMouseOut]
+  );
 
-    return (
-      <div>
-        <ProgressBar data={props.mostRecent} />
-        <IsItReady data={props.mostRecent} testData={props.testData} />
-        <Graph
-          graphData={props.graphData}
-          onMouseOut={this.handleMouseOut}
-          onMouseOver={this.handleMouseOver}
-        />
-        <HeatMap
-          testData={props.testData}
-          onMouseOut={this.handleMouseOut}
-          onMouseOver={this.handleMouseOver}
-        />
-        {tooltip}
-      </div>
-    );
-  }
+  return (
+    <TooltipContext.Provider value={value}>
+      {props.children}
+      <Tooltip {...data} />
+    </TooltipContext.Provider>
+  );
 }
 
-export default App;
+export function useTooltip() {
+  const callbacks = React.useContext(TooltipContext);
+  return callbacks;
+}
