@@ -70,7 +70,7 @@ export function TooltipProvider(props) {
   return (
     <TooltipContext.Provider value={value}>
       {props.children}
-      <Tooltip {...data} />
+      {data && <Tooltip {...data} />}
     </TooltipContext.Provider>
   );
 }
