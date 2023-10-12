@@ -1,9 +1,13 @@
-import App from '../components/App'
-import {kv} from "@vercel/kv"
+import ProgressBar from "../components/ProgressBar";
+import IsItReady from "../components/IsItReady";
+import Graph from "../components/Graph";
+import HeatMap from "../components/HeatMap";
+import { TooltipProvider } from "../components/TooltipContext";
+import { kv } from "@vercel/kv";
 
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
-  return rawGraphData.trim().split('\n').map((string, index) => {
+  return rawGraphData.map((string, index) => {
     let [gitHash, dateStr, progress] = string.split(/[\t]/);
     let dateParts = dateStr.split(/[ :-]/).map(toInt);
     let [year, month, day, hours, minutes, seconds] = dateParts;
@@ -11,22 +15,36 @@ function processGraphData(rawGraphData) {
     let timestamp = date.getTime();
     let [passing, total] = progress.split(/\//).map(toInt);
     let percent = parseFloat(((passing / total) * 100).toFixed(1), 10);
-    return {index, gitHash, date, dateStr, timestamp, total, passing, percent, x: date, y: percent};
+    return {
+      index,
+      gitHash,
+      date,
+      dateStr,
+      timestamp,
+      total,
+      passing,
+      percent,
+      x: date,
+      y: percent,
+    };
   });
 }
 
 export default async function Home() {
-  let savedRuns = (await kv.lrange("test-runs", 0, -1)).join("\n");
-  let failing = await kv.get("failing-tests");
-  let passing = await kv.get("passing-tests");
-  let testData = {passing, failingInDev: "", failing};
-  let graphData = processGraphData(savedRuns);
+  const [graphData, failing, passing] = await Promise.all([
+    kv.lrange("test-runs", 0, -1).then(processGraphData),
+    kv.get("failing-tests"),
+    kv.get("passing-tests"),
+  ]);
+  const testData = { passing, failingInDev: "", failing };
+  const mostRecent = graphData[graphData.length - 1];
 
   return (
-    <App
-        testData={testData}
-        graphData={graphData}
-        mostRecent={graphData[graphData.length - 1]}
-      />
-  )
+    <TooltipProvider>
+      <ProgressBar data={mostRecent} />
+      <IsItReady data={mostRecent} testData={testData} />
+      <Graph graphData={graphData} />
+      <HeatMap testData={testData} />
+    </TooltipProvider>
+  );
 }

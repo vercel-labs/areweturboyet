@@ -223,7 +223,7 @@ i {
   display: table;
 }
 
-.Test {
+.HeatMap > * {
   background: #f27499;
   border: 1px solid #fff;
   color: transparent;
@@ -238,15 +238,15 @@ i {
   width: 10px;
 }
 
-.Test.passing {
+.HeatMap > .p {
   background: #458ef7;
 }
 
-.Test.failingInDev {
+.HeatMap > .f {
   background: #e7c532;
 }
 
-.Test:hover {
+.HeatMap > *:hover {
   border-color: #262626;
 }
 
