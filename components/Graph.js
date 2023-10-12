@@ -72,7 +72,7 @@ class Graph extends React.Component {
               strokeWidth={3}
               onClick={(event, point) => {
                 // let hash = point.datum.gitHash;
-                // let url = `https://github.com/facebook/react/commit/${hash}`;
+                // let url = `https://github.com/vercel/next.js/commit/${hash}`;
                 // window.open(url);
               }}
             />
@@ -135,7 +135,7 @@ class Graph extends React.Component {
     // },
     // onClick: (event, point) => {
     //   let hash = point.datum.gitHash;
-    //   let url = `https://github.com/facebook/react/commit/${hash}`;
+    //   let url = `https://github.com/vercel/next.js/commit/${hash}`;
     //   window.open(url);
     // },
     //             },
