@@ -1,9 +1,9 @@
-import ProgressBar from "../components/ProgressBar";
-import IsItReady from "../components/IsItReady";
-import Graph from "../components/Graph";
-import HeatMap from "../components/HeatMap";
-import { TooltipProvider } from "../components/TooltipContext";
-import { kv } from "@vercel/kv";
+import ProgressBar from './ProgressBar';
+import IsItReady from '../components/IsItReady';
+import Graph from './Graph';
+import HeatMap from './HeatMap';
+import { TooltipProvider } from './TooltipContext';
+import { kv } from '@vercel/kv';
 
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
@@ -32,11 +32,11 @@ function processGraphData(rawGraphData) {
 
 export default async function Home() {
   const [graphData, failing, passing] = await Promise.all([
-    kv.lrange("test-runs", 0, -1).then(processGraphData),
-    kv.get("failing-tests"),
-    kv.get("passing-tests"),
+    kv.lrange('test-runs', 0, -1).then(processGraphData),
+    kv.get('failing-tests'),
+    kv.get('passing-tests'),
   ]);
-  const testData = { passing, failingInDev: "", failing };
+  const testData = { passing, failingInDev: '', failing };
   const mostRecent = graphData[graphData.length - 1];
 
   return (

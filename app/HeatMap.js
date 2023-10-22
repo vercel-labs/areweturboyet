@@ -1,13 +1,13 @@
-import React from "react";
-import HeatMapItem from "./HeatMapItem";
+import React from 'react';
+import HeatMapItem from '../components/HeatMapItem';
 
 export default function HeatMap(props) {
   let index = 0;
   let testData = {};
 
   Object.keys(props.testData).forEach((status) => {
-    props.testData[status].split("\n\n").forEach((testGroup) => {
-      let lines = testGroup.replace(/\n$/, "").split("\n");
+    props.testData[status].split('\n\n').forEach((testGroup) => {
+      let lines = testGroup.replace(/\n$/, '').split('\n');
       let file = lines[0];
       let tests = lines.slice(1);
       if (!testData[file]) {
