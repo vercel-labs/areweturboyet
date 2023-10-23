@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useTooltip } from '../app/TooltipContext';
+import { useTooltip } from './TooltipContext';
 
 function getTooltipContent(data) {
   let fileparts = data.file.split('/');
@@ -12,7 +12,6 @@ function getTooltipContent(data) {
 }
 
 function HeatMapItem({ file, test, status }) {
-  // asdfasdfads
   const { onMouseOver, onMouseOut } = useTooltip();
   const handleMouseOver = (event) => {
     onMouseOver(event, getTooltipContent({ file, test }), status);

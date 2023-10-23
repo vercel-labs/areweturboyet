@@ -1,12 +1,14 @@
-import React from 'react';
-import HeatMapItem from '../components/HeatMapItem';
+import { getTestResults } from './data';
+import HeatMapItem from './HeatMapItem';
 
-export default function HeatMap(props) {
+export default async function HeatMap() {
+  const data = await getTestResults();
+
   let index = 0;
   let testData = {};
 
-  Object.keys(props.testData).forEach((status) => {
-    props.testData[status].split('\n\n').forEach((testGroup) => {
+  Object.keys(data).forEach((status) => {
+    data[status].split('\n\n').forEach((testGroup) => {
       let lines = testGroup.replace(/\n$/, '').split('\n');
       let file = lines[0];
       let tests = lines.slice(1);
