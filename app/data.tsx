@@ -11,7 +11,8 @@ function processGraphData(rawGraphData) {
     let date = new Date(year, month - 1, day, hours, minutes, seconds);
     let timestamp = date.getTime();
     let [passing, total] = progress.split(/\//).map(toInt);
-    let percent = parseFloat(((passing / total) * 100).toFixed(1), 10);
+    let percent = parseFloat(((passing / total) * 100).toFixed(1));
+
     return {
       index,
       gitHash,
