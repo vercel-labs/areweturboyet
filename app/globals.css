@@ -154,6 +154,15 @@ i {
   position: relative;
 }
 
+.IsItReadyHome {
+  text-align: center;
+}
+
+.IsItReadyHome h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
+
 .IsItReady {
   text-align: center;
   margin-bottom: -15px;

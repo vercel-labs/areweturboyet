@@ -1,8 +1,8 @@
-import ProgressBar from "../components/ProgressBar";
-import IsItReady from "../components/IsItReady";
-import Graph from "../components/Graph";
-import HeatMap from "../components/HeatMap";
-import { TooltipProvider } from "../components/TooltipContext";
+import ProgressBar from "../../components/ProgressBar";
+import IsItReady from "../../components/IsItReady";
+import Graph from "../../components/Graph";
+import HeatMap from "../../components/HeatMap";
+import { TooltipProvider } from "../../components/TooltipContext";
 import { kv } from "@vercel/kv";
 
 function processGraphData(rawGraphData) {
@@ -40,10 +40,11 @@ export default async function Home() {
   const mostRecent = graphData[graphData.length - 1];
 
   return (
-    <div className="IsItReadyHome">
-      <h1>Is Turbopack Ready in Next.js Yet?</h1>
-      <p>`next dev --turbo` is still in progress</p>
-      <p>`next build --turbo` is still in progress</p>
-    </div>
+    <TooltipProvider>
+      <ProgressBar data={mostRecent} />
+      <IsItReady data={mostRecent} testData={testData} />
+      <Graph graphData={graphData} />
+      <HeatMap testData={testData} />
+    </TooltipProvider>
   );
 }
