@@ -1,5 +1,5 @@
 import 'server-only';
-import { cache } from 'react';
+import { unstable_cache } from 'next/cache';
 import { kv } from '@vercel/kv';
 
 function processGraphData(rawGraphData) {
@@ -28,20 +28,32 @@ function processGraphData(rawGraphData) {
   });
 }
 
-export const getTestResults = cache(async () => {
-  const [failing, passing] = await Promise.all([
-    kv.get('failing-tests'),
-    kv.get('passing-tests'),
-  ]);
+export const getTestResults = unstable_cache(
+  async () => {
+    const [failing, passing] = await Promise.all([
+      kv.get('failing-tests'),
+      kv.get('passing-tests'),
+    ]);
 
-  return { passing, failing };
-});
+    return { passing, failing };
+  },
+  ['test-results'],
+  {
+    revalidate: 600,
+  }
+);
 
-export const getTestRuns = cache(async () => {
-  const [graphData] = await Promise.all([
-    kv.lrange('test-runs', 0, -1).then(processGraphData),
-  ]);
+export const getTestRuns = unstable_cache(
+  async () => {
+    const [graphData] = await Promise.all([
+      kv.lrange('test-runs', 0, -1).then(processGraphData),
+    ]);
 
-  const mostRecent = graphData[graphData.length - 1];
-  return { graphData, mostRecent };
-});
+    const mostRecent = graphData[graphData.length - 1];
+    return { graphData, mostRecent };
+  },
+  ['test-runs'],
+  {
+    revalidate: 600,
+  }
+);

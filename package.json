@@ -7,14 +7,14 @@
   },
   "dependencies": {
     "@vercel/kv": "^0.2.3",
-    "next": "13.5.7-canary.14",
+    "next": "13.5.7-canary.23",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recharts": "^2.9.0",
     "victory": "36.6.11"
   },
   "devDependencies": {
-    "@types/node": "^20.8.7",
+    "@types/node": "^20.8.8",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
     "autoprefixer": "^10.4.16",
