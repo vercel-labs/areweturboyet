@@ -33,5 +33,5 @@ export default async function HeatMap() {
     );
   });
 
-  return <div className="HeatMap">{items}</div>;
+  return <section className="HeatMap">{items}</section>;
 }

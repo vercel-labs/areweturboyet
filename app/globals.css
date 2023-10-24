@@ -121,7 +121,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -156,8 +156,8 @@ i {
 
 .IsItReady {
   text-align: center;
-  margin-bottom: -15px;
   position: relative;
+  margin-bottom: 8px;
 }
 
 .IsItReady i {
@@ -219,7 +219,7 @@ i {
 
 .HeatMap:after {
   clear: both;
-  content: " ";
+  content: ' ';
   display: table;
 }
 
@@ -277,7 +277,7 @@ i {
 
 .Tooltip:after {
   background: #262626;
-  content: "";
+  content: '';
   height: 10px;
   left: -5px;
   position: absolute;
@@ -292,4 +292,8 @@ i {
 
 .FooterLink {
   margin: 0 5px;
+}
+
+.recharts-surface {
+  margin-left: -35px;
 }

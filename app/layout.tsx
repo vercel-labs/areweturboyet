@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={geist.className}>
-        <div id="root">{children}</div>
+        <main id="root">{children}</main>
       </body>
     </html>
   );

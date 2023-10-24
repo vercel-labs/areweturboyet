@@ -18,19 +18,19 @@ export default async function IsItReady() {
   );
 
   return decision ? (
-    <div className="IsItReady">
+    <section className="IsItReady">
       <h1 className="IsItReadyText">
-        Yes<i>{'\ud83c\udf89'}</i>
+        Yes<i aria-hidden>{'\ud83c\udf89'}</i>
       </h1>
       <p className="IsItReadyYes">{releaseLink}</p>
-    </div>
+    </section>
   ) : (
-    <div className="IsItReady">
+    <section className="IsItReady">
       <h1 className="IsItReadyText">No</h1>
       <p className="IsItReadyDetails">
         {passing} tests are passing though
-        <i>{'\u2705'}</i>
+        <i aria-hidden>{'\u2705'}</i>
       </p>
-    </div>
+    </section>
   );
 }

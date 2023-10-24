@@ -4,13 +4,13 @@ export default async function ProgressBar() {
   const { mostRecent } = await getTestRuns();
 
   return (
-    <div className="ProgressBar">
+    <section className="ProgressBar">
       <div
         className="ProgressBarFill"
         style={{ width: mostRecent.percent + '%' }}
       >
-        {`${mostRecent.passing} of ${mostRecent.total} development integration / end-to-end tests passing`}
+        {`${mostRecent.passing} of ${mostRecent.total} next dev tests passing`}
       </div>
-    </div>
+    </section>
   );
 }

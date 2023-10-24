@@ -28,7 +28,11 @@ const CustomTooltip = ({ active, payload }) => {
 
 export default function Graph({ graphData }) {
   return (
-    <div className="Graph">
+    <section
+      aria-hidden
+      aria-label="Chart showing the progress of tests passing for Turbopack over time"
+      className="Graph"
+    >
       <ResponsiveContainer width="100%" height={260}>
         <LineChart
           data={graphData}
@@ -47,6 +51,6 @@ export default function Graph({ graphData }) {
           />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </section>
   );
 }
