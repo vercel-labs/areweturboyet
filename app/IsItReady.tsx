@@ -28,7 +28,7 @@ export default async function IsItReady() {
     <section className="IsItReady">
       <h1 className="IsItReadyText">No</h1>
       <p className="IsItReadyDetails">
-        {passing} tests are passing though
+        {passing} next dev tests are passing though
         <i aria-hidden>{'\u2705'}</i>
       </p>
     </section>

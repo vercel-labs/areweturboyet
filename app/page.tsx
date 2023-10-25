@@ -4,6 +4,7 @@ import IsItReady from './IsItReady';
 import GraphData from './GraphData';
 import HeatMap from './HeatMap';
 import { TooltipProvider } from './TooltipContext';
+import Footer from './Footer';
 
 export default function Homepage() {
   return (
@@ -19,6 +20,9 @@ export default function Homepage() {
       </Suspense>
       <Suspense fallback={null}>
         <HeatMap />
+      </Suspense>
+      <Suspense fallback={null}>
+        <Footer />
       </Suspense>
     </TooltipProvider>
   );
