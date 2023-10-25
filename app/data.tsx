@@ -37,7 +37,7 @@ export const getTestResults = unstable_cache(
 
     return { passing, failing };
   },
-  ['test-results'],
+  ['test-results-new'],
   {
     revalidate: 600,
   }
@@ -52,7 +52,7 @@ export const getTestRuns = unstable_cache(
     const mostRecent = graphData[graphData.length - 1];
     return { graphData, mostRecent };
   },
-  ['test-runs'],
+  ['test-runs-new'],
   {
     revalidate: 600,
   }
