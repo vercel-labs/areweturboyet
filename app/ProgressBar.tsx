@@ -9,7 +9,7 @@ export default async function ProgressBar() {
         className="ProgressBarFill"
         style={{ width: mostRecent.percent + '%' }}
       >
-        {`${mostRecent.passing} of ${mostRecent.total} next dev tests passing`}
+        {`${mostRecent.passing} of ${mostRecent.total} next dev tests passing (${mostRecent.total - mostRecent.passing} left for 100%)`}
       </div>
     </section>
   );
