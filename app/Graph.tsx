@@ -17,7 +17,13 @@ const CustomTooltip = ({ active, payload }) => {
     let progress = `${data.passing} / ${data.total}`;
     return (
       <div className="custom-tooltip">
-        <p className="label">{`${data.dateStr}\n→ ${gitHash}`}</p>
+        <p className="label">{`${data.date.toLocaleString('default', {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+        })}\n→ ${gitHash}`}</p>
         <p className="intro">{`${data.percent}%  (${progress})`}</p>
       </div>
     );
