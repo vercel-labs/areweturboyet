@@ -20,6 +20,7 @@ export default function BuildPage() {
                 <Suspense fallback={null}>
                     <GraphDataProduction />
                 </Suspense>
+                <h2 className="text-4xl my-2">Tests</h2>
                 <Suspense fallback={null}>
                     <HeatMapProduction />
                 </Suspense>
