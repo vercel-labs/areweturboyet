@@ -5,6 +5,7 @@ import HeatMapDevelopment from '../HeatMapDevelopment';
 import { TooltipProvider } from '../TooltipContext';
 import Footer from '../Footer';
 import ProgressBarDevelopment from '../ProgressBarDevelopment';
+import { HeapMapExamples } from 'app/HeatMapExamples';
 
 export default function DevelopmentPage() {
     return (
@@ -20,8 +21,14 @@ export default function DevelopmentPage() {
                 <Suspense fallback={null}>
                     <GraphDataDevelopment />
                 </Suspense>
+                <h2 className="text-4xl my-2">Tests</h2>
                 <Suspense fallback={null}>
                     <HeatMapDevelopment />
+                </Suspense>
+
+                <h2 className="text-4xl my-2">Examples</h2>
+                <Suspense fallback={null}>
+                    <HeapMapExamples />
                 </Suspense>
             </div>
 

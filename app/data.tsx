@@ -63,6 +63,18 @@ export const getProductionTestResults = unstable_cache(
   }
 );
 
+export const getExamplesResults = unstable_cache(
+  async () => {
+    const data: { [exampleName: string]: /* isPassing */ boolean } = await kv.get('examples-data')
+    return data
+  },
+  ['examples-results'],
+  {
+    revalidate: 600,
+  }
+);
+
+
 export const getDevelopmentTestRuns = unstable_cache(
   async () => {
     const [graphData] = await Promise.all([

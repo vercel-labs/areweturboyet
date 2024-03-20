@@ -1,34 +1,13 @@
-import HeatMapItem from './HeatMapItem';
+import HeatMapExamplesItem from './HeapMapExamplesItem';
+import { getExamplesResults } from './data';
 
-export function HeapMapExamples({ testResults }) {
-    let i = 0;
-    let testData = {};
-
-    for (const status in testResults) {
-        const value = testResults[status];
-        if (!value) continue;
-        value.split('\n\n').forEach((testGroup) => {
-            let lines = testGroup.replace(/\n$/, '').split('\n');
-            let file = lines[0];
-            let tests = lines.slice(1);
-            if (!testData[file]) {
-                testData[file] = {};
-            }
-            testData[file][status] = tests.map((test) => {
-                return (
-                    <HeatMapItem key={i++} file={file} test={test} status={status} />
-                );
-            });
-        });
-    }
-
+export async function HeapMapExamples() {
+    const examplesResult = await getExamplesResults();
     let items = [];
-    for (const file in testData) {
-        let testList = testData[file];
-        for (const status in testList) {
-            items = items.concat(testList[status]);
-        }
+    for (const exampleName in examplesResult) {
+        const isPassing = examplesResult[exampleName];
+        items.push(<HeatMapExamplesItem key={exampleName} exampleName={exampleName} isPassing={isPassing} />);
     }
 
-    return <>{items}</>;
+    return <section className="HeatMap">{items}</section>;
 }
