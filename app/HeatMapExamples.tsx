@@ -1,12 +1,12 @@
 import HeatMapItem from './HeatMapItem';
 
-export function HeapMap({ testResults }) {
-    let index = 0;
+export function HeapMapExamples({ testResults }) {
+    let i = 0;
     let testData = {};
 
-    Object.keys(testResults).forEach((status) => {
-        const value = testResults[status]
-        if (!value) return
+    for (const status in testResults) {
+        const value = testResults[status];
+        if (!value) continue;
         value.split('\n\n').forEach((testGroup) => {
             let lines = testGroup.replace(/\n$/, '').split('\n');
             let file = lines[0];
@@ -16,21 +16,19 @@ export function HeapMap({ testResults }) {
             }
             testData[file][status] = tests.map((test) => {
                 return (
-                    <HeatMapItem key={index++} file={file} test={test} status={status} />
+                    <HeatMapItem key={i++} file={file} test={test} status={status} />
                 );
             });
         });
-    });
+    }
 
     let items = [];
-    Object.keys(testData).forEach((file) => {
+    for (const file in testData) {
         let testList = testData[file];
-        items = items.concat(
-            Object.keys(testList).map((status) => {
-                return testList[status];
-            })
-        );
-    });
+        for (const status in testList) {
+            items = items.concat(testList[status]);
+        }
+    }
 
     return <>{items}</>;
 }

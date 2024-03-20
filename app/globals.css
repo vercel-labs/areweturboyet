@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Reset */
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -135,7 +139,7 @@ body {
   color: #262626;
   font-family: sans-serif;
   font-size: 14px;
-  padding: 50px 10px 30px;
+  padding: 0px 0px 30px;
 }
 
 a {
@@ -165,9 +169,9 @@ i {
 }
 
 .IsItReadyText {
-  font-size: 120px;
+  margin: 50px;
+  font-size: 60px;
   font-weight: bold;
-  text-transform: uppercase;
   color: #ec2e66;
 }
 
@@ -191,10 +195,10 @@ i {
   background: #fff;
   border-bottom: 1px solid #458ef7;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
+  /* left: 0; */
+  /* position: fixed; */
+  /* right: 0; */
+  /* top: 0; */
   z-index: 1;
 }
 

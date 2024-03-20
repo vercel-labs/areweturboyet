@@ -1,29 +1,5 @@
-import { Suspense } from 'react';
-import ProgressBar from './ProgressBar';
-import IsItReady from './IsItReady';
-import GraphData from './GraphData';
-import HeatMap from './HeatMap';
-import { TooltipProvider } from './TooltipContext';
-import Footer from './Footer';
+import DevelopmentPage from "./dev/page";
 
 export default function Homepage() {
-  return (
-    <TooltipProvider>
-      <Suspense fallback={null}>
-        <ProgressBar />
-      </Suspense>
-      <Suspense fallback={null}>
-        <IsItReady />
-      </Suspense>
-      <Suspense fallback={null}>
-        <GraphData />
-      </Suspense>
-      <Suspense fallback={null}>
-        <HeatMap />
-      </Suspense>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-    </TooltipProvider>
-  );
+    return <DevelopmentPage />
 }

@@ -25,12 +25,16 @@ function processGraphData(rawGraphData) {
   });
 }
 
-export const getTestResults = unstable_cache(
+export const getDevelopmentTestResults = unstable_cache(
   async () => {
     const [failing, passing] = await Promise.all([
       kv.get('failing-tests'),
       kv.get('passing-tests'),
     ]);
+
+    if (failing === null && passing === null) {
+      return null
+    }
 
     return { passing, failing };
   },
@@ -40,7 +44,26 @@ export const getTestResults = unstable_cache(
   }
 );
 
-export const getTestRuns = unstable_cache(
+export const getProductionTestResults = unstable_cache(
+  async () => {
+    const [failing, passing] = await Promise.all([
+      kv.get('failing-tests-production'),
+      kv.get('passing-tests-production'),
+    ]);
+
+    if (failing === null && passing === null) {
+      return null
+    }
+
+    return { passing, failing };
+  },
+  ['test-results-new-production'],
+  {
+    revalidate: 600,
+  }
+);
+
+export const getDevelopmentTestRuns = unstable_cache(
   async () => {
     const [graphData] = await Promise.all([
       kv.lrange('test-runs', 0, -1).then(processGraphData),
@@ -50,6 +73,21 @@ export const getTestRuns = unstable_cache(
     return { graphData, mostRecent };
   },
   ['test-runs-new'],
+  {
+    revalidate: 600,
+  }
+);
+
+export const getProductionTestRuns = unstable_cache(
+  async () => {
+    const [graphData] = await Promise.all([
+      kv.lrange('test-runs-production', 0, -1).then(processGraphData),
+    ]);
+
+    const mostRecent = graphData[graphData.length - 1];
+    return { graphData, mostRecent };
+  },
+  ['test-runs-new-production'],
   {
     revalidate: 600,
   }
