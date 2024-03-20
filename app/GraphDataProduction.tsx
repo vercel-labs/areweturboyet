@@ -1,8 +1,8 @@
 import Graph from './Graph';
-import { getDevelopmentTestRuns, getProductionTestRuns } from './data';
+import { getProductionTestRuns } from './data';
 
 export default async function GraphDataProduction() {
-    const { graphData } = await getDevelopmentTestRuns();
+    const { graphData } = await getProductionTestRuns();
     if (graphData.length === 0) {
         return null
     }
