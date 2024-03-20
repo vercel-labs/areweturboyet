@@ -14,13 +14,13 @@ export default async function IsItReadyExamples() {
 
     return decision ? (
         <section className="IsItReady">
-            <h1 className="IsItReadyText">
+            <h1 className="text-4xl my-6 lg:text-6xl">
                 Examples: YES<i aria-hidden>{'\ud83c\udf89'}</i>
             </h1>
         </section>
     ) : (
         <section className="IsItReady">
-            <h1 className="IsItReadyText">Examples: NO</h1>
+            <h1 className="text-4xl my-6 lg:text-6xl IsItReadyNoText">Examples: NO</h1>
             <p className="IsItReadyDetails">
                 {passing} of examples are passing though
                 <i aria-hidden>{'\u2705'}</i>

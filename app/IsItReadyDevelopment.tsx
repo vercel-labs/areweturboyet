@@ -10,13 +10,13 @@ export default async function IsItReadyDevelopment() {
 
   return decision ? (
     <section className="IsItReady">
-      <h1 className="IsItReadyText">
+      <h1 className="text-4xl my-6 lg:text-6xl">
         Development: YES<i aria-hidden>{'\ud83c\udf89'}</i>
       </h1>
     </section>
   ) : (
     <section className="IsItReady">
-      <h1 className="IsItReadyText">Development: NO</h1>
+      <h1 className="text-4xl my-6 lg:text-6xl IsItReadyNoText">Development: NO</h1>
       <p className="IsItReadyDetails">
         {passing} next dev tests are passing though
         <i aria-hidden>{'\u2705'}</i>
