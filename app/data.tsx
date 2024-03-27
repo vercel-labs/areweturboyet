@@ -4,18 +4,15 @@ import { kv } from '@vercel/kv';
 
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
-  return rawGraphData.map((string, index) => {
+  return rawGraphData.map((string) => {
     let [gitHash, dateStr, progress] = string.split(/[\t]/);
     let date = new Date(dateStr);
-    let timestamp = date.getTime();
     let [passing, total] = progress.split(/\//).map(toInt);
     let percent = parseFloat(((passing / total) * 100).toFixed(1));
 
     return {
-      index,
-      gitHash,
+      gitHash: gitHash.slice(0, 7),
       date,
-      timestamp,
       total,
       passing,
       percent,

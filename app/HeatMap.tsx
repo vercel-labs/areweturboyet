@@ -1,5 +1,10 @@
 import HeatMapItem from './HeatMapItem';
 
+function getTooltipContent(data) {
+    let testname = data.test.slice(2);
+    return `it("${testname}")`;
+}
+
 export function HeapMap({ testResults }) {
     let index = 0;
     let testData = {};
@@ -15,8 +20,9 @@ export function HeapMap({ testResults }) {
                 testData[file] = {};
             }
             testData[file][status] = tests.map((test) => {
+                const tooltipContent = getTooltipContent({ file, test })
                 return (
-                    <HeatMapItem key={index++} file={file} test={test} status={status} />
+                    <HeatMapItem key={index++} tooltipContent={tooltipContent} file={file} isPassing={status === 'passing'} />
                 );
             });
         });
