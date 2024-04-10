@@ -22,8 +22,8 @@ export default function Switcher() {
         </SelectTrigger>
         <SelectContent>
             <SelectGroup>
-                <SelectItem value="production">Production</SelectItem>
                 <SelectItem value="development">Development</SelectItem>
+                <SelectItem value="production">Production</SelectItem>
             </SelectGroup>
         </SelectContent>
     </Select>
