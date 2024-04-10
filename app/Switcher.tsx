@@ -1,11 +1,16 @@
 "use client"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select, SelectGroup } from "@/components/ui/select"
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Switcher() {
     const pathname = usePathname()
     const router = useRouter()
     const isDevelopment = pathname === "/"
+
+    useEffect(() => {
+        router.prefetch(pathname === 'development' ? '/' : '/build')
+    }, [pathname])
 
     return <Select
         onValueChange={(value) => {
