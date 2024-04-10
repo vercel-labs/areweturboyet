@@ -8,7 +8,7 @@ export function ProgressBar({ mostRecent, dev }) {
                 <div
                     className="text-lg font-semibold"
                 >
-                    {`${mostRecent.passing} of ${mostRecent.total} ${dev ? `next dev` : 'next build'} tests passing (${mostRecent.total - mostRecent.passing} left for 100%)`}
+                    <span className="block sm:inline-block">{mostRecent.passing} of {mostRecent.total} {dev ? `next dev` : 'next build'} tests passing&nbsp;</span><span className="block sm:inline-block">({mostRecent.total - mostRecent.passing} left for 100%)</span>
                 </div>
             </section>
             <Switcher />
