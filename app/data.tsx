@@ -2,13 +2,20 @@ import 'server-only';
 import { unstable_cache } from 'next/cache';
 import { kv } from '@vercel/kv';
 
+// Custom fixed point notation formatting to avoid rounding for the very close
+// numbers.
+function toFixed(num, fixed) {
+  const re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+  return num.toString().match(re)[0];
+}
+
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
   return rawGraphData.map((string) => {
     let [gitHash, dateStr, progress] = string.split(/[\t]/);
     let date = new Date(dateStr);
     let [passing, total] = progress.split(/\//).map(toInt);
-    let percent = parseFloat(((passing / total) * 100).toFixed(1));
+    let percent = parseFloat(toFixed(((passing / total) * 100), 1));
 
     return {
       gitHash: gitHash.slice(0, 7),
