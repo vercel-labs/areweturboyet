@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   LineChart,
@@ -8,7 +8,7 @@ import {
   XAxis,
   CartesianGrid,
   Tooltip,
-} from 'recharts';
+} from "recharts";
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -17,7 +17,7 @@ const CustomTooltip = ({ active, payload }) => {
     let progress = `${data.passing} / ${data.total}`;
     return (
       <div className="custom-tooltip">
-        <p className="label">{`${data.date.toLocaleString('default', {
+        <p className="label">{`${data.date.toLocaleString("default", {
           year: "numeric",
           month: "long",
           day: "numeric",
@@ -44,15 +44,15 @@ export default function Graph({ graphData }) {
           data={graphData}
           margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
         >
-          <CartesianGrid stroke={'#458ef7'} strokeDasharray="4" />
-          <YAxis stroke={'#458ef7'} />
-          <XAxis stroke={'#458ef7'} tick={false} />
+          <CartesianGrid stroke={"#458ef7"} strokeDasharray="4" />
+          <YAxis stroke={"#458ef7"} type="number" domain={[90, 100]} />
+          <XAxis stroke={"#458ef7"} tick={false} />
           <Tooltip content={CustomTooltip} />
           <Line
             dataKey="percent"
             dot={false}
             type="stepAfter"
-            stroke={'#ec2e66'}
+            stroke={"#ec2e66"}
             strokeWidth={3}
           />
         </LineChart>
