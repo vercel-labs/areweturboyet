@@ -9,7 +9,9 @@ function processGraphData(rawGraphData) {
     let date = new Date(dateStr);
     let [passing, total] = progress.split(/\//).map(toInt);
     // let percent = parseFloat(toFixed(((passing / total) * 100), 1));
-    let percent = (parseFloat(passing) / parseFloat(total)) * 100;
+    let percent = parseFloat(
+      ((parseFloat(passing) / parseFloat(total)) * 100).toFixed(1)
+    );
 
     return {
       gitHash: gitHash.slice(0, 7),
