@@ -17,7 +17,7 @@ export default function Footer() {
     <div className="Footer">
       <FooterLink href="turbo.build/pack">Turbopack Docs</FooterLink>
       &middot;
-      <FooterLink href="nextjs.org/blog/next-14">Next.js 14</FooterLink>
+      <FooterLink href="nextjs.org/blog/next-15">Next.js 15</FooterLink>
     </div>
   );
 }
