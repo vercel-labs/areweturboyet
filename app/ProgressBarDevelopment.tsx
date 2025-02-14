@@ -1,5 +1,7 @@
-import { ProgressBar } from './ProgressBar';
-import { getDevelopmentTestRuns } from './data';
+"use server";
+
+import { ProgressBar } from "./ProgressBar";
+import { getDevelopmentTestRuns } from "./data";
 
 export default async function ProgressBarDevelopment() {
   const { mostRecent } = await getDevelopmentTestRuns();
