@@ -1,9 +1,10 @@
+import { ModeToggle } from "@/components/ui/dark-mode-toggle";
 import Switcher from "./Switcher";
 
 export function ProgressBar({ mostRecent, dev }) {
   const testsLeft = mostRecent.total - mostRecent.passing;
   return (
-    <div className="flex items-center justify-between px-4 py-2 bg-white shadow-md">
+    <div className="flex items-center justify-between px-4 py-2 bg-background shadow-md">
       <section className="">
         <div className="text-lg font-semibold">
           <span className="block sm:inline-block">
@@ -15,7 +16,10 @@ export function ProgressBar({ mostRecent, dev }) {
           </span>
         </div>
       </section>
-      <Switcher />
+      <div className="flex gap-x-4">
+        <Switcher />
+        <ModeToggle />
+      </div>
     </div>
   );
 }

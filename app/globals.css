@@ -147,33 +147,6 @@
   display: table;
 }
 
-.HeatMap > * {
-  background: #f27499;
-  border: 1px solid #fff;
-  color: transparent;
-  cursor: default;
-  display: block;
-  float: left;
-  font-size: 0;
-  height: 10px;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-  width: 10px;
-}
-
-.HeatMap > .p {
-  background: #458ef7;
-}
-
-.HeatMap > .f {
-  background: #e7c532;
-}
-
-.HeatMap > *:hover {
-  border-color: #262626;
-}
-
 .Tooltip {
   position: absolute;
   line-height: 1.3;

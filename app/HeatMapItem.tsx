@@ -1,23 +1,24 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useTooltip } from './TooltipContext';
+import React, { useEffect } from "react";
+import { useTooltip } from "./TooltipContext";
+import { twJoin } from "tailwind-merge";
 
-
-
-function HeatMapItem({ tooltipContent, file, isPassing }) {
+function HeatMapItem({ tooltipContent, href, isPassing }) {
   const { onMouseOver, onMouseOut } = useTooltip();
   const handleMouseOver = (event) => {
-    onMouseOver(event, tooltipContent, isPassing ? 'passing' : 'failing');
+    onMouseOver(event, tooltipContent, isPassing ? "passing" : "failing");
   };
-
-  const className =
-    isPassing ? 'p' : undefined;
 
   return (
     <a
-      className={className}
-      href={`https://github.com/vercel/next.js/blob/canary/${file}`}
+      className={twJoin(
+        "border border-background hover:border-primary text-transparent " +
+          "cursor-default float-left text-[0px] h-[10px] overflow-hidden " +
+          "relative text-center w-[10px]",
+        isPassing ? "bg-blue-500" : "bg-red-500",
+      )}
+      href={href}
       onMouseOver={handleMouseOver}
       onMouseOut={onMouseOut}
     />
