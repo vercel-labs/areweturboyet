@@ -10,7 +10,7 @@ function processGraphData(rawGraphData) {
     let [passing, total] = progress.split(/\//).map(toInt);
     // let percent = parseFloat(toFixed(((passing / total) * 100), 1));
     let percent = parseFloat(
-      ((parseFloat(passing) / parseFloat(total)) * 100).toFixed(1)
+      ((parseFloat(passing) / parseFloat(total)) * 100).toFixed(1),
     );
 
     return {
@@ -41,7 +41,7 @@ export const getDevelopmentTestResults = unstable_cache(
   ["test-results-new"],
   {
     revalidate: 600,
-  }
+  },
 );
 
 export const getProductionTestResults = unstable_cache(
@@ -60,7 +60,7 @@ export const getProductionTestResults = unstable_cache(
   ["test-results-new-production"],
   {
     revalidate: 600,
-  }
+  },
 );
 
 export const getExamplesResults = unstable_cache(
@@ -72,7 +72,7 @@ export const getExamplesResults = unstable_cache(
   ["examples-results"],
   {
     revalidate: 600,
-  }
+  },
 );
 
 export const getDevelopmentTestRuns = unstable_cache(
@@ -87,7 +87,7 @@ export const getDevelopmentTestRuns = unstable_cache(
   ["test-runs-new"],
   {
     revalidate: 600,
-  }
+  },
 );
 
 export const getProductionTestRuns = unstable_cache(
@@ -102,5 +102,5 @@ export const getProductionTestRuns = unstable_cache(
   ["test-runs-new-production"],
   {
     revalidate: 600,
-  }
+  },
 );
