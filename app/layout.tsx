@@ -2,6 +2,10 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import { twMerge } from "tailwind-merge";
+import { Bundler, getBundler } from "./bundler";
+import IconTurbopackLight from "@/public/icons/turbopack-light-background.png";
+import IconTurbopackDark from "@/public/icons/turbopack-dark-background.png";
+import IconRspack from "@/public/icons/rspack.png";
 
 const geist = localFont({
   src: [
@@ -19,11 +23,38 @@ const geist = localFont({
   display: "swap",
 });
 
-export const metadata = {
-  title: "Are We Turbo Yet?",
-  description:
-    "Progress towards 100% of tests passing for Turbopack in Next.js",
-};
+export const metadata =
+  getBundler() === Bundler.Turbopack
+    ? {
+        title: "Are We Turbo Yet?",
+        description:
+          "Progress towards 100% of tests passing for Turbopack in Next.js",
+        // N.B. media queries on icons works with Chrome, but not with Safari or
+        // Firefox. Just put the light scheme last, so it falls back to that.
+        icons: [
+          {
+            media: "(prefers-color-scheme: dark)",
+            url: IconTurbopackDark.src,
+            type: "image/png",
+          },
+          {
+            media: "(prefers-color-scheme: light)",
+            url: IconTurbopackLight.src,
+            type: "image/png",
+          },
+        ],
+      }
+    : {
+        title: "Are We Rspack Yet?",
+        description:
+          "Progress towards 100% of tests passing for Rspack in Next.js",
+        icons: [
+          {
+            url: IconRspack.src,
+            type: "image/png",
+          },
+        ],
+      };
 
 export default function RootLayout({ children }) {
   return (

@@ -1,6 +1,9 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { kv } from "@vercel/kv";
+import { Bundler, getBundler } from "./bundler";
+
+const kvPrefix = getBundler() === Bundler.Rspack ? "rspack-" : "";
 
 function processGraphData(rawGraphData) {
   let toInt = (str) => parseInt(str, 10);
@@ -28,8 +31,8 @@ function processGraphData(rawGraphData) {
 export const getDevelopmentTestResults = unstable_cache(
   async () => {
     const [failing, passing] = await Promise.all([
-      kv.get("failing-tests"),
-      kv.get("passing-tests"),
+      kv.get(`${kvPrefix}failing-tests`),
+      kv.get(`${kvPrefix}passing-tests`),
     ]);
 
     if (failing === null && passing === null) {
@@ -38,7 +41,7 @@ export const getDevelopmentTestResults = unstable_cache(
 
     return { passing, failing };
   },
-  ["test-results-new"],
+  [kvPrefix, "test-results-new"],
   {
     revalidate: 600,
   },
@@ -47,8 +50,8 @@ export const getDevelopmentTestResults = unstable_cache(
 export const getProductionTestResults = unstable_cache(
   async () => {
     const [failing, passing] = await Promise.all([
-      kv.get("failing-tests-production"),
-      kv.get("passing-tests-production"),
+      kv.get(`${kvPrefix}failing-tests-production`),
+      kv.get(`${kvPrefix}passing-tests-production`),
     ]);
 
     if (failing === null && passing === null) {
@@ -57,7 +60,7 @@ export const getProductionTestResults = unstable_cache(
 
     return { passing, failing };
   },
-  ["test-results-new-production"],
+  [kvPrefix, "test-results-new-production"],
   {
     revalidate: 600,
   },
@@ -66,10 +69,10 @@ export const getProductionTestResults = unstable_cache(
 export const getExamplesResults = unstable_cache(
   async () => {
     const data: { [exampleName: string]: /* isPassing */ boolean } =
-      await kv.get("examples-data");
+      await kv.get(`${kvPrefix}examples-data`);
     return data;
   },
-  ["examples-results"],
+  [kvPrefix, "examples-results"],
   {
     revalidate: 600,
   },
@@ -78,13 +81,13 @@ export const getExamplesResults = unstable_cache(
 export const getDevelopmentTestRuns = unstable_cache(
   async () => {
     const [graphData] = await Promise.all([
-      kv.lrange("test-runs", 0, -1).then(processGraphData),
+      kv.lrange(`${kvPrefix}test-runs`, 0, -1).then(processGraphData),
     ]);
 
     const mostRecent = graphData[graphData.length - 1];
     return { graphData, mostRecent };
   },
-  ["test-runs-new"],
+  [kvPrefix, "test-runs-new"],
   {
     revalidate: 600,
   },
@@ -93,13 +96,15 @@ export const getDevelopmentTestRuns = unstable_cache(
 export const getProductionTestRuns = unstable_cache(
   async () => {
     const [graphData] = await Promise.all([
-      kv.lrange("test-runs-production", 0, -1).then(processGraphData),
+      kv
+        .lrange(`${kvPrefix}test-runs-production`, 0, -1)
+        .then(processGraphData),
     ]);
 
     const mostRecent = graphData[graphData.length - 1];
     return { graphData, mostRecent };
   },
-  ["test-runs-new-production"],
+  [kvPrefix, "test-runs-new-production"],
   {
     revalidate: 600,
   },
