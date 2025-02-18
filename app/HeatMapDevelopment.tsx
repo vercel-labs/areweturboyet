@@ -1,5 +1,3 @@
-"use server";
-
 import { HeapMap } from "./HeatMap";
 import { getDevelopmentTestResults } from "./data";
 

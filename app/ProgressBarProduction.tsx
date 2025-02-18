@@ -1,5 +1,3 @@
-"use server";
-
 import { ProgressBar } from "./ProgressBar";
 import { getProductionTestRuns } from "./data";
 

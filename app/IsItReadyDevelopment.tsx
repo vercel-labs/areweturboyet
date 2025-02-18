@@ -1,5 +1,3 @@
-"use server";
-
 import { getDevelopmentTestRuns } from "./data";
 
 export default async function IsItReadyDevelopment() {

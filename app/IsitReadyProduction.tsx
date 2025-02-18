@@ -1,5 +1,3 @@
-"use server";
-
 import { getProductionTestRuns } from "./data";
 
 export default async function IsItReadyProduction() {

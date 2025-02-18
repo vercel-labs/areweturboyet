@@ -1,5 +1,3 @@
-"use server";
-
 import Graph from "./Graph";
 import { getDevelopmentTestRuns } from "./data";
 
