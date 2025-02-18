@@ -1,6 +1,7 @@
 import "./globals.css";
-import clsx from "clsx";
+import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
+import { twMerge } from "tailwind-merge";
 
 const geist = localFont({
   src: [
@@ -26,9 +27,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={clsx(geist.className, "bg-background text-foreground")}>
-        <main id="root">{children}</main>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={twMerge(geist.className, "bg-background text-foreground")}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main id="root">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
