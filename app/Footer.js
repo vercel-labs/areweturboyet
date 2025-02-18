@@ -1,7 +1,6 @@
 import { Bundler, getBundler } from "./bundler";
 
-function FooterLink(props) {
-  let href = `https://${props.href}`;
+function FooterLink({ href, children }) {
   return (
     <a
       target="_blank"
@@ -9,7 +8,7 @@ function FooterLink(props) {
       className="FooterLink"
       href={href}
     >
-      {props.children}
+      {children}
     </a>
   );
 }
