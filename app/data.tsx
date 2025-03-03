@@ -1,20 +1,21 @@
 import "server-only";
-import { unstable_cache } from "next/cache";
+import { revalidateTag, unstable_cache } from "next/cache";
 import { kv } from "@vercel/kv";
 import { Bundler, getBundler } from "./bundler";
 
 const kvPrefix = getBundler() === Bundler.Rspack ? "rspack-" : "";
+const bundlerTag = getBundler() === Bundler.Rspack ? "rspack" : "turbopack";
 
-function processGraphData(rawGraphData) {
-  let toInt = (str) => parseInt(str, 10);
+export function revalidateAll() {
+  revalidateTag(bundlerTag);
+}
+
+function processGraphData(rawGraphData: string[]) {
   return rawGraphData.map((string) => {
-    let [gitHash, dateStr, progress] = string.split(/[\t]/);
-    let date = new Date(dateStr);
-    let [passing, total] = progress.split(/\//).map(toInt);
-    // let percent = parseFloat(toFixed(((passing / total) * 100), 1));
-    let percent = parseFloat(
-      ((parseFloat(passing) / parseFloat(total)) * 100).toFixed(1),
-    );
+    const [gitHash, dateStr, progress] = string.split(/[\t]/);
+    const date = new Date(dateStr);
+    const [passing, total] = progress.split(/\//).map(parseFloat);
+    const percent = parseFloat(((passing / total) * 100).toFixed(1));
 
     return {
       gitHash: gitHash.slice(0, 7),
@@ -43,6 +44,7 @@ export const getDevelopmentTestResults = unstable_cache(
   },
   [kvPrefix, "test-results-new"],
   {
+    tags: [bundlerTag],
     revalidate: 600,
   },
 );
@@ -62,6 +64,7 @@ export const getProductionTestResults = unstable_cache(
   },
   [kvPrefix, "test-results-new-production"],
   {
+    tags: [bundlerTag],
     revalidate: 600,
   },
 );
@@ -74,6 +77,7 @@ export const getExamplesResults = unstable_cache(
   },
   [kvPrefix, "examples-results"],
   {
+    tags: [bundlerTag],
     revalidate: 600,
   },
 );
@@ -89,6 +93,7 @@ export const getDevelopmentTestRuns = unstable_cache(
   },
   [kvPrefix, "test-runs-new"],
   {
+    tags: [bundlerTag],
     revalidate: 600,
   },
 );
@@ -106,6 +111,7 @@ export const getProductionTestRuns = unstable_cache(
   },
   [kvPrefix, "test-runs-new-production"],
   {
+    tags: [bundlerTag],
     revalidate: 600,
   },
 );
