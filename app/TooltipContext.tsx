@@ -61,7 +61,7 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
 
 interface TooltipContextValue {
   onMouseOver: (
-    event: MouseEvent,
+    event: UIEvent,
     content: ReactNode,
     status: TooltipStatus,
   ) => void;
