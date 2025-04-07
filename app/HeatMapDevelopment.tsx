@@ -1,5 +1,5 @@
-import { HeapMap } from "./HeatMap";
 import { getDevelopmentTestResults } from "./data";
+import { HeapMap } from "./HeatMap";
 
 export default async function HeatMapDevelopment() {
   const data = await getDevelopmentTestResults();

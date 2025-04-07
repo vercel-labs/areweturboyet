@@ -1,14 +1,14 @@
 "use client";
-import {
-  SelectValue,
-  SelectTrigger,
-  SelectItem,
-  SelectContent,
-  Select,
-  SelectGroup,
-} from "@/components/ui/select";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function Switcher() {
   const pathname = usePathname();
@@ -17,7 +17,7 @@ export default function Switcher() {
 
   useEffect(() => {
     router.prefetch(pathname === "development" ? "/" : "/build");
-  }, [pathname]);
+  }, [pathname, router.prefetch]);
 
   return (
     <Select
@@ -36,24 +36,5 @@ export default function Switcher() {
         </SelectGroup>
       </SelectContent>
     </Select>
-  );
-}
-
-function ChevronDownIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m6 9 6 6 6-6" />
-    </svg>
   );
 }

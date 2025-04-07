@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useTooltip } from "./TooltipContext";
 import { twJoin } from "tailwind-merge";
+import { useTooltip } from "./TooltipContext";
 
 function HeatMapItem({ tooltipContent, href, isPassing }) {
   const { onMouseOver, onMouseOut } = useTooltip();
@@ -11,7 +11,9 @@ function HeatMapItem({ tooltipContent, href, isPassing }) {
   };
 
   return (
+    // biome-ignore lint/a11y/useAnchorContent: aria-label is sufficient
     <a
+      aria-label={`${tooltipContent} is ${isPassing ? "passing" : "failing"}`}
       className={twJoin(
         "border border-background hover:border-primary text-transparent " +
           "cursor-default float-left text-[0px] h-[10px] overflow-hidden " +
@@ -19,6 +21,8 @@ function HeatMapItem({ tooltipContent, href, isPassing }) {
         isPassing ? "bg-blue-500" : "bg-red-500",
       )}
       href={href}
+      onFocus={handleMouseOver}
+      onBlur={onMouseOut}
       onMouseOver={handleMouseOver}
       onMouseOut={onMouseOut}
     />

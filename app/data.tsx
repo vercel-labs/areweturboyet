@@ -1,6 +1,6 @@
 import "server-only";
-import { revalidateTag, unstable_cache } from "next/cache";
 import { kv } from "@vercel/kv";
+import { revalidateTag, unstable_cache } from "next/cache";
 import { Bundler, getBundler } from "./bundler";
 
 const kvPrefix = getBundler() === Bundler.Rspack ? "rspack-" : "";

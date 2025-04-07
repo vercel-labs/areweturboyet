@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
 import React, {
-  useMemo,
-  useCallback,
-  useState,
+  Context,
   CSSProperties,
   MouseEvent,
   ReactNode,
+  useCallback,
   useContext,
-  Context,
-} from 'react';
+  useMemo,
+  useState,
+} from "react";
 
-type TooltipStatus = 'passing' | 'failingInDev' | 'failing';
+type TooltipStatus = "passing" | "failing";
 
 interface TooltipProps {
   flip?: boolean;
@@ -22,27 +22,25 @@ interface TooltipProps {
 }
 
 const tooltipIcons: Record<TooltipStatus, string> = {
-  passing: '\u2705',
-  failingInDev: '\uD83D\uDEA7',
-  failing: '\u274C',
+  passing: "\u2705",
+  failing: "\u274C",
 };
 
-const tooltipStatus: Record<TooltipStatus, string> = {
-  passing: 'passing',
-  failingInDev: 'passing, except dev-only behavior',
-  failing: 'failing',
+const tooltipLabels: Record<TooltipStatus, string> = {
+  passing: "passing",
+  failing: "failing",
 };
 
 const Tooltip: React.FC<TooltipProps> = (props) => {
   let contentStyle: CSSProperties = {
-    right: props.flip ? -15 : 'auto',
-    left: props.flip ? 'auto' : -15,
+    right: props.flip ? -15 : "auto",
+    left: props.flip ? "auto" : -15,
   };
 
   let statusRow: ReactNode = null;
   if (props.status) {
     let icon = tooltipIcons[props.status];
-    let text = tooltipStatus[props.status];
+    let text = tooltipLabels[props.status];
     statusRow = (
       <div className="TooltipStatus">
         <i>{icon}</i>
@@ -63,9 +61,9 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
 
 interface TooltipContextValue {
   onMouseOver: (
-    event: MouseEvent,
+    event: UIEvent,
     content: ReactNode,
-    status: TooltipStatus
+    status: TooltipStatus,
   ) => void;
   onMouseOut: () => void;
 }
@@ -81,15 +79,17 @@ export const TooltipProvider: React.FC<TooltipProviderProps> = (props) => {
   const [data, setData] = useState<TooltipProps | null>(null);
 
   const onMouseOver = useCallback(
-    (event: MouseEvent, content: ReactNode, status: TooltipStatus) => {
-      // @ts-ignore
+    (event: UIEvent, content: ReactNode, status: TooltipStatus) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
       let rect = event.target.getBoundingClientRect();
       let left = Math.round(rect.left + rect.width / 2 + window.scrollX);
       let top = Math.round(rect.top + window.scrollY);
-      let flip = event.clientX > document.documentElement.clientWidth / 2;
+      let flip = left > document.documentElement.clientWidth / 2;
       setData({ left, top, content, status, flip });
     },
-    []
+    [],
   );
 
   const onMouseOut = useCallback(() => {
@@ -98,7 +98,7 @@ export const TooltipProvider: React.FC<TooltipProviderProps> = (props) => {
 
   const value = useMemo(
     () => ({ onMouseOver, onMouseOut }),
-    [onMouseOver, onMouseOut]
+    [onMouseOver, onMouseOut],
   );
 
   return (
