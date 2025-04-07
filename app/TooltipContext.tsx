@@ -11,7 +11,7 @@ import React, {
   useState,
 } from "react";
 
-type TooltipStatus = "passing" | "failingInDev" | "failing";
+type TooltipStatus = "passing" | "failing";
 
 interface TooltipProps {
   flip?: boolean;
@@ -23,13 +23,11 @@ interface TooltipProps {
 
 const tooltipIcons: Record<TooltipStatus, string> = {
   passing: "\u2705",
-  failingInDev: "\uD83D\uDEA7",
   failing: "\u274C",
 };
 
-const tooltipStatus: Record<TooltipStatus, string> = {
+const tooltipLabels: Record<TooltipStatus, string> = {
   passing: "passing",
-  failingInDev: "passing, except dev-only behavior",
   failing: "failing",
 };
 
@@ -42,7 +40,7 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
   let statusRow: ReactNode = null;
   if (props.status) {
     let icon = tooltipIcons[props.status];
-    let text = tooltipStatus[props.status];
+    let text = tooltipLabels[props.status];
     statusRow = (
       <div className="TooltipStatus">
         <i>{icon}</i>
@@ -81,12 +79,14 @@ export const TooltipProvider: React.FC<TooltipProviderProps> = (props) => {
   const [data, setData] = useState<TooltipProps | null>(null);
 
   const onMouseOver = useCallback(
-    (event: MouseEvent, content: ReactNode, status: TooltipStatus) => {
-      // @ts-ignore
+    (event: UIEvent, content: ReactNode, status: TooltipStatus) => {
+      if (!(event.target instanceof Element)) {
+        return;
+      }
       let rect = event.target.getBoundingClientRect();
       let left = Math.round(rect.left + rect.width / 2 + window.scrollX);
       let top = Math.round(rect.top + window.scrollY);
-      let flip = event.clientX > document.documentElement.clientWidth / 2;
+      let flip = left > document.documentElement.clientWidth / 2;
       setData({ left, top, content, status, flip });
     },
     [],
