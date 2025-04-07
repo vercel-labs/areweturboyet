@@ -18,4 +18,3 @@ export async function HeapMapExamples() {
 
   return <section className="HeatMap">{items}</section>;
 }
-

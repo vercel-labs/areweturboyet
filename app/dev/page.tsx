@@ -1,11 +1,11 @@
+import { HeapMapExamples } from "app/HeatMapExamples";
 import { Suspense } from "react";
-import IsItReadyDevelopment from "../IsItReadyDevelopment";
+import Footer from "../Footer";
 import GraphDataDevelopment from "../GraphDataDevelopment";
 import HeatMapDevelopment from "../HeatMapDevelopment";
-import { TooltipProvider } from "../TooltipContext";
-import Footer from "../Footer";
+import IsItReadyDevelopment from "../IsItReadyDevelopment";
 import ProgressBarDevelopment from "../ProgressBarDevelopment";
-import { HeapMapExamples } from "app/HeatMapExamples";
+import { TooltipProvider } from "../TooltipContext";
 
 export default function DevelopmentPage() {
   return (

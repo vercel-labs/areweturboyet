@@ -1,11 +1,11 @@
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import localFont from "next/font/local";
 import { twMerge } from "tailwind-merge";
-import { Bundler, getBundler } from "./bundler";
-import IconTurbopackLight from "@/public/icons/turbopack-light-background.png";
-import IconTurbopackDark from "@/public/icons/turbopack-dark-background.png";
+import { ThemeProvider } from "@/components/theme-provider";
 import IconRspack from "@/public/icons/rspack.png";
+import IconTurbopackDark from "@/public/icons/turbopack-dark-background.png";
+import IconTurbopackLight from "@/public/icons/turbopack-light-background.png";
+import { Bundler, getBundler } from "./bundler";
 
 const geist = localFont({
   src: [

@@ -45,4 +45,3 @@ export function HeapMap({ testResults }) {
 
   return <>{items}</>;
 }
-

@@ -1,6 +1,6 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import { type NextRequest, NextResponse } from "next/server";
 import { revalidateAll } from "@/app/data";
-import { NextApiRequest, NextApiResponse } from "next";
 
 const API_TOKEN = process.env.AREWETURBOYET_TOKEN;
 

@@ -1,5 +1,5 @@
-import { ProgressBar } from "./ProgressBar";
 import { getProductionTestRuns } from "./data";
+import { ProgressBar } from "./ProgressBar";
 
 export default async function ProgressBarProduction() {
   const { mostRecent } = await getProductionTestRuns();
