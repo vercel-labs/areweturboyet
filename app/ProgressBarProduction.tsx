@@ -1,3 +1,4 @@
+import { getBundler } from "./bundler";
 import { getProductionTestRuns } from "./data";
 import { ProgressBar } from "./ProgressBar";
 
@@ -8,5 +9,7 @@ export default async function ProgressBarProduction() {
     return null;
   }
 
-  return <ProgressBar mostRecent={mostRecent} dev={false} />;
+  return (
+    <ProgressBar bundler={getBundler()} mostRecent={mostRecent} dev={false} />
+  );
 }

@@ -26,7 +26,7 @@ export default function Switcher() {
       }}
       defaultValue={isProduction ? "production" : "development"}
     >
-      <SelectTrigger className="flex items-center justify-between w-full max-w-xs px-4 py-2 border rounded-lg">
+      <SelectTrigger className="min-w-34 bg-background">
         <SelectValue placeholder="" />
       </SelectTrigger>
       <SelectContent>

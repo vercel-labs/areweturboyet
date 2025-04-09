@@ -1,13 +1,14 @@
 import "./globals.css";
+import { Open_Sans as OpenSans } from "next/font/google";
 import localFont from "next/font/local";
-import { twMerge } from "tailwind-merge";
 import { ThemeProvider } from "@/components/theme-provider";
+import { cn } from "@/lib/utils";
 import IconRspack from "@/public/icons/rspack.png";
 import IconTurbopackDark from "@/public/icons/turbopack-dark-background.png";
 import IconTurbopackLight from "@/public/icons/turbopack-light-background.png";
 import { Bundler, getBundler } from "./bundler";
 
-const geist = localFont({
+const geistFont = localFont({
   src: [
     {
       path: "./Geist-Regular.woff2",
@@ -20,6 +21,11 @@ const geist = localFont({
       style: "normal",
     },
   ],
+  display: "swap",
+});
+
+const openSansFont = OpenSans({
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -57,10 +63,21 @@ export const metadata =
       };
 
 export default function RootLayout({ children }) {
+  const bundler = getBundler();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={twMerge(geist.className, "bg-background text-foreground")}
+        className={cn(
+          {
+            [geistFont.className]: bundler === Bundler.Turbopack,
+            [openSansFont.className]: bundler === Bundler.Rspack,
+          },
+          "bg-background text-foreground",
+          {
+            turbopack: bundler === Bundler.Turbopack,
+            rspack: bundler === Bundler.Rspack,
+          },
+        )}
       >
         <ThemeProvider
           attribute="class"

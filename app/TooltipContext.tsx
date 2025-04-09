@@ -43,7 +43,7 @@ const Tooltip: React.FC<TooltipProps> = (props) => {
     let text = tooltipLabels[props.status];
     statusRow = (
       <div className="TooltipStatus">
-        <i>{icon}</i>
+        <i className="not-italic">{icon}</i>
         {text}
       </div>
     );
