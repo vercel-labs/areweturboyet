@@ -15,9 +15,8 @@ function HeatMapItem({ tooltipContent, href, isPassing }) {
     <a
       aria-label={`${tooltipContent} is ${isPassing ? "passing" : "failing"}`}
       className={twJoin(
-        "border border-background hover:border-foreground text-transparent " +
-          "cursor-default float-left text-[0px] leading-[0px] w-[10px] h-[10px] overflow-hidden " +
-          "relative text-center",
+        "border border-background hover:border-foreground cursor-default " +
+          "text-[0px] leading-[0px] w-[10px] h-[10px] overflow-hidden",
         isPassing ? "bg-passing-square" : "bg-failing-square",
       )}
       href={href}
