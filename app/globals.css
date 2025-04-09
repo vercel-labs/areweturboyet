@@ -4,14 +4,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* this doesn't need flexbox, but flexbox layout is faster for the browser to
+ * compute */
 .HeatMap {
+  display: flex;
+  flex-wrap: wrap;
   margin-bottom: 20px;
-}
-
-.HeatMap:after {
-  clear: both;
-  content: " ";
-  display: table;
 }
 
 .Tooltip {
