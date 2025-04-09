@@ -26,7 +26,6 @@ export default function DevelopmentPage() {
           <HeatMapDevelopment />
         </Suspense>
 
-        <h2 className="text-4xl my-2">Examples</h2>
         <Suspense fallback={null}>
           <HeapMapExamples />
         </Suspense>

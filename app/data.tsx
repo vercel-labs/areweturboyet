@@ -11,22 +11,23 @@ export function revalidateAll() {
 }
 
 function processGraphData(rawGraphData: string[]) {
-  return rawGraphData.map((string) => {
-    const [gitHash, dateStr, progress] = string.split(/[\t]/);
-    const date = new Date(dateStr);
-    const [passing, total] = progress.split(/\//).map(parseFloat);
-    const percent = parseFloat(((passing / total) * 100).toFixed(1));
+  return rawGraphData
+    .map((string) => {
+      const [gitHash, dateStr, progress] = string.split(/[\t]/);
+      // convert to a unix epoch timestamp
+      const date = Date.parse(dateStr);
+      const [passing, total] = progress.split(/\//).map(parseFloat);
+      const percent = parseFloat(((passing / total) * 100).toFixed(1));
 
-    return {
-      gitHash: gitHash.slice(0, 7),
-      date,
-      total,
-      passing,
-      percent,
-      x: date,
-      y: percent,
-    };
-  });
+      return {
+        gitHash: gitHash.slice(0, 7),
+        date,
+        total,
+        passing,
+        percent,
+      };
+    })
+    .filter(({ date, percent }) => Number.isFinite(date) && percent > 0);
 }
 
 export const getDevelopmentTestResults = unstable_cache(

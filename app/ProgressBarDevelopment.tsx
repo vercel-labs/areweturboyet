@@ -1,12 +1,15 @@
+import { getBundler } from "./bundler";
 import { getDevelopmentTestRuns } from "./data";
 import { ProgressBar } from "./ProgressBar";
 
 export default async function ProgressBarDevelopment() {
   const { mostRecent } = await getDevelopmentTestRuns();
 
+  if (!mostRecent) {
+    return null;
+  }
+
   return (
-    <>
-      <ProgressBar mostRecent={mostRecent} dev={true} />
-    </>
+    <ProgressBar bundler={getBundler()} mostRecent={mostRecent} dev={true} />
   );
 }

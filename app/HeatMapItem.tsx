@@ -15,10 +15,10 @@ function HeatMapItem({ tooltipContent, href, isPassing }) {
     <a
       aria-label={`${tooltipContent} is ${isPassing ? "passing" : "failing"}`}
       className={twJoin(
-        "border border-background hover:border-primary text-transparent " +
-          "cursor-default float-left text-[0px] h-[10px] overflow-hidden " +
-          "relative text-center w-[10px]",
-        isPassing ? "bg-blue-500" : "bg-red-500",
+        "border border-background hover:border-foreground text-transparent " +
+          "cursor-default float-left text-[0px] leading-[0px] w-[10px] h-[10px] overflow-hidden " +
+          "relative text-center",
+        isPassing ? "bg-passing-square" : "bg-failing-square",
       )}
       href={href}
       onFocus={handleMouseOver}
