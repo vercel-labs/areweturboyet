@@ -7,7 +7,7 @@ const kvPrefix = getBundler() === Bundler.Rspack ? "rspack-" : "";
 const bundlerTag = getBundler() === Bundler.Rspack ? "rspack" : "turbopack";
 
 export function revalidateAll() {
-  revalidateTag(bundlerTag);
+  revalidateTag(bundlerTag, { expire: 0 });
 }
 
 function processGraphData(rawGraphData: string[]) {
